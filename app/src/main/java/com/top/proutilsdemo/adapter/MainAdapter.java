@@ -78,7 +78,7 @@ public class MainAdapter extends SectionedRecyclerViewAdapter<MainAdapter.ItemH,
 
         Info info = getCurrentItem(section, relativePosition);
         holder.title.setText(info.getTitle());
-        holder.image.setImageDrawable(mContext.getResources().getDrawable(info.getResourceId()));
+//        holder.image.setImageDrawable(mContext.getResources().getDrawable(info.getResourceId()));
     }
 
     public Info getCurrentItem(int section, int position) {
