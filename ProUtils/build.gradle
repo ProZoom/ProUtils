@@ -72,4 +72,13 @@ dependencies {
     //compile 'com.amap.api:search:latest.integration'
     //bmob云端数据库
     //compile 'cn.bmob.android:bmob-sdk:3.5.5'
+
+     // Espresso UI Testing
+    //androidTestCompile 'com.android.support.test.espresso:espresso-core:3.0.1'
+    //androidTestCompile 'com.android.support.test.espresso:espresso-contrib:3.0.1'
+    //androidTestCompile 'com.android.support.test.espresso:espresso-intents:3.0.1'
+    //androidTestCompile 'com.android.support.test.espresso.idling:idling-concurrent:3.0.1'
+    //compile 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
+
+    compile 'com.google.guava:guava:22.0'
 }
