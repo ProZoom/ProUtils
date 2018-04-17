@@ -1,5 +1,7 @@
 package com.top.proutils.Utils;
 
+import android.annotation.SuppressLint;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,6 +11,7 @@ import java.util.Locale;
  * 通用工具类
  */
 public class TimeUtil {
+
     /**
      * 默认的格式化时间时的模式字符串
      */
@@ -118,4 +121,24 @@ public class TimeUtil {
         }
         return dayOfweek;
     }
+
+
+    /**
+     * 获取当天该时间的前几天或后几天的时间
+     * @param today 今天时间戳，Date
+     * @param anotherday int 负值:前n天;正值:后n天
+     * @param pattern 时间戳格式;"yyyy-MM-dd HH:mm:ss:SSS"
+     * @return
+     */
+    public static String getAnotherDay(Date today,int anotherday,String pattern){
+
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
+        Calendar cld=Calendar.getInstance();
+        cld.setTime(today);
+        cld.add(Calendar.DAY_OF_MONTH,anotherday);
+        Date d2=cld.getTime();
+        return sdf.format(d2);
+    }
+
 }

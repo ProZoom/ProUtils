@@ -47,7 +47,5 @@ dependencies {
     //必须放在app moudle
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.android.support:design:26.1.0'
-    compile('com.alibaba.android:vlayout:1.2.8@aar') {
-        transitive = true
-    }
+
 }

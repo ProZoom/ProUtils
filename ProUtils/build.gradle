@@ -80,5 +80,5 @@ dependencies {
     //androidTestCompile 'com.android.support.test.espresso.idling:idling-concurrent:3.0.1'
     //compile 'com.android.support.test.espresso:espresso-idling-resource:3.0.1'
 
-    compile 'com.google.guava:guava:22.0'
+    //compile 'com.google.guava:guava:22.0'
 }
