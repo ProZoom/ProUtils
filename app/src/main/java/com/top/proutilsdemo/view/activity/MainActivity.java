@@ -21,7 +21,10 @@ import com.top.proutilsdemo.model.CategoryEntity;
 import com.top.proutilsdemo.model.Info;
 import com.top.proutilsdemo.presenter.AnToolProducer;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import static com.top.proutilsdemo.constants.constants.CATES;
 import static com.top.proutilsdemo.constants.constants.INFOIDS;
@@ -59,6 +62,14 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
     }
 
     private void initToolBar() {
+
+        Calendar calendar = Calendar.getInstance();
+
+        Date NowDate = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String CurrentTime = formatter.format(NowDate);
+
+
 
         mToolBar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolBar);

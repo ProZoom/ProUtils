@@ -125,20 +125,38 @@ public class TimeUtil {
 
     /**
      * 获取当天该时间的前几天或后几天的时间
-     * @param today 今天时间戳，Date
+     *
+     * @param today      今天时间戳，Date
      * @param anotherday int 负值:前n天;正值:后n天
-     * @param pattern 时间戳格式;"yyyy-MM-dd HH:mm:ss:SSS"
+     * @param pattern    时间戳格式;"yyyy-MM-dd HH:mm:ss:SSS"
      * @return
      */
-    public static String getAnotherDay(Date today,int anotherday,String pattern){
+    public static String getAnotherDay(Date today, int anotherday, String pattern) {
 
         @SuppressLint("SimpleDateFormat")
-        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
-        Calendar cld=Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        Calendar cld = Calendar.getInstance();
         cld.setTime(today);
-        cld.add(Calendar.DAY_OF_MONTH,anotherday);
-        Date d2=cld.getTime();
+        cld.add(Calendar.DAY_OF_MONTH, anotherday);
+        Date d2 = cld.getTime();
         return sdf.format(d2);
+    }
+
+
+    public static String getLastDayOfMonth(int year, int month) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getActualMaximum(Calendar.DATE));
+        return new SimpleDateFormat("yyyy-MM-dd ").format(cal.getTime());
+    }
+
+    public static String getFirstDayOfMonth(int year, int month) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, year);
+        cal.set(Calendar.MONTH, month);
+        cal.set(Calendar.DAY_OF_MONTH, cal.getMinimum(Calendar.DATE));
+        return new SimpleDateFormat("yyyy-MM-dd ").format(cal.getTime());
     }
 
 }
