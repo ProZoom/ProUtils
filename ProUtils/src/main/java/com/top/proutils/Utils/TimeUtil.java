@@ -2,6 +2,7 @@ package com.top.proutils.Utils;
 
 import android.annotation.SuppressLint;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -139,10 +140,18 @@ public class TimeUtil {
         cld.setTime(today);
         cld.add(Calendar.DAY_OF_MONTH, anotherday);
         Date d2 = cld.getTime();
+
         return sdf.format(d2);
     }
 
 
+    /**
+     * 获取当月最后一天
+     *
+     * @param year
+     * @param month
+     * @return
+     */
     public static String getLastDayOfMonth(int year, int month) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
@@ -151,12 +160,48 @@ public class TimeUtil {
         return new SimpleDateFormat("yyyy-MM-dd ").format(cal.getTime());
     }
 
+    /**
+     * 获取当月第一天
+     *
+     * @param year
+     * @param month
+     * @return
+     */
     public static String getFirstDayOfMonth(int year, int month) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
         cal.set(Calendar.MONTH, month);
         cal.set(Calendar.DAY_OF_MONTH, cal.getMinimum(Calendar.DATE));
         return new SimpleDateFormat("yyyy-MM-dd ").format(cal.getTime());
+    }
+
+
+    /**
+     * 获取时间差
+     *
+     * @param time1 time2 需要计算的时间
+     * @return
+     */
+    public static String getTimeDeffer(String time1, String time2) {
+        String result = "";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        try {
+            long dt1 = sdf.parse(time1).getTime();
+            long dt2 = sdf.parse(time2).getTime();
+            long dc = Math.abs(dt2 - dt1);
+            long seconds = dc / 1000;
+            long date = seconds / (24 * 60 * 60);     //相差的天数
+            long hour = (seconds - date * 24 * 60 * 60) / (60 * 60);//相差的小时数
+            long minut = (seconds - date * 24 * 60 * 60 - hour * 60 * 60) / (60);//相差的分钟数
+            long second = (seconds - date * 24 * 60 * 60 - hour * 60 * 60 - minut * 60);//相差的秒数
+            return (date == 0 ? "" : (date + "天")) + (hour == 0 ? "" : (hour + "小时")) + (minut == 0 ? "" : (minut + "分")) + (second == 0 ? "" : (second + "秒"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return result;
     }
 
 }
