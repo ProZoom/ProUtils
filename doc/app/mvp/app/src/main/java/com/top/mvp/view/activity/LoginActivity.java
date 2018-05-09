@@ -1,4 +1,4 @@
-package com.top.mvp;
+package com.top.mvp.view.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,17 +8,26 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.top.mvp.presenter.LoginPresenter;
+import com.top.mvp.presenter.LoginPresenterImpl;
+import com.top.mvp.R;
+
 /**
  * 作者：李阳
  * 时间：2018/5/2
  * 描述：
  */
-public class LoginActivity extends Activity implements View.OnClickListener,LoginView {
+public class LoginActivity extends Activity implements View.OnClickListener, LoginView {
+
+    /////////////////////////////////////
+    private LoginPresenter presenter;////
+    ////////////////////////////////////
 
     private ProgressBar progressBar;
     private EditText username;
     private EditText password;
-    private LoginPresenter presenter;
+
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,12 +41,12 @@ public class LoginActivity extends Activity implements View.OnClickListener,Logi
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                        presenter.validateCredentials(username.getText().toString(), password.getText().toString());
+                presenter.validateCredentials(username.getText().toString(), password.getText().toString());
 
             }
         });
 
-        presenter = new LoginPresenterImpl( this);
+        presenter = new LoginPresenterImpl(this);
 
 
     }

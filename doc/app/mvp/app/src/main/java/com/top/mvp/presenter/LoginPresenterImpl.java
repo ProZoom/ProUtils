@@ -1,5 +1,10 @@
-package com.top.mvp;
+package com.top.mvp.presenter;
 
+
+import com.top.mvp.view.activity.LoginView;
+import com.top.mvp.impl.OnLoginFinishedListener;
+import com.top.mvp.model.LoginModel;
+import com.top.mvp.model.LoginModelImpl;
 
 /**
  * 作者：李阳
@@ -13,8 +18,10 @@ package com.top.mvp;
  */
 public class LoginPresenterImpl implements LoginPresenter,OnLoginFinishedListener {
 
-    LoginModel loginModel;
-    LoginView loginView;
+    //////////////////////////////////
+    LoginModel loginModel;////////////
+    LoginView loginView;//////////////
+    //////////////////////////////////
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView=loginView;
@@ -55,6 +62,7 @@ public class LoginPresenterImpl implements LoginPresenter,OnLoginFinishedListene
     public void onSuccess() {
         if(loginView!=null){
             loginView.navigateToHome();
+            loginView.hideProgress();
         }
     }
 }

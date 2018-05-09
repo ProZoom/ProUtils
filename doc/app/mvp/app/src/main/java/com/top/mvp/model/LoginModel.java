@@ -1,4 +1,6 @@
-package com.top.mvp;
+package com.top.mvp.model;
+
+import com.top.mvp.impl.OnLoginFinishedListener;
 
 /**
  * 作者：李阳
