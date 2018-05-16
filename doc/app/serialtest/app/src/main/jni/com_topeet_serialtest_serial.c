@@ -20,6 +20,21 @@
 int fd=0;
 
 /*
+ *
+
+buyLOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+LOCAL_MODULE    := serialtest
+LOCAL_SRC_FILES := com_topeet_serialtest_serial.c
+LOCAL_LDLIBS += -llog
+LOCAL_LDLIBS +=-lm
+include $(BUILD_SHARED_LIBRARY)
+
+ *
+ * */
+
+
+/*
  * Class:     com_topeet_serialtest_serial
  * Method:    Open
  * Signature: ()I
@@ -175,6 +190,3 @@ JNIEXPORT jintArray JNICALL Java_com_topeet_serialtest_serial_Write(JNIEnv *env,
 
 	return 0;	
   }
-  
-
-
