@@ -7,7 +7,6 @@ import android.content.Intent
 import android.os.Handler
 import android.os.IBinder
 import java.util.*
-import kotlin.collections.ArrayList
 import android.content.pm.PackageManager
 import com.top.proutilsdemo.manager.FloatWindowManager
 
@@ -35,14 +34,12 @@ class FloatWindowService : Service() {
         super.onCreate()
 
 
-
-
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-
+        timer = Timer()
         // 开启定时器，每隔0.5秒刷新一次
-         timer.scheduleAtFixedRate(RefreshTask(),0,500)
+        timer.scheduleAtFixedRate(RefreshTask(), 0, 500)
 
         return super.onStartCommand(intent, flags, startId)
     }
@@ -50,15 +47,13 @@ class FloatWindowService : Service() {
     override fun onDestroy() {
         super.onDestroy()
 
-
+        timer.cancel()
 
     }
 
 
     override fun onBind(intent: Intent?): IBinder {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-
-
 
 
     }
@@ -81,7 +76,6 @@ class FloatWindowService : Service() {
         }
 
     }
-
 
 
     /**
@@ -107,7 +101,8 @@ class FloatWindowService : Service() {
      */
     fun getHome(): List<String> {
 
-        lateinit var names: ArrayList<String>
+        //var names: ArrayList<String>
+        val names = ArrayList<String>()
 
         val packagesManager = this.packageManager
         //val packageManager = this.packageManager
