@@ -1,6 +1,10 @@
 package com.top.proutilsdemo.view.activity;
 
 import android.Manifest;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
@@ -10,7 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.top.proutils.permissiongen.PermissionGen;
 import com.top.proutils.ui.StatusBarUtils;
@@ -20,7 +26,12 @@ import com.top.proutilsdemo.listener.IViewItemItemListener;
 import com.top.proutilsdemo.model.CategoryEntity;
 import com.top.proutilsdemo.model.Info;
 import com.top.proutilsdemo.presenter.AnToolProducer;
+import com.top.proutilsdemo.service.FloatWindowService;
+import com.top.proutilsdemo.ui.FloatWindowSmallView;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -170,6 +181,11 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 break;
             case R.drawable.ic_wifi:
                 //showAlertDialog(anToolProducer.buildSysInfos());
+                break;
+            case R.drawable.ic_sceenshot:
+                startService(new Intent(this,FloatWindowService.class));
+                finish();
+                break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());
     }
@@ -179,6 +195,5 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
 
         builder.setMessage(msg).show();
     }
-
 
 }
