@@ -19,18 +19,18 @@ import java.io.FileReader
  * 时间：2018/5/21
  * 描述：
  */
-class FloatWindowManager {
+object FloatWindowManager {
 
 
     /**
      * 小悬浮窗view实例
      */
-    lateinit var smallView: FloatWindowSmallView
+    var smallView: FloatWindowSmallView? = null
 
     /**
      * 大悬浮窗view实例
      */
-    lateinit var bigView: FloatWindowSmallView
+    var bigView: FloatWindowSmallView? = null
 
 
     /**
@@ -74,12 +74,12 @@ class FloatWindowManager {
         smallWindowParams.format = PixelFormat.RGBA_8888
         smallWindowParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
         smallWindowParams.gravity = Gravity.LEFT or Gravity.TOP
-        smallWindowParams.width = smallView.viewWidth
-        smallWindowParams.height = smallView.viewHeight
+        smallWindowParams.width = smallView!!.viewWidth
+        smallWindowParams.height = smallView!!.viewHeight
         smallWindowParams.x = screenWidth
         smallWindowParams.y = screenHeight / 2
 
-        smallView.mParam = smallWindowParams
+        smallView!!.mParam = smallWindowParams
 
         windowManager.addView(smallView, smallWindowParams)
 
@@ -110,12 +110,12 @@ class FloatWindowManager {
         bigWindowParams.format = PixelFormat.RGBA_8888
         bigWindowParams.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
         bigWindowParams.gravity = Gravity.LEFT or Gravity.TOP
-        bigWindowParams.width = bigView.viewWidth
-        bigWindowParams.height = bigView.viewHeight
-        bigWindowParams.x = screenWidth / 2 - bigView.viewWidth / 2
-        bigWindowParams.y = screenHeight / 2 - bigView.viewHeight / 2
+        bigWindowParams.width = bigView!!.viewWidth
+        bigWindowParams.height = bigView!!.viewHeight
+        bigWindowParams.x = screenWidth / 2 - bigView!!.viewWidth / 2
+        bigWindowParams.y = screenHeight / 2 - bigView!!.viewHeight / 2
 
-        bigView.mParam = smallWindowParams
+        bigView!!.mParam = smallWindowParams
 
         windowManager.addView(bigView, bigWindowParams)
     }
@@ -159,7 +159,7 @@ class FloatWindowManager {
      * 可传入应用程序上下文。
      */
     fun updateUsedPercent(context: Context) {
-        smallView.percent.text=getUsedPercentValue(context)
+        smallView!!.percent.text=getUsedPercentValue(context)
     }
 
     private fun getUsedPercentValue(context: Context): String {
@@ -177,7 +177,6 @@ class FloatWindowManager {
         val percent=(totalMemorySize-availableSize)/totalMemorySize*100
 
         return percent.toString()+"%"
-
     }
 
     private fun getAvailableMemory(context: Context): Long {
@@ -186,6 +185,16 @@ class FloatWindowManager {
 
         return mi.availMem
 
+    }
+
+
+    /**
+     * 是否有悬浮窗(包括小悬浮窗和大悬浮窗)显示在屏幕上。
+     *
+     * @return 有悬浮窗显示在桌面上返回true，没有的话返回false。
+     */
+    fun isWindowShowing(): Boolean {
+        return smallView != null || bigView != null
     }
 
 }

@@ -2,12 +2,15 @@ package com.top.proutilsdemo.ui
 
 import android.content.Context
 import android.graphics.Canvas
+import android.os.Build
+import android.support.annotation.RequiresApi
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.WindowManager
 import android.widget.LinearLayout
 import com.top.proutilsdemo.R
+import com.top.proutilsdemo.manager.FloatWindowManager
 import kotlinx.android.synthetic.main.window_float_small.view.*
 
 /**
@@ -98,6 +101,7 @@ class FloatWindowSmallView : LinearLayout {
 
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
 
@@ -122,14 +126,35 @@ class FloatWindowSmallView : LinearLayout {
                 xInView=event.y
             }
             MotionEvent.ACTION_UP -> {
-
+                // 如果手指离开屏幕时，xDownInScreen和xInScreen相等，且yDownInScreen和yInScreen相等，则视为触发了单击事件。
+                if(xDownInScreen==xInScreen&&yDownInScreen==yInScreen){
+                    openBigWindow()
+                }
             }
             MotionEvent.ACTION_MOVE -> {
 
+                xInScreen=event.rawX
+                yInScreen=event.rawY-getStatusBarHeight2()
+
+                //手指移动时更新悬浮窗位置
+                updateViewPosition()
             }
         }
 
         return super.onTouchEvent(event)
+    }
+
+    private fun openBigWindow() {
+
+        FloatWindowManager.createBigWindow(context)
+        FloatWindowManager.removeSmallView(context)
+    }
+
+    private fun updateViewPosition() {
+        mParam.x=(xInScreen-xInView).toInt()
+        mParam.y= (yInScreen-yInScreen).toInt()
+
+        windowManager.updateViewLayout(this,mParam)
     }
 
 
