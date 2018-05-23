@@ -61,10 +61,8 @@ object FloatWindowManager {
     fun createSmallWindow(context: Context) {
 
         val windowManager = getWindowManager(context)
-        var screenWidth = windowManager.defaultDisplay.width
-        var screenHeight = windowManager.defaultDisplay.height
-
-
+        val screenWidth = windowManager.defaultDisplay.width
+        val screenHeight = windowManager.defaultDisplay.height
 
         smallView = FloatWindowSmallView(context)
 
@@ -131,10 +129,7 @@ object FloatWindowManager {
 
     private fun getWindowManager(context: Context): WindowManager {
 
-        if (mWindowManager == null) {
-            mWindowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        }
-
+        mWindowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         return mWindowManager
     }
 

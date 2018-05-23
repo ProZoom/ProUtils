@@ -28,6 +28,7 @@ import com.top.proutilsdemo.model.Info;
 import com.top.proutilsdemo.presenter.AnToolProducer;
 import com.top.proutilsdemo.service.FloatWindowService;
 import com.top.proutilsdemo.ui.FloatWindowSmallView;
+import com.top.proutilsdemo.view.impl.HandWareInfos;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -46,7 +47,7 @@ import static com.top.proutilsdemo.constants.constants.TOOLIDS;
 import static com.top.proutilsdemo.constants.constants.TOOLS;
 
 
-public class MainActivity extends AppCompatActivity implements IViewItemItemListener {
+public class MainActivity extends AppCompatActivity implements IViewItemItemListener,HandWareInfos {
 
     private static final java.lang.String TAG = "MainActivity";
     private RecyclerView mRecycler;
@@ -111,7 +112,6 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
 
     //private FABBaseDialog fabBaseDialog;
 
-
     public void initData() {
         //infos
         ArrayList<Info> infos1 = new ArrayList<>();
@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 .addRequestCode(100)
                 .permissions(
                         Manifest.permission.READ_PHONE_STATE,
+                        Manifest.permission.SYSTEM_ALERT_WINDOW,
                         Manifest.permission.CALL_PHONE,
                         Manifest.permission.GET_ACCOUNTS,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -184,7 +185,7 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 break;
             case R.drawable.ic_sceenshot:
                 startService(new Intent(this,FloatWindowService.class));
-                finish();
+                //finish();
                 break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());
@@ -196,4 +197,13 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
         builder.setMessage(msg).show();
     }
 
+    @Override
+    public void showSystemInfos() {
+
+    }
+
+    @Override
+    public void showHandWareinfos() {
+
+    }
 }

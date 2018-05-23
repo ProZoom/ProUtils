@@ -22,24 +22,33 @@ class FloatWindowService : Service() {
     /**
      * 在线程中创建悬浮窗或移除悬浮窗
      */
-    private lateinit var mHandler: Handler
+    private var mHandler: Handler? = null
 
     /**
      * 定时监测当前应该是创建还是删除
      */
-    private lateinit var timer: Timer
+    private var timer: Timer? = null
 
 
     override fun onCreate() {
         super.onCreate()
-
+        mHandler = Handler()
+        timer = Timer()
 
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
-        timer = Timer()
+
+        if (mHandler == null) {
+            mHandler = Handler()
+        }
+
+        if (timer == null) {
+            timer = Timer()
+
+        }
         // 开启定时器，每隔0.5秒刷新一次
-        timer.scheduleAtFixedRate(RefreshTask(), 0, 500)
+        timer!!.scheduleAtFixedRate(RefreshTask(), 0, 500)
 
         return super.onStartCommand(intent, flags, startId)
     }
@@ -47,7 +56,7 @@ class FloatWindowService : Service() {
     override fun onDestroy() {
         super.onDestroy()
 
-        timer.cancel()
+        this.timer!!.cancel()
 
     }
 
@@ -63,14 +72,14 @@ class FloatWindowService : Service() {
         override fun run() {
             // 当前界面是桌面，且没有悬浮窗显示，则创建悬浮窗。
             if (isHome() && !FloatWindowManager.isWindowShowing()) {
-                mHandler.post(Runnable { FloatWindowManager.createSmallWindow(applicationContext) })
+                mHandler!!.post({ FloatWindowManager.createSmallWindow(applicationContext) })
             } else if (!isHome() && FloatWindowManager.isWindowShowing()) {
-                mHandler.post(Runnable {
+                mHandler!!.post({
                     FloatWindowManager.removeSmallView(applicationContext)
                     FloatWindowManager.removeBigView(applicationContext)
                 })
             } else if (isHome() && FloatWindowManager.isWindowShowing()) {
-                mHandler.post(Runnable { FloatWindowManager.updateUsedPercent(applicationContext) })
+                mHandler!!.post({ FloatWindowManager.updateUsedPercent(applicationContext) })
             }// 当前界面是桌面，且有悬浮窗显示，则更新内存数据。
             // 当前界面不是桌面，且有悬浮窗显示，则移除悬浮窗。
         }
