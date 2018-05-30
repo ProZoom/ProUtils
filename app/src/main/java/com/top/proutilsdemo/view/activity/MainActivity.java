@@ -1,10 +1,7 @@
 package com.top.proutilsdemo.view.activity;
 
 import android.Manifest;
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
@@ -14,37 +11,32 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.top.proutils.permissiongen.PermissionGen;
 import com.top.proutils.ui.StatusBarUtils;
 import com.top.proutilsdemo.R;
 import com.top.proutilsdemo.adapter.MainAdapter;
+import com.top.proutilsdemo.business.AppInfos.AppInfosActivity;
 import com.top.proutilsdemo.listener.IViewItemItemListener;
 import com.top.proutilsdemo.model.CategoryEntity;
 import com.top.proutilsdemo.model.Info;
 import com.top.proutilsdemo.presenter.AnToolProducer;
 import com.top.proutilsdemo.service.FloatWindowService;
-import com.top.proutilsdemo.ui.FloatWindowSmallView;
 import com.top.proutilsdemo.view.impl.HandWareInfos;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import static com.top.proutilsdemo.constants.constants.CATES;
-import static com.top.proutilsdemo.constants.constants.INFOIDS;
-import static com.top.proutilsdemo.constants.constants.INFOS;
-import static com.top.proutilsdemo.constants.constants.SETTINGIDS;
-import static com.top.proutilsdemo.constants.constants.SETTINGS;
-import static com.top.proutilsdemo.constants.constants.TOOLIDS;
-import static com.top.proutilsdemo.constants.constants.TOOLS;
+import static com.top.proutilsdemo.utils.constants.CATES;
+import static com.top.proutilsdemo.utils.constants.INFOIDS;
+import static com.top.proutilsdemo.utils.constants.INFOS;
+import static com.top.proutilsdemo.utils.constants.SETTINGIDS;
+import static com.top.proutilsdemo.utils.constants.SETTINGS;
+import static com.top.proutilsdemo.utils.constants.TOOLIDS;
+import static com.top.proutilsdemo.utils.constants.TOOLS;
 
 
 public class MainActivity extends AppCompatActivity implements IViewItemItemListener,HandWareInfos {
@@ -186,6 +178,10 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
             case R.drawable.ic_sceenshot:
                 startService(new Intent(this,FloatWindowService.class));
                 //finish();
+                break;
+
+            case R.drawable.ic_apk:
+                startActivity(new Intent(this, AppInfosActivity.class));
                 break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());

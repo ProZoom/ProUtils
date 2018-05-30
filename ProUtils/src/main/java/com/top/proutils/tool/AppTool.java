@@ -91,7 +91,6 @@ public class AppTool {
 
     /**
      * 获取App图标
-     *
      * @param context 上下文
      * @return App图标
      */
@@ -101,7 +100,6 @@ public class AppTool {
 
     /**
      * 获取App图标
-     *
      * @param context     上下文
      * @param packageName 包名
      * @return App图标

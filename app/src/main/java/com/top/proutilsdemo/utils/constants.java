@@ -1,4 +1,4 @@
-package com.top.proutilsdemo.constants;
+package com.top.proutilsdemo.utils;
 
 import com.top.proutilsdemo.R;
 
