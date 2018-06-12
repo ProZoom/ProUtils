@@ -1,4 +1,4 @@
-#Fri May 11 13:45:48 CST 2018
+#Mon Jun 04 15:23:43 CST 2018
 base.0=F\:\\liyang\\Github\\ProUtils\\doc\\app\\serialtest\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

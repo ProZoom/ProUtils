@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="input_mode">
+        <item>直接显示</item>
+        <item>模拟按键</item>
+        <item>复制到剪切板</item>
+    </string-array>
+</resources>

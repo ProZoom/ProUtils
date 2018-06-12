@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
         RECV = (Button)findViewById(R.id.recv1);
         SEND = (Button)findViewById(R.id.send1);
         
-        com3.Open(3, 115200);
+        com3.Open(6, 115200);
         
         RECV.setOnClickListener(new manager());
         

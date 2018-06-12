@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Scanner Settings</string>
+    <string name="scanner_settings_general">General settings</string>
+    <string name="scanner_settings_switch">Is enabled or not</string>
+    <string name="scanner_settings_on">Enabled</string>
+    <string name="scanner_settings_off">Disabled</string>
+    <string name="scanner_settings_input_mode">Input mode</string>
+    <string name="scanner_settings_end_char">End character</string>
+    <string name="scanner_settings_prefix">Prefix</string>
+    <string name="scanner_settings_postfix">Postfix</string>
+    <string name="scanner_settings_sound">Sound</string>
+    <string name="scanner_settings_sound_on">Sound on</string>
+    <string name="scanner_settings_sound_off">Sound off</string>
+    <string name="scanner_settings_vibration">Vibration</string>
+    <string name="scanner_settings_vibration_on">Vibration on</string>
+    <string name="scanner_settings_vibration_off">Vibration off</string>
+    <string name="scanner_settings_other">Other</string>
+    <string name="scanner_settings_type_title">Code Type Settings</string>
+    <string name="scanner_settings_type_summary">Which types to be supported</string>
+    <string name="scanner_failed_to_enable">Failed to enable scanner.</string>
+    <string name="scanner_failed_to_disable">Failed to disable scanner.</string>
+    <string name="code_type_upc_a">UPC-A</string>
+    <string name="code_type_upc_e">UPC-E</string>
+    <string name="code_type_upc_e1">UPC-E1</string>
+    <string name="code_type_ean_8">EAN-8</string>
+    <string name="code_type_ean_13">EAN-13</string>
+    <string name="code_type_code_128">Code 128</string>
+    <string name="code_type_code_39">Code 39</string>
+    <string name="code_type_code_93">Code 93</string>
+    <string name="code_type_interleaved_2_of_5">Interleaved 2 of 5</string>
+    <string name="code_type_discrete_2_of_5">Discrete 2 of 5</string>
+    <string name="code_type_chinese_2_of_5">Chinese 2 of 5</string>
+    <string name="code_type_codabar">Codabar</string>
+    <string name="code_type_msi">MSI</string>
+    <string name="code_type_code_11">Code 11</string>
+    <string name="code_type_gs1_databar_14">GS1 DataBar-14</string>
+    <string name="code_type_gs1_databar_limited">GS1 DataBar Limited</string>
+    <string name="code_type_gs1_databar_expanded">GS1 DataBar Expanded</string>
+    <string name="code_type_failed_to_enable">Failed to enable this type of code,please try again.</string>
+    <string name="code_type_failed_to_disable">Failed to disable this type of code,please try again.</string>
+    <string name="scanner_is_setting">Scanner is setting,please wait!</string>
+    <string name="scanner_is_initializing">Scanner is initializing,please wait!</string>
+    <string name="scanner_set_types_later">Scanner is initializing,please set types later!</string>
+    <string name="scanner_init_success">Scanner is initialized successfully!</string>
+    <string name="scanner_init_failed">Failed to initialize scanner.</string>
+</resources>

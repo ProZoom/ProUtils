@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Created-By: 1.7.0_95 (Oracle Corporation)
+
+Name: assets/ScanRing.ogg
+SHA1-Digest: GPR2i74FIWzzNZF0Uy6YM/+hSyg=
+
+Name: AndroidManifest.xml
+SHA1-Digest: T/xhqb5VA5nNESCIQDYLqh6GiX0=
+
+Name: res/drawable/ic_notification_overlay.png
+SHA1-Digest: RpK3HFwom3Tda123iHhTXq5veZo=
+
+Name: assets/ScanRing.mp3
+SHA1-Digest: rJpbcnkMTSDztDUHiyQisW1lW38=
+
+Name: res/drawable/ic_camera_alt_24dp.png
+SHA1-Digest: DQW0kw7+wIeR+SBwNs/i/6/x3Po=
+
+Name: res/xml/scanner_settings.xml
+SHA1-Digest: gc4Qe5yN7FOTc56OIIo/Pmet8Ao=
+
+Name: res/drawable/ic_phone_24dp.png
+SHA1-Digest: TRH1xmdcigOijnt6As53Mdgb0Fc=
+
+Name: res/xml/code_type_settings.xml
+SHA1-Digest: iuOK8uGrGNWJwYumU/HnOpggxRw=
+
+Name: resources.arsc
+SHA1-Digest: cP8rlW7Mw7FTRirCA/HdspKQ3ZM=
+
+Name: res/layout/code_type_settings.xml
+SHA1-Digest: ove9x8qDWmYkZ0RaHbLKGlr7xmQ=
+
+Name: res/drawable/ic_launcher_scanner.png
+SHA1-Digest: gFlrWcDngEMMEU2e6R37i82JizU=
+
+Name: assets/Scan_new.ogg
+SHA1-Digest: GPR2i74FIWzzNZF0Uy6YM/+hSyg=
+

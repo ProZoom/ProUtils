@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="F:\liyang\Github\ProUtils\doc\app\SerialDemo\app\src\main\assets"><file name="armeabi/libserial_port.so" path="F:\liyang\Github\ProUtils\doc\app\SerialDemo\app\src\main\assets\armeabi\libserial_port.so"/></source><source path="F:\liyang\Github\ProUtils\doc\app\SerialDemo\app\build\generated\assets\shaders\debug"/></dataSet><dataSet config="debug"><source path="F:\liyang\Github\ProUtils\doc\app\SerialDemo\app\src\debug\assets"/></dataSet></merger>

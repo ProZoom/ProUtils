@@ -31,8 +31,8 @@
       <file leaf-file-name="com_topeet_serialtest_serial.c" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="265">
-              <caret line="165" column="18" lean-forward="false" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
+            <state relative-caret-position="171">
+              <caret line="99" column="59" lean-forward="false" selection-start-line="99" selection-start-column="59" selection-end-line="99" selection-end-column="59" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
                 <element signature="e#340#359#0" expanded="true" />
@@ -41,34 +41,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
+      <file leaf-file-name="termios.h" pinned="false" current-in-tab="true">
+        <entry file="file://F:/Android/android-sdk-windows/ndk-bundle/platforms/android-15/arch-arm/usr/include/termios.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="456">
+              <caret line="76" column="61" lean-forward="true" selection-start-line="76" selection-start-column="61" selection-end-line="76" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="com_topeet_serialtest_serial.h" pinned="false" current-in-tab="true">
+      <file leaf-file-name="com_topeet_serialtest_serial.h" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
-              <folding>
-                <element signature="e#1116#1117#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="645">
+              <caret line="38" column="62" lean-forward="false" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -76,8 +64,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/topeet/serialtest/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="636">
-              <caret line="95" column="20" lean-forward="false" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+            <state relative-caret-position="247">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#manager#0;class#MainActivity#0" expanded="false" />
@@ -1857,11 +1845,12 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.h" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/topeet/serialtest/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.c" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/topeet/serialtest/MainActivity.java" />
       </list>
     </option>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -1883,7 +1872,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -1943,6 +1931,7 @@
       </pane>
       <pane id="Scratches" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1951,7 +1940,7 @@
     <property name="android.sdk.path" value="/Volumes/SD/Android/sdk" />
     <property name="android.project.structure.last.selected" value="Project" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="device.picker.selection" value="e2db9bfd" />
+    <property name="device.picker.selection" value="53edb85c" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2035,8 +2024,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526449846833" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528184392775" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2083,8 +2071,7 @@
         <option name="ADVANCED_PROFILING_ENABLED" value="false" />
       </Profilers>
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526449846833" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528184392775" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2269,8 +2256,7 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526449846834" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1528184392776" />
       </method>
     </configuration>
     <list size="1">
@@ -2351,10 +2337,53 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.c</url>
+          <line>174</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/topeet/serialtest/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="95" column="20" lean-forward="false" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#manager#0;class#MainActivity#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/topeet/serialtest/serial.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2386,9 +2415,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="55" lean-forward="true" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-          <folding>
-            <element signature="e#1116#1117#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2426,9 +2452,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="30" column="50" lean-forward="false" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
-          <folding>
-            <element signature="e#1116#1117#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2496,9 +2519,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="25" column="2" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
-          <folding>
-            <element signature="e#1116#1117#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2555,9 +2575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="25" column="2" lean-forward="false" selection-start-line="25" selection-start-column="2" selection-end-line="25" selection-end-column="2" />
-          <folding>
-            <element signature="e#1116#1117#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2656,11 +2673,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
+    <entry file="file://F:/Android/android-sdk-windows/sources/android-15/java/lang/System.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="316">
+          <caret line="534" column="67" lean-forward="true" selection-start-line="534" selection-start-column="67" selection-end-line="534" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -2668,6 +2684,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="45" lean-forward="false" selection-start-line="7" selection-start-column="45" selection-end-line="7" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2680,36 +2704,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/Android/android-sdk-windows/ndk-bundle/platforms/android-15/arch-arm/usr/include/android/log.h">
+    <entry file="file://F:/Android/android-sdk-windows/sources/android-15/android/app/Instrumentation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="83" column="4" lean-forward="false" selection-start-line="83" selection-start-column="4" selection-end-line="83" selection-end-column="4" />
+        <state relative-caret-position="345">
+          <caret line="1097" column="0" lean-forward="false" selection-start-line="1097" selection-start-column="0" selection-end-line="1097" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.c">
+    <entry file="file://F:/Android/android-sdk-windows/sources/android-15/android/app/Activity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="165" column="18" lean-forward="false" selection-start-line="165" selection-start-column="18" selection-end-line="165" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-            <element signature="e#340#359#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="382">
+          <caret line="4657" column="0" lean-forward="false" selection-start-line="4657" selection-start-column="0" selection-end-line="4657" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://F:/Android/android-sdk-windows/sources/android-15/java/lang/System.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/topeet/serialtest/serial.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="534" column="67" lean-forward="true" selection-start-line="534" selection-start-column="67" selection-end-line="534" selection-end-column="67" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/topeet/serialtest/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="95" column="20" lean-forward="false" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="20" />
+        <state relative-caret-position="247">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#manager#0;class#MainActivity#0" expanded="false" />
@@ -2717,13 +2736,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://F:/Android/android-sdk-windows/ndk-bundle/platforms/android-15/arch-arm/usr/include/android/log.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="98" column="4" lean-forward="false" selection-start-line="98" selection-start-column="4" selection-end-line="98" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+        <state relative-caret-position="645">
+          <caret line="38" column="62" lean-forward="false" selection-start-line="38" selection-start-column="62" selection-end-line="38" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/jni/com_topeet_serialtest_serial.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="99" column="59" lean-forward="false" selection-start-line="99" selection-start-column="59" selection-end-line="99" selection-end-column="59" />
           <folding>
-            <element signature="e#1116#1117#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#340#359#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Android/android-sdk-windows/ndk-bundle/platforms/android-15/arch-arm/usr/include/termios.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="76" column="61" lean-forward="true" selection-start-line="76" selection-start-column="61" selection-end-line="76" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>
