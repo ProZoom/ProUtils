@@ -2,8 +2,10 @@ package com.top.proutilsdemo.view.activity;
 
 import android.Manifest;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
     }
 
     private void initRecycler() {
+
         mRecycler = findViewById(R.id.recyclerview);
         adapter = new MainAdapter(this);
         GridLayoutManager manager = new GridLayoutManager(this, 4);
@@ -100,11 +103,13 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
         adapter.setCategories(categories);
         mRecycler.setAdapter(adapter);
         adapter.setIViewItemListener(this);
+
     }
 
     //private FABBaseDialog fabBaseDialog;
 
     public void initData() {
+
         //infos
         ArrayList<Info> infos1 = new ArrayList<>();
         CategoryEntity category1 = new CategoryEntity();
@@ -136,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
         categories.add(category1);
         categories.add(category2);
         categories.add(category4);
+
     }
 
 
@@ -145,7 +151,9 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
         PermissionGen.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public void checkNeedPermissions() {
+
         PermissionGen.with(this)
                 .addRequestCode(100)
                 .permissions(
@@ -158,6 +166,7 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                         Manifest.permission.CAMERA,
                         Manifest.permission.ACCESS_WIFI_STATE)
                 .request();
+
     }
 
     @Override
@@ -179,9 +188,11 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 startService(new Intent(this,FloatWindowService.class));
                 //finish();
                 break;
-
             case R.drawable.ic_apk:
                 startActivity(new Intent(this, AppInfosActivity.class));
+                break;
+            case R.drawable.ic_scan:
+                //Intent intent=new Intent(MainActivity.this,CaptureActivity.class);
                 break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());

@@ -1,1 +1,1 @@
-include ':app', ':ProUtils'
+include ':app', ':ProUtils', ':zxing'

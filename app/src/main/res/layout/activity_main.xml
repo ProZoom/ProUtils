@@ -9,7 +9,6 @@
     android:orientation="vertical"
     tools:context="com.top.proutilsdemo.view.activity.MainActivity">
 
-
     <!--主界面-->
     <LinearLayout
         android:layout_width="match_parent"

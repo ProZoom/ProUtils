@@ -115,14 +115,18 @@ public class PermissionGen {
         }
     }
 
-    public static void onRequestPermissionsResult(Activity activity, int requestCode, String[] permissions,
-                                                  int[] grantResults) {
+
+    public static void onRequestPermissionsResult(Activity activity, int requestCode, String[] permissions, int[] grantResults) {
+
         requestResult(activity, requestCode, permissions, grantResults);
+
     }
 
-    public static void onRequestPermissionsResult(Fragment fragment, int requestCode, String[] permissions,
-                                                  int[] grantResults) {
+
+    public static void onRequestPermissionsResult(Fragment fragment, int requestCode, String[] permissions, int[] grantResults) {
+
         requestResult(fragment, requestCode, permissions, grantResults);
+
     }
 
     private static void requestResult(Object obj, int requestCode, String[] permissions,
@@ -140,4 +144,5 @@ public class PermissionGen {
             doExecuteSuccess(obj, requestCode);
         }
     }
+
 }
