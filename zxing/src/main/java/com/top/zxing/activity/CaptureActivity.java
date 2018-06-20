@@ -260,6 +260,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 	 * 初始化截取的矩形区域
 	 */
 	private void initCrop() {
+
 		int cameraWidth = cameraManager.getCameraResolution().y;
 		int cameraHeight = cameraManager.getCameraResolution().x;
 
@@ -289,6 +290,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
 
 		/** 生成最终的截取的矩形 */
 		mCropRect = new Rect(x, y, width + x, height + y);
+
 	}
 
 	private int getStatusBarHeight() {
