@@ -129,8 +129,8 @@ public class PermissionGen {
 
     }
 
-    private static void requestResult(Object obj, int requestCode, String[] permissions,
-                                      int[] grantResults) {
+    private static void requestResult(Object obj, int requestCode, String[] permissions, int[] grantResults) {
+
         List<String> deniedPermissions = new ArrayList<>();
         for (int i = 0; i < grantResults.length; i++) {
             if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {

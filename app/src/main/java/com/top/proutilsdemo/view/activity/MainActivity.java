@@ -1,9 +1,22 @@
 package com.top.proutilsdemo.view.activity;
 
 import android.Manifest;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.PixelFormat;
+import android.hardware.display.DisplayManager;
+import android.hardware.display.VirtualDisplay;
+import android.media.Image;
+import android.media.ImageReader;
+import android.media.projection.MediaProjection;
+import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
@@ -13,9 +26,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.top.proutils.permissiongen.PermissionGen;
+import com.top.proutils.tool.AnTools;
 import com.top.proutils.ui.StatusBarUtils;
 import com.top.proutilsdemo.R;
 import com.top.proutilsdemo.adapter.MainAdapter;
@@ -26,7 +44,12 @@ import com.top.proutilsdemo.model.Info;
 import com.top.proutilsdemo.presenter.AnToolProducer;
 import com.top.proutilsdemo.service.FloatWindowService;
 import com.top.proutilsdemo.view.impl.HandWareInfos;
+import com.top.zxing.activity.CaptureActivity;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -41,7 +64,7 @@ import static com.top.proutilsdemo.utils.constants.TOOLIDS;
 import static com.top.proutilsdemo.utils.constants.TOOLS;
 
 
-public class MainActivity extends AppCompatActivity implements IViewItemItemListener,HandWareInfos {
+public class MainActivity extends AppCompatActivity implements IViewItemItemListener, HandWareInfos {
 
     private static final java.lang.String TAG = "MainActivity";
     private RecyclerView mRecycler;
@@ -68,29 +91,22 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
     }
 
     private void initToolBar() {
-
         Calendar calendar = Calendar.getInstance();
-
         Date NowDate = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String CurrentTime = formatter.format(NowDate);
 
-
-
         mToolBar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolBar);
-
     }
 
     private void initDrawerLayout() {
-
         mDrawerLayout = findViewById(R.id.mDrawerLayout);
         StatusBarUtils.setColorForDrawerLayout(this, mDrawerLayout, getResources().getColor(R.color.colorAccent));
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolBar, R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-
     }
 
     private void initRecycler() {
@@ -137,11 +153,9 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
         }
         category4.setInfos(infos4);
 
-
         categories.add(category1);
         categories.add(category2);
         categories.add(category4);
-
     }
 
 
@@ -185,17 +199,41 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 //showAlertDialog(anToolProducer.buildSysInfos());
                 break;
             case R.drawable.ic_sceenshot:
-                startService(new Intent(this,FloatWindowService.class));
+                //startService(new Intent(this, FloatWindowService.class));
+                createFloatView();
                 //finish();
                 break;
             case R.drawable.ic_apk:
                 startActivity(new Intent(this, AppInfosActivity.class));
                 break;
             case R.drawable.ic_scan:
-                //Intent intent=new Intent(MainActivity.this,CaptureActivity.class);
+                Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
+                startActivity(intent);
                 break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());
+    }
+
+    private void createFloatView() {
+        WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams();
+
+        WindowManager mWindowManager = (WindowManager) getApplication().getSystemService(getApplication().WINDOW_SERVICE);
+
+        wmParams.format = PixelFormat.RGBA_8888;
+
+        wmParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
+
+        wmParams.gravity = Gravity.LEFT | Gravity.TOP;
+
+        wmParams.x = 0;
+
+        wmParams.y = 0;
+
+        wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
+
+        //wmParams.
+
+
     }
 
     private void showAlertDialog(String msg) {
@@ -213,4 +251,16 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
     public void showHandWareinfos() {
 
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == 1 && data != null) {
+
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 }
