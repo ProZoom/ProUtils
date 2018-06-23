@@ -1,22 +1,10 @@
 package com.top.proutilsdemo.view.activity;
 
 import android.Manifest;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
-import android.hardware.display.DisplayManager;
-import android.hardware.display.VirtualDisplay;
-import android.media.Image;
-import android.media.ImageReader;
-import android.media.projection.MediaProjection;
-import android.media.projection.MediaProjectionManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.widget.DrawerLayout;
@@ -26,14 +14,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.top.proutils.permissiongen.PermissionGen;
-import com.top.proutils.tool.AnTools;
 import com.top.proutils.ui.StatusBarUtils;
 import com.top.proutilsdemo.R;
 import com.top.proutilsdemo.adapter.MainAdapter;
@@ -42,14 +31,10 @@ import com.top.proutilsdemo.listener.IViewItemItemListener;
 import com.top.proutilsdemo.model.CategoryEntity;
 import com.top.proutilsdemo.model.Info;
 import com.top.proutilsdemo.presenter.AnToolProducer;
-import com.top.proutilsdemo.service.FloatWindowService;
+import com.top.proutilsdemo.service.FloatingViewService;
 import com.top.proutilsdemo.view.impl.HandWareInfos;
 import com.top.zxing.activity.CaptureActivity;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -101,25 +86,30 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
     }
 
     private void initDrawerLayout() {
+
         mDrawerLayout = findViewById(R.id.mDrawerLayout);
         StatusBarUtils.setColorForDrawerLayout(this, mDrawerLayout, getResources().getColor(R.color.colorAccent));
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolBar, R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(toggle);
         toggle.syncState();
         mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+
     }
 
     private void initRecycler() {
 
         mRecycler = findViewById(R.id.recyclerview);
         adapter = new MainAdapter(this);
+
         GridLayoutManager manager = new GridLayoutManager(this, 4);
+
         mRecycler.setLayoutManager(manager);
+
         adapter.setLayoutManager(manager);
         adapter.setCategories(categories);
+
         mRecycler.setAdapter(adapter);
         adapter.setIViewItemListener(this);
-
     }
 
     //private FABBaseDialog fabBaseDialog;
@@ -199,8 +189,8 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 //showAlertDialog(anToolProducer.buildSysInfos());
                 break;
             case R.drawable.ic_sceenshot:
-                //startService(new Intent(this, FloatWindowService.class));
-                createFloatView();
+                startService(new Intent(this, FloatingViewService.class));
+                //createFloatView();
                 //finish();
                 break;
             case R.drawable.ic_apk:
@@ -214,27 +204,7 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
         //showAlertDialog(anToolProducer.buildSysInfos());
     }
 
-    private void createFloatView() {
-        WindowManager.LayoutParams wmParams = new WindowManager.LayoutParams();
 
-        WindowManager mWindowManager = (WindowManager) getApplication().getSystemService(getApplication().WINDOW_SERVICE);
-
-        wmParams.format = PixelFormat.RGBA_8888;
-
-        wmParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE;
-
-        wmParams.gravity = Gravity.LEFT | Gravity.TOP;
-
-        wmParams.x = 0;
-
-        wmParams.y = 0;
-
-        wmParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
-
-        //wmParams.
-
-
-    }
 
     private void showAlertDialog(String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
