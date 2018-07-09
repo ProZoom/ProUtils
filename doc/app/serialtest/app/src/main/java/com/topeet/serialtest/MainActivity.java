@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
 
 	/***********************************************/
 	 class manager implements OnClickListener{
+
  		public void onClick(View v) {
  			String rxIdCode = "";
  			String str;
