@@ -2,15 +2,14 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/small_window_layout"
-    android:layout_width="60dip"
-    android:layout_height="25dip"
-    android:background="@color/colorAccent"
-    >
-    <Button
+    android:layout_width="35dp"
+    android:layout_height="35dp">
+
+    <ImageButton
         android:id="@+id/screenshot"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:gravity="center"
-        android:background="@drawable/ic_sceenshot"
-        />
+        android:background="@drawable/ic_sceenshot"/>
+
 </LinearLayout>
