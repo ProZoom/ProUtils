@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.PixelFormat;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -17,7 +18,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.top.proutils.Utils.BaseUtil;
 import com.top.proutilsdemo.R;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * 作者：李阳
@@ -25,6 +31,8 @@ import com.top.proutilsdemo.R;
  * 描述：
  */
 public class FloatingViewService extends Service {
+
+    private static final String TAG = "FloatingViewService";
 
     LinearLayout mFloatLayout;
     WindowManager.LayoutParams wmParams;
@@ -66,7 +74,7 @@ public class FloatingViewService extends Service {
     private void createFloatView() {
 
 
-       wmParams = new WindowManager.LayoutParams();
+        wmParams = new WindowManager.LayoutParams();
 
         mWindowManager = (WindowManager) getApplication().getSystemService(getApplication().WINDOW_SERVICE);
 
@@ -106,14 +114,36 @@ public class FloatingViewService extends Service {
                 return false;
             }
         });
-        
+
         mFloatView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(FloatingViewService.this, "截屏了！", Toast.LENGTH_SHORT).show();
 
+                //BaseUtil.execShell("adb shell /system/bin/screencap -p /sdcard/screenshot222.png");
 
-
+                BufferedReader reader = null;
+                String content = "";
+                try {
+                    //("ps -P|grep bg")执行失败，PC端adb shell ps -P|grep bg执行成功
+                    //Process process = Runtime.getRuntime().exec("ps -P|grep tv");
+                    //-P 显示程序调度状态，通常是bg或fg，获取失败返回un和er
+                    // Process process = Runtime.getRuntime().exec("ps -P");
+                    //打印进程信息，不过滤任何条件
+                    Process process = Runtime.getRuntime().exec("/system/bin/screencap -p /sdcard/screenshot222.png");
+                    reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                    StringBuffer output = new StringBuffer();
+                    int read;
+                    char[] buffer = new char[4096];
+                    while ((read = reader.read(buffer)) > 0) {
+                        output.append(buffer, 0, read);
+                    }
+                    reader.close();
+                    content = output.toString();
+                    Log.i(TAG,content);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

@@ -70,6 +70,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".business.AppInfos.AppInfosActivity" />
+        <activity android:name=".view.activity.SerialPortDemoActivity" />
 
         <service android:name=".service.FloatWindowService" />
         <service android:name=".service.FloatingViewService" />

@@ -200,6 +200,10 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
                 startActivity(intent);
                 break;
+            case R.drawable.ic_serialport:
+                Intent intentSerialPort = new Intent(MainActivity.this, SerialPortDemoActivity.class);
+                startActivity(intentSerialPort);
+                break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());
     }

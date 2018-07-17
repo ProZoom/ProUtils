@@ -4,10 +4,10 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.ProZoom'
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion 19
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
@@ -22,15 +22,20 @@ android {
         }
     }
 
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/cpp/Android.mk'
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:design:27.1.1'
     compile 'com.jakewharton:butterknife:8.8.1'
     implementation 'com.parse:parse-android:1.16.3'
 

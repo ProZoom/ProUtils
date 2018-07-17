@@ -58,7 +58,8 @@ public class constants {
     //常用工具类
     public static final String[] TOOLS = new String[]{
             "扫一扫",
-            "截屏"
+            "截屏",
+            "串口助手"
             /*"日志相关",
             "正则表达式",
             "时间相关",
@@ -70,7 +71,7 @@ public class constants {
 
     public static final int[] TOOLIDS = new int[]{
             R.drawable.ic_scan,
-            R.drawable.ic_sceenshot
-
+            R.drawable.ic_sceenshot,
+            R.drawable.ic_serialport
     };
 }
