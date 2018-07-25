@@ -4,16 +4,24 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.ProZoom'
 android {
+
     compileSdkVersion 27
+
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
         multiDexEnabled true
+
     }
+
 
     buildTypes {
         release {
@@ -22,9 +30,10 @@ android {
         }
     }
 
+
     externalNativeBuild {
-        ndkBuild {
-            path 'src/main/cpp/Android.mk'
+        cmake {
+            path 'CMakeLists.txt'
         }
     }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="20.0dip" android:gravity="center_horizontal" android:id="@id/wcccamera_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/scanner" />
+    <EditText android:gravity="center" android:id="@id/scan_result" android:layout_width="fill_parent" android:layout_height="100.0dip" android:layout_marginTop="20.0dip" android:hint="@string/scanner_hint" />
+    <View android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+</LinearLayout>

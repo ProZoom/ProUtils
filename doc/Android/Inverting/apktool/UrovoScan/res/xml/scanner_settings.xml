@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:persistent="false" android:title="@string/scanner" android:key="open_scanner" android:summaryOn="@string/scanner_off" android:summaryOff="@string/scanner_on" />
+    <CheckBoxPreference android:persistent="false" android:title="@string/scanner_lock" android:key="lock_scan_key" android:summaryOn="@string/scanner_lock_off" android:summaryOff="@string/scanner_lock_on" />
+    <PreferenceCategory android:title="@string/scanner_keyboard_mode" android:key="scanner_mode">
+        <CheckBoxPreference android:title="@string/scanner_keyboard_output" android:key="scanner_keyboard_output" android:summary="@string/scanner_keyboard_output_summary" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/scanner_beep" android:key="scanner_beep" android:summary="@string/scanner_beep_summary" android:dependency="scanner_keyboard_output" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/scanner_vibrate" android:key="scanner_vibrate" android:summary="@string/scanner_vibrate_summary" android:dependency="scanner_keyboard_output" />
+        <CheckBoxPreference android:persistent="false" android:title="@string/scanner_enter" android:key="scanner_enter" android:summary="@string/scanner_enter_summary" android:dependency="scanner_keyboard_output" />
+    </PreferenceCategory>
+    <Preference android:title="@string/scanner_reset_def" android:key="reset_def" android:summary="@string/scanner_reset_def_summary" />
+</PreferenceScreen>

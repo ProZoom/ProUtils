@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Created-By: 1.6.0_45 (Sun Microsystems Inc.)
+
+Name: res/drawable-mdpi/ic_action_search.png
+SHA1-Digest: XjltJdEB3tvakTn9CN7KwdaNT68=
+
+Name: AndroidManifest.xml
+SHA1-Digest: 3311q9WBcnJDkShzilttojpbvQ0=
+
+Name: res/drawable-mdpi/ic_launcher.png
+SHA1-Digest: MYmbpKdQJHycQNcoWL8f0fiozwI=
+
+Name: res/drawable-hdpi/ic_launcher.png
+SHA1-Digest: 35yxEDQ37OQ9HJujbY3RvoPzb2w=
+
+Name: res/xml/scanner_settings.xml
+SHA1-Digest: ZjK17IqeqTWuTOV5nqW+e10FSnI=
+
+Name: res/layout/activity_main.xml
+SHA1-Digest: CQJ9eMP9h5ZGpkiYrcUmXnCZOy0=
+
+Name: resources.arsc
+SHA1-Digest: PtrjX5B0bgIykW9EV1u3/NtdQ0Y=
+
+Name: res/drawable-hdpi/ic_action_search.png
+SHA1-Digest: rOWnNxWCWKwkicf+FpYGMg1fX2Y=
+
+Name: classes.dex
+SHA1-Digest: tFLlVz3dgt3EVsAHQhupnQ3TS0o=
+
+Name: res/menu/activity_main.xml
+SHA1-Digest: 40AvmufYxw2gqeDDdnL/KsA3VVw=
+

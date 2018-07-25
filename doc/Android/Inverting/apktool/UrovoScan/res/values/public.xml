@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <public type="drawable" name="ic_action_search" id="0x7f020000" />
+    <public type="drawable" name="ic_launcher" id="0x7f020001" />
+    <public type="layout" name="activity_main" id="0x7f030000" />
+    <public type="xml" name="scanner_settings" id="0x7f040000" />
+    <public type="dimen" name="padding_small" id="0x7f050000" />
+    <public type="dimen" name="padding_medium" id="0x7f050001" />
+    <public type="dimen" name="padding_large" id="0x7f050002" />
+    <public type="string" name="app_name" id="0x7f060000" />
+    <public type="string" name="hello_world" id="0x7f060001" />
+    <public type="string" name="menu_settings" id="0x7f060002" />
+    <public type="string" name="opticol" id="0x7f060003" />
+    <public type="string" name="symbol" id="0x7f060004" />
+    <public type="string" name="honyware" id="0x7f060005" />
+    <public type="string" name="zdw" id="0x7f060006" />
+    <public type="string" name="se4500" id="0x7f060007" />
+    <public type="string" name="MJ" id="0x7f060008" />
+    <public type="string" name="title_activity_main" id="0x7f060009" />
+    <public type="string" name="set_scanner_manager" id="0x7f06000a" />
+    <public type="string" name="scanner" id="0x7f06000b" />
+    <public type="string" name="start" id="0x7f06000c" />
+    <public type="string" name="close" id="0x7f06000d" />
+    <public type="string" name="scanner_on" id="0x7f06000e" />
+    <public type="string" name="scanner_off" id="0x7f06000f" />
+    <public type="string" name="scanner_keyboard_mode" id="0x7f060010" />
+    <public type="string" name="scanner_keyboard_output" id="0x7f060011" />
+    <public type="string" name="scanner_keyboard_output_summary" id="0x7f060012" />
+    <public type="string" name="scanner_beep" id="0x7f060013" />
+    <public type="string" name="scanner_beep_summary" id="0x7f060014" />
+    <public type="string" name="scanner_vibrate" id="0x7f060015" />
+    <public type="string" name="scanner_vibrate_summary" id="0x7f060016" />
+    <public type="string" name="scanner_enter" id="0x7f060017" />
+    <public type="string" name="scanner_enter_summary" id="0x7f060018" />
+    <public type="string" name="scanner_lock" id="0x7f060019" />
+    <public type="string" name="scanner_lock_on" id="0x7f06001a" />
+    <public type="string" name="scanner_lock_off" id="0x7f06001b" />
+    <public type="string" name="scanner_reset_def" id="0x7f06001c" />
+    <public type="string" name="scanner_reset_def_summary" id="0x7f06001d" />
+    <public type="string" name="scanner_toast" id="0x7f06001e" />
+    <public type="string" name="scanner_hint" id="0x7f06001f" />
+    <public type="style" name="AppTheme" id="0x7f070000" />
+    <public type="menu" name="activity_main" id="0x7f080000" />
+    <public type="id" name="wcccamera_title" id="0x7f090000" />
+    <public type="id" name="scan_result" id="0x7f090001" />
+    <public type="id" name="menu_settings" id="0x7f090002" />
+</resources>

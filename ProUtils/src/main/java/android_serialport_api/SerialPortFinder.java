@@ -27,6 +27,10 @@ import android.util.Log;
 
 public class SerialPortFinder {
 
+
+	/**
+	 *
+	 */
 	public class Driver {
 		public Driver(String name, String root) {
 			mDriverName = name;
@@ -55,10 +59,16 @@ public class SerialPortFinder {
 		}
 	}
 
+
 	private static final String TAG = "SerialPort";
 
 	private Vector<Driver> mDrivers = null;
 
+	/**
+	 *
+	 * @return
+	 * @throws IOException
+	 */
 	Vector<Driver> getDrivers() throws IOException {
 		if (mDrivers == null) {
 			mDrivers = new Vector<Driver>();
@@ -79,6 +89,10 @@ public class SerialPortFinder {
 		return mDrivers;
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public String[] getAllDevices() {
 		Vector<String> devices = new Vector<String>();
 		// Parse each driver
@@ -100,6 +114,10 @@ public class SerialPortFinder {
 		return devices.toArray(new String[devices.size()]);
 	}
 
+	/**
+	 *
+	 * @return
+	 */
 	public String[] getAllDevicesPath() {
 		Vector<String> devices = new Vector<String>();
 		// Parse each driver

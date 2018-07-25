@@ -1,5 +1,6 @@
 package com.top.proutilsdemo.view.activity
 
+import android.app.Activity
 import android.os.Bundle
 import com.top.proutils.base.SerialPortActivity
 import com.top.proutilsdemo.R
@@ -9,7 +10,7 @@ import com.top.proutilsdemo.R
  * 时间：2018/7/17
  * 描述：
  */
-class SerialPortDemoActivity: SerialPortActivity(){
+class SerialPortDemoActivity: Activity(){
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +28,5 @@ class SerialPortDemoActivity: SerialPortActivity(){
 
 
 
-    override fun onDataReceived(buffer: ByteArray?, size: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+
 }

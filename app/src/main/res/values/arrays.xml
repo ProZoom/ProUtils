@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="serialport">
+        <item>/sys/class/gpio_power/stm32power/enable</item>
+        <item>/sys/class/barcode_gpios/barcoe_state/poweron</item>
+        <item>/sys/class/finger/finger/poweron</item>
+    </string-array>
+
+</resources>

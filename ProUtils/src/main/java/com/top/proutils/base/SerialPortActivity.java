@@ -35,18 +35,15 @@ import com.top.proutils.R;
 
 import android_serialport_api.SerialPort;
 import android_serialport_api.SerialPortFinder;
+import android_serialport_api.SerialPortManager;
 
 public abstract class SerialPortActivity extends Activity {
 
-    private String SerialPortPref="android_serialport_api.sample_preferences";
-    private String Device="DEVICE";
-    private String Baudrate="BAUDRATE";
 
     protected OutputStream mOutputStream;
     private InputStream mInputStream;
     private ReadThread mReadThread;
 
-    public SerialPortFinder mSerialPortFinder = new SerialPortFinder();
 
     private SerialPort mSerialPort = null;
 
@@ -57,7 +54,7 @@ public abstract class SerialPortActivity extends Activity {
             while (!isInterrupted()) {
                 int size;
                 try {
-                    byte[] buffer = new byte[64];
+                    byte[] buffer = new byte[512];
                     if (mInputStream == null) return;
                     size = mInputStream.read(buffer);
                     if (size > 0) {
@@ -88,7 +85,7 @@ public abstract class SerialPortActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            mSerialPort = getSerialPort();
+            mSerialPort = SerialPortManager.getInstance().getSerialPort(this);
             mOutputStream = mSerialPort.getOutputStream();
             mInputStream = mSerialPort.getInputStream();
 
@@ -111,36 +108,10 @@ public abstract class SerialPortActivity extends Activity {
     protected void onDestroy() {
         if (mReadThread != null)
             mReadThread.interrupt();
-        closeSerialPort();
+        SerialPortManager.getInstance().closeSerialPort();
         mSerialPort = null;
         super.onDestroy();
     }
 
-
-    public SerialPort getSerialPort() throws SecurityException, IOException, InvalidParameterException {
-
-        if (mSerialPort == null) {
-            /* Read serial port parameters */
-            SharedPreferences sp = getSharedPreferences(SerialPortPref, MODE_PRIVATE);
-            String path = sp.getString(Device, "");
-            int baudrate = Integer.decode(sp.getString("BAUDRATE", "-1"));
-
-			/* Check parameters */
-            if ((path.length() == 0) || (baudrate == -1)) {
-                throw new InvalidParameterException();
-            }
-
-			/* Open the serial port */
-            mSerialPort = new SerialPort(new File(path), baudrate, 0);
-        }
-        return mSerialPort;
-    }
-
-    public void closeSerialPort() {
-        if (mSerialPort != null) {
-            mSerialPort.close();
-            mSerialPort = null;
-        }
-    }
 
 }
