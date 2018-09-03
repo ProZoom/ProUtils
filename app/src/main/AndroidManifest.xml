@@ -37,6 +37,9 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <!--usb-->
+    <uses-permission android:name="android.permission.HARDWARE_TEST"/>
+    <uses-feature android:name="android.hardware.usb.host" android:required="true"/>
 
     <application
         android:name=".App"
@@ -71,8 +74,12 @@
         </activity>
         <activity android:name=".business.AppInfos.AppInfosActivity" />
         <activity android:name=".view.activity.SerialPortDemoActivity" />
+        <activity android:name="com.top.proutils.base.USBActivity">
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+        </activity>
 
-        <service android:name=".service.FloatWindowService" />
         <service android:name=".service.FloatingViewService" />
     </application>
 

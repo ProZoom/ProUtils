@@ -2,7 +2,6 @@ package com.top.proutilsdemo.view.activity;
 
 import android.Manifest;
 import android.content.Intent;
-import android.graphics.PixelFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,14 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.LinearLayout;
 
+import com.top.proutils.base.USBActivity;
 import com.top.proutils.permissiongen.PermissionGen;
 import com.top.proutils.ui.StatusBarUtils;
 import com.top.proutilsdemo.R;
@@ -203,6 +197,10 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
             case R.drawable.ic_serialport:
                 Intent intentSerialPort = new Intent(MainActivity.this, SerialPortDemoActivity.class);
                 startActivity(intentSerialPort);
+                break;
+            case R.drawable.ic_usb:
+                Intent intentUsb = new Intent(MainActivity.this, USBActivity.class);
+                startActivity(intentUsb);
                 break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());

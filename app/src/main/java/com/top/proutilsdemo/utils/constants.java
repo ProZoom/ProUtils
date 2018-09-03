@@ -43,7 +43,7 @@ public class constants {
     public static final String[] SETTINGS = new String[]{
             "系统设置",
             "语言设置",
-            "USB调试",
+            "USB",
             "开发者选项"
     };
 
@@ -59,7 +59,8 @@ public class constants {
     public static final String[] TOOLS = new String[]{
             "扫一扫",
             "截屏",
-            "串口助手"
+            "串口助手",
+            "NFC"
             /*"日志相关",
             "正则表达式",
             "时间相关",
@@ -72,6 +73,7 @@ public class constants {
     public static final int[] TOOLIDS = new int[]{
             R.drawable.ic_scan,
             R.drawable.ic_sceenshot,
-            R.drawable.ic_serialport
+            R.drawable.ic_serialport,
+            R.drawable.ic_nfc
     };
 }

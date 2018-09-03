@@ -9,6 +9,9 @@ import java.nio.ByteBuffer;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
+/**
+ * data数据处理
+ */
 public class DataUtils {
 
 	private char[] getChar(int position) {
@@ -106,6 +109,9 @@ public class DataUtils {
 		return sb.toString();
 	}
 
+	/**
+	 * byte转换成十六进制字符串
+	 */
 	public static String byte2Hexstr(byte b) {
 		String temp = Integer.toHexString(0xFF & b);
 		if (temp.length() < 2) {
@@ -115,6 +121,12 @@ public class DataUtils {
 		return temp;
 	}
 
+	/**
+	 * 字符串转十六进制
+	 * @param str
+	 * @param size
+	 * @return
+	 */
 	public static String str2Hexstr(String str, int size) {
 		byte[] byteStr = str.getBytes();
 		byte[] temp = new byte[size];

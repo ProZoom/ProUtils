@@ -1,0 +1,548 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_dutch.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_hungarian.
+ txt
+SHA1-Digest: KxrQuSBewEePK/XN5khH0PWw7yE=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_german.tx
+ t
+SHA1-Digest: MxrOjj0j10k/YbNQybQuDJBum3c=
+
+Name: IDCertification.properties
+SHA1-Digest: eSyVbtAhtCyIzEANGkt0wUBPbwU=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_portuguese
+ .txt
+SHA1-Digest: 2tGtdUrB2oruPbgFAC1SD4R2Mn0=
+
+Name: res/layout/nfc_test.xml
+SHA1-Digest: yCRuMpjYhmSjZ8mNOgKEhURei0M=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_italian.t
+ xt
+SHA1-Digest: kpJ0pEDOyFBEu6wl4QdynsUq6jE=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_dutch.txt
+SHA1-Digest: ubXAOlBgTG6cluGh9Yg9omLd9gY=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_french.tx
+ t
+SHA1-Digest: fG8iHIY7dmE+dzMnRN1V8U+CAWs=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_spanish.t
+ xt
+SHA1-Digest: lGrj01vFVhIZq42vqijMqqlw+eo=
+
+Name: lib/mips/libidReader.so
+SHA1-Digest: H9AYmYIjp7YGgT9DwGN+zPXxqa0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_any.txt
+SHA1-Digest: 54nb4ON7/wkHOr32PrSKqoszAGk=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_languages.txt
+SHA1-Digest: Wd+YcHRM0F23bj/qZsPhOjYOa+4=
+
+Name: res/drawable-hdpi-v4/off.jpg
+SHA1-Digest: TF+1bt8aRaKqnaPfLUXr4og8k3g=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_russian.tx
+ t
+SHA1-Digest: lulM+eX+omlYPVagYcZ7S+1OOAg=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_english.tx
+ t
+SHA1-Digest: 00E7VR452tbgGSDvaN2vH71JXd0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_hungarian.
+ txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_approx_french.tx
+ t
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_polish.txt
+SHA1-Digest: bnV3hR/TM8/nCLUXvfXHWUmvShI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_spanish.tx
+ t
+SHA1-Digest: jxaPlVZm4rC0Egc7UWeCEFaLVsQ=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_french.txt
+SHA1-Digest: o5S4BN9+movhRfKv/CPmwVWMk0s=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_romanian.t
+ xt
+SHA1-Digest: 9XU05+EK41PC/HwRw9zxny5awCw=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_approx_hebrew.tx
+ t
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_german.txt
+SHA1-Digest: 3GlHgMBkvi2mEoFnPYxoBXIh4No=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_czech.txt
+SHA1-Digest: iPK8bJaVzSZc5K5rvtJ99cdrL3g=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_russian.tx
+ t
+SHA1-Digest: T4ZqaaGytR6k0txV4R9HaAMRd8M=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_languages.txt
+SHA1-Digest: N9Nby7yZl/CNB4XLYMOy4NPkDns=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_czech.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_greek.txt
+SHA1-Digest: /j/A9h8+FfAazMODJJHekOCQB5c=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_arabic.txt
+SHA1-Digest: 6qj8otnCUSRgzzY1XsPSLprI8l4=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_hebrew.tx
+ t
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: resources.arsc
+SHA1-Digest: Jpmd8y0TDcTIMOJGT/ritQfjal8=
+
+Name: res/drawable-hdpi-v4/on.jpg
+SHA1-Digest: UUCySgMEGllhJ88q8hSBuonghSI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_exact_any.txt
+SHA1-Digest: vokBnqDrzgh7ubmg4N5ltqYJsgY=
+
+Name: lib/armeabi/libidReader.so
+SHA1-Digest: dIbUij+F9w4lPLfrC5zHNFQvU1E=
+
+Name: lib/armeabi-v7a/libcmccreader.so
+SHA1-Digest: Izj7Ya23yk29MwJHZmLVTt3NTt4=
+
+Name: org/jarjar/apache/commons/codec/language/bm/lang.txt
+SHA1-Digest: H+gJtZUsHsM9QHoCyS/cdT9yjaQ=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_cyrillic.t
+ xt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_common.txt
+SHA1-Digest: u/mGD68aVPmhFiWBCiQdju9UoVw=
+
+Name: AndroidManifest.xml
+SHA1-Digest: 3uB0pNol8vV0qllfZbE4vdWvCuc=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_common.txt
+SHA1-Digest: 4KUii83+gs6HZqsqdVTJKWmbKLE=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_english.t
+ xt
+SHA1-Digest: WdrL/vp21NUtryKaVCYaAfnUY9U=
+
+Name: lib/x86/libidReader.so
+SHA1-Digest: 8QLX7Snbi/FPMAH3+STvbeWb5gc=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_romanian.t
+ xt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_any.txt
+SHA1-Digest: dLYj+QzWWMV1HWCtEJPX4xYg2q0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_approx_com
+ mon.txt
+SHA1-Digest: Hxjkq50d1HJRTfhnGsjVmtUwQ38=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_exact_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: lib/armeabi-v7a/libidReader.so
+SHA1-Digest: jDLylFJG/Rg6zS/Qbt2V5/rbEP4=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_french.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_greek.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_portuguese
+ .txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: lib/x86/libcmccreader.so
+SHA1-Digest: USr4ZBwv94AuHfT9EM8TUVZvYxE=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_spanish.tx
+ t
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_spanish.t
+ xt
+SHA1-Digest: 604dJC1I4/8Oy3q/B/iDaSTWh7Y=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_spanish.tx
+ t
+SHA1-Digest: v/X501bGOhAvKUt41xXerI3WFvE=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_rules_any.txt
+SHA1-Digest: tBhirNuraiANjlje0HNzz2Rd8XY=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_romanian.
+ txt
+SHA1-Digest: h57+YZWPX1cnEcSdoXhfGLuta3s=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_exact_approx_com
+ mon.txt
+SHA1-Digest: 2wGOF99LQlKr0epBg2LDfgg5c/k=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_portugues
+ e.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_arabic.tx
+ t
+SHA1-Digest: 8LPDBpkhGMPrbgNH/3GMv5DW2Vs=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_german.txt
+SHA1-Digest: ASWiPOCybslDsqdqSYrJCczwNBA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_romanian.
+ txt
+SHA1-Digest: 8dJCy93UqGPxUAM5qiwy8UeOCpA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_greeklatin
+ .txt
+SHA1-Digest: epTnnPkJV3kP2U6NeMgMH2hMESs=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_exact_spanish.tx
+ t
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_hebrew.txt
+SHA1-Digest: 1d23tX+8Zs6txZql1HQugopK6Dw=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_hungarian
+ .txt
+SHA1-Digest: 604dJC1I4/8Oy3q/B/iDaSTWh7Y=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_arabic.txt
+SHA1-Digest: yt4PLY35eX3omtnfi8cYJAdUwDA=
+
+Name: res/layout/activity_main.xml
+SHA1-Digest: w09NSS8wZi4Og78k/2ILkX53vNs=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_exact_italian.tx
+ t
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_english.tx
+ t
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_polish.txt
+SHA1-Digest: C2oXvKtemOA5+wbuURYYZrRXawk=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_turkish.tx
+ t
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: lib/x86_64/libcmccreader.so
+SHA1-Digest: 5TVJwdiLlPH+vWDFkc2ix+kZU2U=
+
+Name: lib/x86_64/libidReader.so
+SHA1-Digest: 4VeB3Pwt451liFPJIlBRVN7SSiI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_italian.tx
+ t
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_russian.t
+ xt
+SHA1-Digest: ln5mpI7m/dYz8po1m2pe5V1t//k=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_any.txt
+SHA1-Digest: jWl5fcYklf5KZQOVQOhWuWwoUAM=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_exact_portuguese
+ .txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_cyrillic.
+ txt
+SHA1-Digest: zhdfuG3lpctSYxuUJ7xTMIjSPNs=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_cyrillic.t
+ xt
+SHA1-Digest: Yg5q1pDwdRE2199a3lBn//aVSZ0=
+
+Name: lib/armeabi/libcmccreader.so
+SHA1-Digest: NRGdjy7noxEKBxoLBCr71FmmHbc=
+
+Name: lib/mips/libcmccreader.so
+SHA1-Digest: 0fEqt0NOqV/HW8PHlAZk/L62f+0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_rules_french.txt
+SHA1-Digest: B8soq3ODQdgyws77pmFOVzo66uI=
+
+Name: org/bouncycastle/x509/CertPathReviewerMessages_de.properties
+SHA1-Digest: 5WleEyCLesz39ayL3AH9lOktT8k=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_hebrew_common.tx
+ t
+SHA1-Digest: pLUCmc4T/RjuklQ1aIULtSUwHKI=
+
+Name: res/drawable-mdpi-v4/ic_launcher.png
+SHA1-Digest: RRxOSvpmhVfCwiprVV/wZlaqQpw=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_russian.t
+ xt
+SHA1-Digest: k/nguda0I1ot8kuzX5C5xNb+MhY=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_russian.tx
+ t
+SHA1-Digest: rXaMJ4HIP1dVq2JA4YDx9goSHNo=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_french.txt
+SHA1-Digest: CrDzmQQb/nDj6G9KGuej8e+uHIU=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_polish.txt
+SHA1-Digest: BKwAayJJNnmipd/rFV3jPkaErSE=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_russian.tx
+ t
+SHA1-Digest: i18jgMcJnz+/whRVChudyvXR6bQ=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_common.tx
+ t
+SHA1-Digest: LdAHq1Uf7ZJObFLplHkMBg62o8g=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_english.tx
+ t
+SHA1-Digest: CHRv59odKbwWuNzWNtwmYNxOEH4=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_hungarian.
+ txt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_approx_portugues
+ e.txt
+SHA1-Digest: wGpv/4nTHPd+c4HkTvDnN2PUYOU=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_approx_com
+ mon.txt
+SHA1-Digest: c9AqKhHVO0VPlbeLnJTrKdy/gSs=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_english.t
+ xt
+SHA1-Digest: WdrL/vp21NUtryKaVCYaAfnUY9U=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_hungarian.
+ txt
+SHA1-Digest: w312gpWjUSsWx0VAK7N26JpOv3E=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_czech.txt
+SHA1-Digest: 00E7VR452tbgGSDvaN2vH71JXd0=
+
+Name: lib/mips64/libidReader.so
+SHA1-Digest: 7NDa7O+fuGjV42naVNF4eAVgLlM=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_any.txt
+SHA1-Digest: 5FHNYWkE/iE9uhTrfBSWz2fh4rI=
+
+Name: lib/mips64/libcmccreader.so
+SHA1-Digest: 01N8MMREdIcmZ2e1+xoI2SzNsoU=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_cyrillic.
+ txt
+SHA1-Digest: T3Kwm8H/aw/kkF6SaYfagX9J1mw=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_rules_hebrew.txt
+SHA1-Digest: G0Yn8vlBmcqKqvsNdi9pfDl8Mbs=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_polish.txt
+SHA1-Digest: YtjlwefN2I0RWdC2euL3eS1iTgQ=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_german.txt
+SHA1-Digest: w4DMVKfl4a7tpge4d91vRsE09Uc=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_german.tx
+ t
+SHA1-Digest: 0/CejklscQ18lQIcpLZ4h2ZwsQ0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_hungarian
+ .txt
+SHA1-Digest: kpJ0pEDOyFBEu6wl4QdynsUq6jE=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_romanian.t
+ xt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_any.txt
+SHA1-Digest: s7KvcfwD+yZtsux5sF8HC7SSwKw=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_approx_any.txt
+SHA1-Digest: 0mWytx3QfDcxQYesfSLfKaaiPGc=
+
+Name: res/drawable-xhdpi-v4/ic_launcher.png
+SHA1-Digest: AfPh3OJoypH966MludSW6f1RHg4=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_approx_common.tx
+ t
+SHA1-Digest: VLGwCVv3uxq8eYkWPr7gmtHLOnU=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_rules_portuguese
+ .txt
+SHA1-Digest: sqGys16ESrXOXSg9obu8ix9O0DQ=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_hebrew.tx
+ t
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_hebrew_common.tx
+ t
+SHA1-Digest: U+3sGtHvTz+ZqpSe1f7MYHB2TsQ=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_approx_spanish.t
+ xt
+SHA1-Digest: wGpv/4nTHPd+c4HkTvDnN2PUYOU=
+
+Name: res/layout/device_list.xml
+SHA1-Digest: C03FZl3CVOxwNaOnRLHM3CEH0Dk=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_cyrillic.t
+ xt
+SHA1-Digest: EsR+HI42mjkQMSRBChc6UJMNHnk=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_rules_italian.tx
+ t
+SHA1-Digest: 4OtvhiYVCX6Pngy4UP1SKrIDoro=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_romanian.t
+ xt
+SHA1-Digest: c2FG81GO6lTa5eTZpNvoIjKLPfw=
+
+Name: res/drawable-hdpi-v4/ic_launcher.png
+SHA1-Digest: Nq8q3HeTluE5JNCBpVvNy3BXtJI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_italian.tx
+ t
+SHA1-Digest: fpEQsllQFifzCfJ/dp1xEwvBVdg=
+
+Name: res/menu/main.xml
+SHA1-Digest: vQb7CvIb8/O0jeaHWYnC7Q+N1zw=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_languages.txt
+SHA1-Digest: x5ijgzijaJwexI8tGvYq1Ys8W0o=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_spanish.tx
+ t
+SHA1-Digest: T+njbAJy1Bqc9+cbiIJMwcI9HrU=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_hebrew.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_english.tx
+ t
+SHA1-Digest: xDM5Kj+RvDu2y5bXf+6seM3O0Ww=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_rules_german.txt
+SHA1-Digest: YO+2+bquWxcrjLHWD06sQ4ycQYc=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_approx_italian.t
+ xt
+SHA1-Digest: sQ1CrX8M+aYXtqb+FaAQJlodnx0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_french.txt
+SHA1-Digest: QN+UL/Br/fToWzAZVM6R8yBU8uA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_hebrew_common.tx
+ t
+SHA1-Digest: lhqN1L0rc6oqNcToAM5w5eXc69k=
+
+Name: res/drawable-xxhdpi-v4/ic_launcher.png
+SHA1-Digest: GVIfdEOBv4gEny2T1jDhGGsZOBo=
+
+Name: res/layout/device_name.xml
+SHA1-Digest: t7wz32jP+RFBCXnzXOufYwsrG+Y=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_exact_french.txt
+SHA1-Digest: FzpQ+GbWmzaOeTszrpAHMAbmuII=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_hebrew.txt
+SHA1-Digest: 80bIa465/ozUslfQBb84wPL42nY=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_common.tx
+ t
+SHA1-Digest: padRPYJ0BaElGjLugFZoVeiaNRQ=
+
+Name: lib/.DS_Store
+SHA1-Digest: lK2Tg7IiCyzDyKEixvOSfOExm+0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_greeklatin
+ .txt
+SHA1-Digest: T0MDehullcH0uAY9slGJMUAhTkQ=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_turkish.t
+ xt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_greek.txt
+SHA1-Digest: ZK+AVLklo2cJUK6apOygqti1wRM=
+
+Name: lib/arm64-v8a/libidReader.so
+SHA1-Digest: GypUYVfJ+VqlObeVCtrbEPfeH7A=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_polish.tx
+ t
+SHA1-Digest: e4PksIbpzRqmyfXiE+gxLVhuVNA=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_approx_greeklati
+ n.txt
+SHA1-Digest: KM44dvGlJjA1G1+QMxAorjQfVZo=
+
+Name: lib/arm64-v8a/libcmccreader.so
+SHA1-Digest: fN2ubEYUscbD65YvVydpkBkGaeg=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_cyrillic.t
+ xt
+SHA1-Digest: 00E7VR452tbgGSDvaN2vH71JXd0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_exact_dutch.txt
+SHA1-Digest: KmHuQHLS9h1anGqkGCPCCtXC9QI=
+
+Name: org/jarjar/apache/commons/codec/language/bm/gen_rules_turkish.tx
+ t
+SHA1-Digest: rN+fxuizg39UWtnHiV1G1d2AaVY=
+
+Name: org/bouncycastle/x509/CertPathReviewerMessages.properties
+SHA1-Digest: OGIe7v0JVQeuizExOPQ4Cf/+RXo=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_polish.tx
+ t
+SHA1-Digest: d7PswPXB40uZY4D8wXcuG7osFGk=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_exact_common.txt
+SHA1-Digest: yMn8iqUiPF5RM7J9xhj6gb3A6E4=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_approx_french.tx
+ t
+SHA1-Digest: q9sgIysKftSjudOa4wXU3BLc/4Y=
+
+Name: classes.dex
+SHA1-Digest: txwj8gb+VAR+mVTbsi9BPnspVo0=
+
+Name: org/jarjar/apache/commons/codec/language/bm/ash_exact_any.txt
+SHA1-Digest: 31+z+V5I9I/BsRgZo688C7Nmz5c=
+
+Name: org/jarjar/apache/commons/codec/language/bm/sep_rules_spanish.tx
+ t
+SHA1-Digest: uTGxICniFcGE+85pnK+pGH1Xzt8=
+

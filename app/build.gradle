@@ -3,7 +3,8 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 
 android {
@@ -38,6 +39,13 @@ android {
             path "CMakeLists.txt"
         }
     }
+
+    greendao {
+        schemaVersion 1 //版本号
+        daoPackage 'com.top.greendao.gen'  //dao文件存放的包名
+        targetGenDir 'src/main/java' //dao包放置的位置
+    }
+
 }
 
 dependencies {
@@ -52,4 +60,7 @@ dependencies {
     //必须放在app moudle
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     compile 'com.android.support:design:27.1.1'
+
+    implementation 'org.greenrobot:greendao:3.2.2' // add library
+
 }

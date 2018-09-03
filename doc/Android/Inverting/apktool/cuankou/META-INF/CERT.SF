@@ -1,0 +1,64 @@
+Signature-Version: 1.0
+Created-By: 1.0 (Android)
+SHA1-Digest-Manifest: XTE+w7S9wHcT4a2oOTOXYgDp88U=
+
+Name: res/drawable-hdpi/ic_launcher.png
+SHA1-Digest: uw+snTyPDbtwnOkS3lV3VTsJXaI=
+
+Name: lib/x86/libserial_port.so
+SHA1-Digest: j+6SagF9jqxvFc0mMu3OybasnSY=
+
+Name: res/layout-land/main2.xml
+SHA1-Digest: KE8lal4Wm+IuEuUw3HaoPr1nAMs=
+
+Name: res/layout-port/main4.xml
+SHA1-Digest: yR1wAEM2u6pLFtuPtCwwDY1b86U=
+
+Name: resources.arsc
+SHA1-Digest: OyztKo21YmcB4h1TIc6mXTf+O8U=
+
+Name: classes.dex
+SHA1-Digest: PMo8dn2YY6hOMPePIBylo6emq9U=
+
+Name: res/layout-port/main3.xml
+SHA1-Digest: dyFpHP+Ho80lbvfQnR1FIiz8GkI=
+
+Name: res/layout-land/main1.xml
+SHA1-Digest: oJLdzmD16avUB+VQz3lOVw/VJng=
+
+Name: res/drawable-ldpi/ic_launcher.png
+SHA1-Digest: itEBfBgU3kVtpSF6w4/hy0KXZgM=
+
+Name: res/layout-land/main4.xml
+SHA1-Digest: pXQg1TGQoFDy86vhe2R2XyfnM/Y=
+
+Name: res/layout-port/main1.xml
+SHA1-Digest: FSU+dqlzCNofVj/b2CWvoHMqUeA=
+
+Name: AndroidManifest.xml
+SHA1-Digest: wkH6UgKh5ug1tuw2f7VZKIV6gbY=
+
+Name: res/drawable-mdpi/ic_launcher.png
+SHA1-Digest: HoWhvpUd1DVfwCRWeYetevln6MA=
+
+Name: res/layout-port/main2.xml
+SHA1-Digest: jsxRxy3mUuqWTlLlCEO8Zqk3yZY=
+
+Name: res/drawable-hdpi/menu_syssettings.png
+SHA1-Digest: 8RgLyMFNpis4/VhXtFksX4ODa/c=
+
+Name: res/drawable-hdpi/menu_refresh.png
+SHA1-Digest: sqWAVXlVOlg0Qhj05rOhLQGnQaw=
+
+Name: lib/armeabi/libserial_port.so
+SHA1-Digest: GP4frAONvDfBuSe/PBZS0aVUta4=
+
+Name: res/layout/alert_dialog_text_entry.xml
+SHA1-Digest: CYs16t0WBZ/700zRYKH6HJquRlA=
+
+Name: lib/armeabi-v7a/libserial_port.so
+SHA1-Digest: H/TuN/5+BF6uVyfwkZznluYJLj0=
+
+Name: res/layout-land/main3.xml
+SHA1-Digest: BC5wheqPsmxXyF2CTL1MAEqLvC8=
+

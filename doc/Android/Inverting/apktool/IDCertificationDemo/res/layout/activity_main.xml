@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center" android:background="@drawable/on" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip">
+        <GridLayout android:id="@id/gridLayout" android:padding="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:columnWidth="30.0dip" android:numColumns="auto_fit" android:rowCount="5" android:columnCount="6" android:useDefaultMargins="false">
+            <TextView android:textSize="12.0dip" android:textColor="#ff0099cc" android:text="姓名" android:layout_columnSpan="1" style="@style/IDLabelStyle" />
+            <TextView android:layout_gravity="fill_horizontal" android:id="@id/tv_name" android:layout_columnSpan="3" style="@style/IDTextStyle" />
+            <ImageView android:layout_gravity="fill" android:id="@id/iv_photo" android:layout_width="80.0dip" android:layout_height="30.0dip" android:layout_rowSpan="4" android:layout_columnSpan="2" />
+            <TextView android:textSize="12.0dip" android:textColor="#ff0099cc" android:text="性别" android:layout_columnSpan="1" style="@style/IDLabelStyle" />
+            <TextView android:id="@id/tv_sex" android:layout_columnSpan="1" style="@style/IDTextStyle" />
+            <TextView android:textSize="12.0dip" android:textColor="#ff0099cc" android:text="民族" android:layout_columnSpan="1" style="@style/IDLabelStyle" />
+            <TextView android:id="@id/tv_ehtnic" android:layout_columnSpan="1" style="@style/IDTextStyle" />
+            <TextView android:textSize="12.0dip" android:textColor="#ff0099cc" android:text="出生" android:layout_columnSpan="1" style="@style/IDLabelStyle" />
+            <TextView android:id="@id/tv_birthday" android:layout_width="wrap_content" android:layout_columnSpan="3" style="@style/IDTextStyle" />
+            <TextView android:textSize="12.0dip" android:textColor="#ff0099cc" android:text="住址" android:layout_columnSpan="1" style="@style/IDLabelStyle" />
+            <TextView android:textStyle="bold" android:layout_gravity="fill_horizontal" android:id="@id/tv_address" android:layout_width="180.0dip" android:layout_height="50.0dip" android:layout_columnSpan="3" />
+            <TextView android:textSize="12.0dip" android:textColor="#ff0099cc" android:layout_width="100.0dip" android:layout_height="30.0dip" android:text="公民身份证号码" android:layout_columnSpan="2" />
+            <TextView android:textStyle="bold" android:layout_gravity="fill_horizontal" android:id="@id/tv_number" android:layout_width="50.0dip" android:layout_height="30.0dip" android:layout_columnSpan="4" />
+        </GridLayout>
+    </RelativeLayout>
+    <RelativeLayout android:layout_gravity="center" android:background="@drawable/off" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip">
+        <TextView android:textStyle="bold" android:id="@id/tv_org" android:layout_width="wrap_content" android:layout_marginRight="30.0dip" android:text="" android:layout_above="@id/tv_date" android:layout_alignParentRight="true" style="@style/IDTextStyle" />
+        <TextView android:textStyle="bold" android:id="@id/tv_date" android:layout_width="wrap_content" android:layout_marginBottom="14.0dip" android:text="" android:layout_alignLeft="@id/tv_org" android:layout_alignParentBottom="true" style="@style/IDTextStyle" />
+    </RelativeLayout>
+    <TextView android:id="@id/tv_result" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/btn_otg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="OTG读卡" />
+        <Button android:id="@id/btn_bt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="蓝牙读卡" />
+    </LinearLayout>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="如需NFC读卡，请直接将身份证慢慢贴近手机NFC芯片处。" />
+</LinearLayout>

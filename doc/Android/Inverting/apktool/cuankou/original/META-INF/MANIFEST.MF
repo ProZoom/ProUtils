@@ -1,0 +1,63 @@
+Manifest-Version: 1.0
+Created-By: 1.0 (Android)
+
+Name: res/drawable-hdpi/ic_launcher.png
+SHA1-Digest: liClmoGAurhkWVAfdRnTJhinXOY=
+
+Name: lib/x86/libserial_port.so
+SHA1-Digest: yheS4thDbLl0yHcnbn3/gyoigMQ=
+
+Name: res/layout-land/main2.xml
+SHA1-Digest: VT4eYhCxjGjkqOIRYCY3a+e4nZI=
+
+Name: res/layout-port/main4.xml
+SHA1-Digest: RXC0fIbRH4D/zudYUP1HLyruwR8=
+
+Name: resources.arsc
+SHA1-Digest: kvX/VNMk4bvU2vRRPBwGY4izNFc=
+
+Name: classes.dex
+SHA1-Digest: cq58u9V8V5/qBhqxynuAbO8qOFM=
+
+Name: res/layout-port/main3.xml
+SHA1-Digest: QNP8byRi2S1uSxyCAExv7uCzsgw=
+
+Name: res/layout-land/main1.xml
+SHA1-Digest: lN28aqlE+HiG8a0oC3hV3mgCY44=
+
+Name: res/drawable-ldpi/ic_launcher.png
+SHA1-Digest: rRpPx6thT+MtVFg1CpGJLshSonk=
+
+Name: res/layout-land/main4.xml
+SHA1-Digest: DciTubQCNCUUwSopaM5eDh3y8Co=
+
+Name: res/layout-port/main1.xml
+SHA1-Digest: DYutE9z1CRA4N9sIeIdga1zMYVw=
+
+Name: AndroidManifest.xml
+SHA1-Digest: IXy+CV3sZhC4VD062XZwJHzGjzQ=
+
+Name: res/layout-port/main2.xml
+SHA1-Digest: gIet0KroBLfCXf0Ct52dRFOXZu4=
+
+Name: res/drawable-mdpi/ic_launcher.png
+SHA1-Digest: +SZ2zCMyLvs12Q1HP09ilxy19b4=
+
+Name: res/drawable-hdpi/menu_syssettings.png
+SHA1-Digest: Xkc0etYJdB7m5fxWPHbhfjL5gog=
+
+Name: res/drawable-hdpi/menu_refresh.png
+SHA1-Digest: WSrjqwZ0p01EbW/BNBFs1IT3UiQ=
+
+Name: lib/armeabi/libserial_port.so
+SHA1-Digest: OmM9QwFDyPHjn7fHSFg1ttQXONs=
+
+Name: lib/armeabi-v7a/libserial_port.so
+SHA1-Digest: Yrz8j+/DM1oaotPlsMz3Yy9i/jM=
+
+Name: res/layout/alert_dialog_text_entry.xml
+SHA1-Digest: Ec53yxwIaDXXB6j9ssp/g1/O5Eo=
+
+Name: res/layout-land/main3.xml
+SHA1-Digest: q1FLLwxpJLQi0Gq00g6wAMmX48g=
+
