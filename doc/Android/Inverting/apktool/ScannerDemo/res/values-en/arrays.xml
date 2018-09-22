@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bfswitchString">
+        <item>Off</item>
+        <item>On</item>
+    </string-array>
+    <string-array name="bfdmiInverse">
+        <item>Convention</item>
+        <item>Reverse</item>
+        <item>Auto detest</item>
+    </string-array>
+    <string-array name="bfdmi">
+        <item>Never</item>
+        <item>Always</item>
+        <item>Auto</item>
+    </string-array>
+    <string-array name="bfUPCEPream">
+        <item>Do not add</item>
+        <item>Only add the system character</item>
+        <item>Add the country code and the system character</item>
+    </string-array>
+    <string-array name="bfSCANAngle">
+        <item>37</item>
+        <item>47</item>
+    </string-array>
+    <string-array name="bfOCRTemplate">
+        <item>User</item>
+        <item>Passport</item>
+        <item>ISBN</item>
+        <item>Price Field</item>
+        <item>MICR E-13B</item>
+    </string-array>
+</resources>

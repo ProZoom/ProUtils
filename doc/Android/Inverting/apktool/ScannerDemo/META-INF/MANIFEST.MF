@@ -1,0 +1,159 @@
+Manifest-Version: 1.0
+Created-By: 1.7.0_121 (Oracle Corporation)
+
+Name: res/xml/ue966_config.xml
+SHA1-Digest: 6ripcSQ+rH67d2d11oL5oRdz6k0=
+
+Name: res/drawable-mdpi-v4/expandlistviewstyle.xml
+SHA1-Digest: upUP7cpsYn5V1GzLOTNo1xF5DOY=
+
+Name: res/layout/ocr_config.xml
+SHA1-Digest: APihozhGdbJCMgAFUAV1NUpxWkQ=
+
+Name: res/layout/fragment_barcodeconfig.xml
+SHA1-Digest: oCB6cjpaL3AGTANrGk9hENkZwOo=
+
+Name: res/drawable-hdpi-v4/abc_ab_share_pack_holo_light.png
+SHA1-Digest: uzum3WgVk8hXgCj6mjGNPTL46J8=
+
+Name: res/drawable-mdpi-v4/nonexpanded.png
+SHA1-Digest: hjRhWU06Hf2le5rYppgGwZ8Wi3o=
+
+Name: res/drawable-hdpi-v4/abc_ab_bottom_solid_dark_holo.png
+SHA1-Digest: YI6r/qHutgPbptX1ZwljGlGk1ZA=
+
+Name: res/drawable-hdpi-v4/abc_ab_transparent_dark_holo.png
+SHA1-Digest: tdr8y01B3fZMzOLdUylD+4W35OQ=
+
+Name: res/drawable-hdpi-v4/weibo_detail_bottom_bg.png
+SHA1-Digest: zCNxg1XawqX+DwZ4/hZvR+IScko=
+
+Name: res/layout/titlebar.xml
+SHA1-Digest: RenkwkqS9b5m3m3SJf7iGHFL07s=
+
+Name: res/xml/n5600_config.xml
+SHA1-Digest: TaszMFEFOi/wI4xzTKeUoHGbsB0=
+
+Name: res/layout/fragment_settings.xml
+SHA1-Digest: iHyThMxjdFBNTXdiypXPsDwrk8c=
+
+Name: res/drawable/edittextstyle.xml
+SHA1-Digest: p73zvQs1U03zoDrizwkMAmrKNbs=
+
+Name: res/drawable-hdpi-v4/bg_weibo_listab.png
+SHA1-Digest: W0vIIOuyKLU648pPsJjk8vrXEAw=
+
+Name: res/xml/se965_config.xml
+SHA1-Digest: aPvtKHQR9tcJqnN7DEIGqyu5KH4=
+
+Name: res/xml/se4500_config.xml
+SHA1-Digest: utiBFpBrABQa22jSMOvCtXEMYZk=
+
+Name: res/drawable-hdpi-v4/abc_ab_solid_light_holo.png
+SHA1-Digest: PVcJMCITb9rlzRtDJ6ka71XpoVo=
+
+Name: res/anim/head_out.xml
+SHA1-Digest: DQHW4Rz33BNBA53BcBiBxVx3XPY=
+
+Name: res/drawable-hdpi-v4/weibo_detail_buttombar_itembg_on.png
+SHA1-Digest: kk5L5APD1v87N5wDhtJsED52fCE=
+
+Name: res/layout-v17/ocr_config.xml
+SHA1-Digest: FATw4i+ku+U6S9Sl0yhnxrmzLX0=
+
+Name: res/drawable-mdpi-v4/expanded.png
+SHA1-Digest: 130CpyOuC4hs3HCedrDFWkkKUUU=
+
+Name: res/xml/se955_config.xml
+SHA1-Digest: LM5f/EXDFFVFzfNAd+wR8MDecOk=
+
+Name: res/drawable/layoutborderstyle1.xml
+SHA1-Digest: 2FKdEaN89/7lErQzokbD9X1zhz4=
+
+Name: res/layout/item.xml
+SHA1-Digest: VHHzfmtvcpP6uWDqUVQSSz2WPp0=
+
+Name: res/drawable-mdpi-v4/actionbar_more_icon.png
+SHA1-Digest: ZrpT6jXIqWkFJH10ZGXeSnE+aNQ=
+
+Name: res/drawable/weibolist_bottombar_itembg_selector.xml
+SHA1-Digest: QfTTixEYGkn/CiW1W+PVkQ16L+8=
+
+Name: res/xml/em1350_config.xml
+SHA1-Digest: o2XAXPJ2+d0RuY6koOOZEIeupeE=
+
+Name: res/drawable-xxhdpi-v4/ic_launcher.png
+SHA1-Digest: GVIfdEOBv4gEny2T1jDhGGsZOBo=
+
+Name: res/drawable-hdpi-v4/abc_ab_share_pack_holo_dark.png
+SHA1-Digest: yNHazNnxxfZKOMerteDiAfsB+FI=
+
+Name: res/drawable-mdpi-v4/ofm_blacklist_icon.png
+SHA1-Digest: 1Uc/ENLD9QVd1MTfw/fEakNafr0=
+
+Name: resources.arsc
+SHA1-Digest: +4cpZiqDxxqW2B5lLOGwL1yJy+U=
+
+Name: res/drawable-mdpi-v4/app_icon.png
+SHA1-Digest: vjTZC5Ko71zh0DdqL95qvsLKCYg=
+
+Name: res/drawable-mdpi-v4/ofm_collect_icon.png
+SHA1-Digest: vfVkWrH579EA2ZDsCCS5BW6hhgY=
+
+Name: AndroidManifest.xml
+SHA1-Digest: pdF7fYt+MVCCCA053fN/lEwZf2k=
+
+Name: res/drawable/guide_round.xml
+SHA1-Digest: IhvXoq8vdKDESOAAnt0LMRlrpQ8=
+
+Name: res/layout/fragment_scan.xml
+SHA1-Digest: qhSULmcwPdpK7o6OEukD4UNrX6k=
+
+Name: res/drawable-hdpi-v4/abc_ab_stacked_transparent_light_holo.png
+SHA1-Digest: BSv30UHw2adNlXppMAtl2pE0sq8=
+
+Name: res/xml/n4313_config.xml
+SHA1-Digest: +TkdWDz6/jO5CIMeb7iRbl4f2tM=
+
+Name: res/anim/head_in.xml
+SHA1-Digest: NQgqt1p+OYY8+t+fEvh/L7XztwY=
+
+Name: res/drawable-hdpi-v4/abc_cab_background_top_holo_light.png
+SHA1-Digest: L7kCUP88tkpYpqHHj2OUqCMMsZE=
+
+Name: res/layout/popup.xml
+SHA1-Digest: O73P6YeSQN2vMMfZ8QYaZq8lgTU=
+
+Name: res/drawable/notify_icon.png
+SHA1-Digest: 63ytn+7lrHyUfja2ZLATXk5pJN0=
+
+Name: res/layout/poputpitem.xml
+SHA1-Digest: 61YGyHEx3DOwJzST8YMxIDhXo7s=
+
+Name: res/drawable/notify_big_icon.png
+SHA1-Digest: 8s/KnaURjrDSbrgldC66whzMHqg=
+
+Name: classes.dex
+SHA1-Digest: ELiCnSLXOXDdFyMKYC00GGlThPw=
+
+Name: assets/scan.ogg
+SHA1-Digest: IRaX8jwluQgwdfDRe+jjMyrr9r0=
+
+Name: res/layout/scanlist.xml
+SHA1-Digest: Ij2r7gwdvy977ipLYWC4AcWapHU=
+
+Name: res/drawable-hdpi-v4/abc_ab_transparent_light_holo.png
+SHA1-Digest: QFC3PgB0q50YFZJnbMpRViy9NDI=
+
+Name: res/drawable-hdpi-v4/abc_ab_stacked_transparent_dark_holo.png
+SHA1-Digest: j+MbOcfgKL9tEfFkyqPBe/ITHf8=
+
+Name: res/layout/activity_main.xml
+SHA1-Digest: XgvbFIBuzvIrZdBush5muNHBdjo=
+
+Name: res/layout/activity_developer.xml
+SHA1-Digest: p4Bibf+jJMjs+plsZNlUgOvopvo=
+
+Name: res/drawable-hdpi-v4/layoutviewstyle.xml
+SHA1-Digest: w3ayMbzTQ8UVBM8pdD3n24onHnM=
+

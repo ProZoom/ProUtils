@@ -5,6 +5,18 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application>
+        <activity android:name=".base.KeepAliveActivity"
+          android:configChanges="keyboardHidden|orientation"
+          android:excludeFromRecents="true"
+          android:exported="false"
+          android:finishOnTaskLaunch="false"
+          android:launchMode="singleInstance"
+          android:screenOrientation="portrait"
+          android:theme="@style/AliveActivity_style"/>
+    </application>
+
 </manifest>
 
 

@@ -202,6 +202,11 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 Intent intentUsb = new Intent(MainActivity.this, USBActivity.class);
                 startActivity(intentUsb);
                 break;
+
+            case R.drawable.ic_nfc:
+                Intent intentNFC = new Intent(MainActivity.this, NFCActivity.class);
+                startActivity(intentNFC);
+                break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());
     }

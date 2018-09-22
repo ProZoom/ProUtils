@@ -7,6 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.text.NumberFormat;
 
 /**
  * 作者：李阳
@@ -32,6 +33,21 @@ public class BaseUtil {
         }
         lastClickTime = time;
         return false;
+    }
+
+    /**
+     * 获取百分比
+     * @param num
+     * @param all
+     * @return
+     */
+    public static String getPerCent(int num, int all) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        // 设置精确到小数点后2位
+        numberFormat.setMaximumFractionDigits(2);
+        String result = numberFormat.format((float) num / (float) all * 100);
+        System.out.println("num1和num2的百分比为:" + result + "%");
+        return result+"%";
     }
 
 

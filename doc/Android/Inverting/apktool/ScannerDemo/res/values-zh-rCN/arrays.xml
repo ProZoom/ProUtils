@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bfswitchString">
+        <item>关</item>
+        <item>开</item>
+    </string-array>
+    <string-array name="bfswitchString965">
+        <item>开</item>
+        <item>关</item>
+    </string-array>
+    <string-array name="bfdmiInverse">
+        <item>常规</item>
+        <item>反向</item>
+        <item>自动检测</item>
+    </string-array>
+    <string-array name="bfdmi">
+        <item>从不</item>
+        <item>总是</item>
+        <item>自动</item>
+    </string-array>
+    <string-array name="bfUPCEPream">
+        <item>不添加</item>
+        <item>仅添加系统字符</item>
+        <item>添加国家编号与系统字符</item>
+    </string-array>
+    <string-array name="bfUPCEPreamN4300">
+        <item>不添加</item>
+        <item>仅添加系统字符</item>
+    </string-array>
+    <string-array name="bfUPCETransmitCheckDigit">
+        <item>使能一位校验码</item>
+        <item>使能两位校验码</item>
+    </string-array>
+    <string-array name="bfSCANAngle">
+        <item>37</item>
+        <item>47</item>
+    </string-array>
+    <string-array name="bfOCRTemplate">
+        <item>User</item>
+        <item>Passport</item>
+        <item>ISBN</item>
+        <item>Price Field</item>
+        <item>MICR E-13B</item>
+    </string-array>
+    <string-array name="bfCode39Chk">
+        <item>无校验码</item>
+        <item>使能并传输校验码</item>
+    </string-array>
+</resources>
