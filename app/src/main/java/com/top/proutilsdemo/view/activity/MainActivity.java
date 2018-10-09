@@ -14,9 +14,11 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.top.proutils.base.USBActivity;
 import com.top.proutils.permissiongen.PermissionGen;
+import com.top.proutils.tool.AnTools;
 import com.top.proutils.ui.StatusBarUtils;
 import com.top.proutilsdemo.R;
 import com.top.proutilsdemo.adapter.MainAdapter;
@@ -181,11 +183,15 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 break;
             case R.drawable.ic_wifi:
                 //showAlertDialog(anToolProducer.buildSysInfos());
+                Toast.makeText(this, ""+AnTools.device().getAndroidVersion()[0], Toast.LENGTH_SHORT).show();
                 break;
             case R.drawable.ic_sceenshot:
                 startService(new Intent(this, FloatingViewService.class));
                 //createFloatView();
                 //finish();
+                break;
+            case R.drawable.ic_cpu:
+                Toast.makeText(this, "cpu:"+ AnTools.device().getCurCpuFreq(), Toast.LENGTH_SHORT).show();
                 break;
             case R.drawable.ic_apk:
                 startActivity(new Intent(this, AppInfosActivity.class));

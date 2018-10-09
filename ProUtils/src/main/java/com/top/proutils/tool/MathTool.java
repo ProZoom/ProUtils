@@ -1,16 +1,39 @@
-package com.top.proutils.Utils;
+package com.top.proutils.tool;
 
 import java.text.DecimalFormat;
 import java.util.Random;
 
 /**
  * 作者：李阳
- * 时间：2018/5/9
+ * 时间：2018/10/8
  * 描述：
  */
-public class MathUtils {
+public class MathTool {
 
-    private final static double dmax = 999;//Double.MAX_VALUE;//Double类型的最大值，太大的double值，相乘会达到无穷大
+    private static volatile MathTool instance;// !!必须要加volatile限制指令重排序，不然这是双重检验的漏洞
+    private static final Object lock = new Object();
+
+
+    public MathTool() {
+
+    }
+
+    //单例模式，懒汉氏
+    public static MathTool instance() {
+        if (instance == null) {
+            synchronized (lock) {
+                if (instance == null) {
+                    instance = new MathTool();
+                }
+            }
+        }
+        return instance;
+    }
+
+
+    //////////////////////////////////////////////////////////
+
+    /*private final static double dmax = 999;//Double.MAX_VALUE;//Double类型的最大值，太大的double值，相乘会达到无穷大
     private final static double dmin = Double.MIN_VALUE;//Double类型的最小值
     private final static int n = 100;//假设求取100个doubl数的方差和标准差
 
@@ -29,7 +52,7 @@ public class MathUtils {
         //计算标准差
         double dS = StandardDiviation(x);
         System.out.println("标准差=" + df.format(dS));
-    }
+    }*/
 
     //方差s^2=[(x1-x)^2 +...(xn-x)^2]/n
     public static double Variance(double[] x) {
@@ -60,4 +83,5 @@ public class MathUtils {
         }
         return Math.sqrt(dVar / m);
     }
+
 }

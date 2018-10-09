@@ -1,4 +1,4 @@
-package com.top.proutils.Utils;
+package com.top.proutils.tool;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -7,12 +7,37 @@ import android.content.pm.PackageManager;
 import android.util.Log;
 
 /**
- * manifest工具类
- * Created by tsy on 16/7/25.
+ * 作者：李阳
+ * 时间：2018/10/8
+ * 描述：manifest工具类
  */
-public class ManifestUtils {
+public class ManifestTool {
 
-    private static final String TAG = "ManifestUtils";
+
+    private static final String TAG ="ManifestTool";
+
+    private static volatile ManifestTool instance;// !!必须要加volatile限制指令重排序，不然这是双重检验的漏洞
+    private static final Object lock = new Object();
+
+
+    public ManifestTool() {
+
+    }
+
+    //单例模式，懒汉氏
+    public static ManifestTool instance() {
+        if (instance == null) {
+            synchronized (lock) {
+                if (instance == null) {
+                    instance = new ManifestTool();
+                }
+            }
+        }
+        return instance;
+    }
+
+
+
 
     /**
      * 返回Manifest指定meta-data值
@@ -22,7 +47,7 @@ public class ManifestUtils {
      *      成功-value
      *      失败-""
      */
-    public static String getMetaData(Context context, String key) {
+    public  String getMetaData(Context context, String key) {
         ApplicationInfo app_info = null;
         try {
             app_info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
@@ -47,7 +72,7 @@ public class ManifestUtils {
      * @param context 全局context
      * @return versoin namei
      */
-    public static String getVersionName(Context context) {
+    public  String getVersionName(Context context) {
         String version = "0.0";
         try {
             PackageManager packageManager = context.getPackageManager();
@@ -59,4 +84,5 @@ public class ManifestUtils {
 
         return version;
     }
+
 }

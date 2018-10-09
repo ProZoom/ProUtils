@@ -16,7 +16,7 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        ProCache proCache = ProCache.get(this);
+        //ProCache proCache = ProCache.get(this);
         AnTools.init(this);
     }
 }

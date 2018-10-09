@@ -18,8 +18,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 
-import com.top.proutils.Utils.DataUtils;
-
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.util.HashMap;
