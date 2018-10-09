@@ -60,7 +60,8 @@ public class constants {
             "扫一扫",
             "截屏",
             "串口助手",
-            "NFC"
+            "NFC",
+            "播放器"
             /*"日志相关",
             "正则表达式",
             "时间相关",
@@ -74,6 +75,7 @@ public class constants {
             R.drawable.ic_scan,
             R.drawable.ic_sceenshot,
             R.drawable.ic_serialport,
-            R.drawable.ic_nfc
+            R.drawable.ic_nfc,
+            R.drawable.ic_media_player
     };
 }

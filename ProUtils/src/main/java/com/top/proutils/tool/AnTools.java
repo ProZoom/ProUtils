@@ -89,6 +89,13 @@ public class AnTools {
         return mSnackbar;
     }
 
+    public static DataTool data() {
+        if (mData == null) {
+            mData = DataTool.instance();
+        }
+        return mData;
+    }
+
     private static class MockApplication extends Application {
         public MockApplication(Context baseContext) {
             this.attachBaseContext(baseContext);

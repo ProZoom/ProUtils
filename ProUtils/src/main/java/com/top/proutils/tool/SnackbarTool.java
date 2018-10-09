@@ -9,10 +9,12 @@ import android.widget.LinearLayout;
 
 import java.lang.ref.WeakReference;
 
-/**
- * Created by wangdongdong on 17-1-22.
- */
 
+/**
+* 作者：liyang
+* 时间：2018/10/9
+* 描述：新版吐司
+*/
 public final class SnackbarTool {
 
     private static WeakReference<Snackbar> snackbarWeakReference;

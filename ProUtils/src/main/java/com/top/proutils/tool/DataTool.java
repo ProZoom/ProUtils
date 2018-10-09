@@ -24,7 +24,7 @@ import java.util.zip.GZIPOutputStream;
  */
 public class DataTool {
 
-    private static final String TAG = "DataTool";
+    private  final String TAG = "DataTool";
     private static volatile DataTool instance;// !!必须要加volatile限制指令重排序，不然这是双重检验的漏洞
     private static final Object lock = new Object();
 
@@ -46,23 +46,23 @@ public class DataTool {
     }
 
     /////Sp
-    public static void spPutString(Context context, String fileName, String key, String value) {
+    public  void spPutString(Context context, String fileName, String key, String value) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
         sharedPreferences.edit().putString(key, value).apply();//提交数据
     }
 
-    public static String spGetString(Context context, String fileName, String key, String value) {
+    public  String spGetString(Context context, String fileName, String key, String value) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
 
         return sharedPreferences.getString(key, value);
     }
 
-    public static void spPutBoolean(Context context, String fileName, String key, boolean value) {
+    public  void spPutBoolean(Context context, String fileName, String key, boolean value) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
         sharedPreferences.edit().putBoolean(key, value).apply();//提交数据
     }
 
-    public static boolean spGetBoolean(Context context, String fileName, String key, boolean value) {
+    public  boolean spGetBoolean(Context context, String fileName, String key, boolean value) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
 
         return sharedPreferences.getBoolean(key, value);
@@ -74,7 +74,7 @@ public class DataTool {
     * @param [obj, path]
     * @return void
     */
-    public static void cacheSave(Object obj, String path) {
+    public  void cacheSave(Object obj, String path) {
         try {
             File f = new File(path);
             FileOutputStream fos = new FileOutputStream(f);
@@ -92,7 +92,7 @@ public class DataTool {
     * @param [path]
     * @return java.lang.Object
     */
-    public static Object cacheLoad(String path) {
+    public  Object cacheLoad(String path) {
         Object obj = null;
         File file = new File(path);
         try {
@@ -126,7 +126,7 @@ public class DataTool {
      * @param hex
      * @return
      */
-    public static byte[] hexStringTobyte(String hex) {
+    public  byte[] hexStringTobyte(String hex) {
         if (TextUtils.isEmpty(hex)) {
             return null;
         }
@@ -145,7 +145,7 @@ public class DataTool {
         return result;
     }
 
-    public static int toByte(char c) {
+    public  int toByte(char c) {
         byte b = (byte) "0123456789ABCDEF".indexOf(c);
         return b;
     }
@@ -156,7 +156,7 @@ public class DataTool {
      * @param b
      * @return
      */
-    public static String toHexString(byte[] b) {
+    public  String toHexString(byte[] b) {
         StringBuffer buffer = new StringBuffer();
         for (int i = 0; i < b.length; i++) {
             buffer.append(toHexString1(b[i]));
@@ -164,7 +164,7 @@ public class DataTool {
         return buffer.toString();
     }
 
-    public static String toHexString1(byte b) {
+    public  String toHexString1(byte b) {
         String s = Integer.toHexString(b & 0xFF);
         if (s.length() == 1) {
             return "0" + s;
@@ -176,7 +176,7 @@ public class DataTool {
     /**
      * 十六进制字符串转换成字符串
      */
-    public static String hexStr2Str(String hexStr) {
+    public  String hexStr2Str(String hexStr) {
         String str = "0123456789ABCDEF";
         char[] hexs = hexStr.toCharArray();
         byte[] bytes = new byte[hexStr.length() / 2];
@@ -192,7 +192,7 @@ public class DataTool {
     /**
      * 字符串转换成十六进制字符串
      */
-    public static String str2Hexstr(String str) {
+    public  String str2Hexstr(String str) {
         char[] chars = "0123456789ABCDEF".toCharArray();
         StringBuilder sb = new StringBuilder("");
         byte[] bs = str.getBytes();
@@ -209,7 +209,7 @@ public class DataTool {
     /**
      * byte转换成十六进制字符串
      */
-    public static String byte2Hexstr(byte b) {
+    public  String byte2Hexstr(byte b) {
         String temp = Integer.toHexString(0xFF & b);
         if (temp.length() < 2) {
             temp = "0" + temp;
@@ -225,7 +225,7 @@ public class DataTool {
      * @param size
      * @return
      */
-    public static String str2Hexstr(String str, int size) {
+    public  String str2Hexstr(String str, int size) {
         byte[] byteStr = str.getBytes();
         byte[] temp = new byte[size];
         System.arraycopy(byteStr, 0, temp, 0, byteStr.length);
@@ -234,7 +234,7 @@ public class DataTool {
         return hexStr;
     }
 
-    public static byte[] str2HexByte(String str, int size) {
+    public  byte[] str2HexByte(String str, int size) {
         byte[] byteStr = str.getBytes();
         byte[] temp = new byte[size];
         System.arraycopy(byteStr, 0, temp, 0, byteStr.length);
@@ -247,7 +247,7 @@ public class DataTool {
      * @param str
      * @return
      */
-    public static String[] hexStr2StrArray(String str) {
+    public  String[] hexStr2StrArray(String str) {
         // 32个十六进制字符串表示16字节
         int len = 32;
         int size = str.length() % len == 0 ? str.length() / len : str.length() / len + 1;
@@ -273,7 +273,7 @@ public class DataTool {
      * @return
      * @throws IOException
      */
-    public static byte[] compress(byte[] data) throws IOException {
+    public  byte[] compress(byte[] data) throws IOException {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         GZIPOutputStream gzip = new GZIPOutputStream(out);
         gzip.write(data);
@@ -288,7 +288,7 @@ public class DataTool {
      * @return
      * @throws IOException
      */
-    public static byte[] uncompress(byte[] data) throws IOException {
+    public  byte[] uncompress(byte[] data) throws IOException {
 
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         ByteArrayInputStream in = new ByteArrayInputStream(data);
@@ -301,7 +301,7 @@ public class DataTool {
         return out.toByteArray();
     }
 
-    public static byte[] short2byte(short s) {
+    public  byte[] short2byte(short s) {
         byte[] size = new byte[2];
         size[0] = (byte) (s >>> 8);
         short temp = (short) (s << 8);
@@ -312,7 +312,7 @@ public class DataTool {
         return size;
     }
 
-    public static short[] hexStr2short(String hexStr) {
+    public  short[] hexStr2short(String hexStr) {
         byte[] data = hexStringTobyte(hexStr);
         short[] size = new short[4];
         for (int i = 0; i < size.length; i++) {
@@ -322,7 +322,7 @@ public class DataTool {
     }
 
     // 字符序列转换为16进制字符串
-    public static String bytesToHexString(byte[] src) {
+    public  String bytesToHexString(byte[] src) {
         StringBuilder stringBuilder = new StringBuilder();
         if (src == null || src.length <= 0) {
             return null;
@@ -337,7 +337,7 @@ public class DataTool {
         return stringBuilder.toString();
     }
 
-    public static byte[] getSelectCommand(byte[] aid) {
+    public  byte[] getSelectCommand(byte[] aid) {
         final ByteBuffer cmd_pse = ByteBuffer.allocate(aid.length + 6);
         cmd_pse.put((byte) 0x00) // CLA Class
                 .put((byte) 0xA4) // INS Instruction
@@ -348,7 +348,7 @@ public class DataTool {
         return cmd_pse.array();
     }
 
-    public static short getShort(byte b1, byte b2) {
+    public  short getShort(byte b1, byte b2) {
         short temp = 0;
         temp |= (b1 & 0xff);
         temp <<= 8;
@@ -356,7 +356,7 @@ public class DataTool {
         return temp;
     }
 
-    public static int getInt(byte[] data) {
+    public  int getInt(byte[] data) {
         int temp = 0;
         if (data == null) {
             return 0;
@@ -377,7 +377,7 @@ public class DataTool {
      * @param len data of int type
      * @return byte array of 2 length.
      */
-    public static byte[] int2Byte(int len) {
+    public  byte[] int2Byte(int len) {
         byte[] data = new byte[2];
         data[1] = (byte) (len >> 8);
         data[0] = (byte) (len >> 0);
@@ -390,7 +390,7 @@ public class DataTool {
      * @param data
      * @return
      */
-    public static byte xorCheck(byte[] data) {
+    public  byte xorCheck(byte[] data) {
         byte s = 0;
         for (int i = 0; i < data.length; i++) {
             s = (byte) (s ^ data[i]);
@@ -404,7 +404,7 @@ public class DataTool {
      * @param len data of int type
      * @return byte array of 2 length.
      */
-    public static byte[] int2Byte2(int len) {
+    public  byte[] int2Byte2(int len) {
         byte[] data = new byte[2];
         data[0] = (byte) (len >> 8);
         data[1] = (byte) (len >> 0);
@@ -417,12 +417,12 @@ public class DataTool {
      * @param buffer,
      * @return byte low.
      */
-    public static byte splitByte(byte buffer) {
+    public  byte splitByte(byte buffer) {
         byte low = (byte) (buffer & 0x0f);
         return low;
     }
 
-    public static byte splitByte2(byte buffer) {
+    public  byte splitByte2(byte buffer) {
         byte new1 = (byte) (buffer | 0x30);
         return new1;
     }

@@ -11,7 +11,7 @@ import java.util.TimeZone;
 /**
  * 作者：ProZoom
  * 时间：2018/3/16
- * 描述：设备相关工具类
+ * 描述：Log工具类，支持本地Log
  */
 public class LogTool {
 
@@ -19,9 +19,6 @@ public class LogTool {
     private static volatile LogTool instance;// !!必须要加volatile限制指令重排序，不然这是双重检验的漏洞
     private static final Object lock = new Object();
 
-
-    private boolean DEBUG = true;
-    private String mTag;
 
     public LogTool() {
 
@@ -41,24 +38,24 @@ public class LogTool {
 
 
     /*********本地Log********/
-     private boolean androidLogOn = true;
-     private boolean localLogOn = true;
-     private String defalutTag = "LocalLog";
-     private String fileName = "LocalLog";
+    private boolean androidLogOn = true;
+    private boolean localLogOn = true;
+    private String defalutTag = "LocalLog";
+    private String fileName = "LocalLog";
 
 
-     private String fileType = "txt";
-    public  final int INFO = 2;
-    public  final int ERROR = 3;
-    public  final int FAIL = 4;
-    public  final int SUCCESS = 5;
+    private String fileType = "txt";
+    public final int INFO = 2;
+    public final int ERROR = 3;
+    public final int FAIL = 4;
+    public final int SUCCESS = 5;
 
     /**
      * 设置log保存的文件类型，如 txt log等
      *
      * @param fileType
      */
-    public  void setFileType(String fileType) {
+    public void setFileType(String fileType) {
         this.fileType = fileType;
     }
 
@@ -67,7 +64,7 @@ public class LogTool {
      *
      * @param defalutTag
      */
-    public  void setDefalutTag(String defalutTag) {
+    public void setDefalutTag(String defalutTag) {
         this.defalutTag = defalutTag;
     }
 
@@ -76,7 +73,7 @@ public class LogTool {
      *
      * @param logPath
      */
-    public  void setLogPath(String logPath) {
+    public void setLogPath(String logPath) {
         this.logPath = logPath;
     }
 
@@ -85,7 +82,7 @@ public class LogTool {
      *
      * @param fileName
      */
-    public  void setFileName(String fileName) {
+    public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
@@ -95,12 +92,12 @@ public class LogTool {
      * @param androidLogOn Android自带的log开启状态
      * @param localLogOn   txt文件记录状态
      */
-    public  void switchLog(boolean androidLogOn, boolean localLogOn) {
+    public void switchLog(boolean androidLogOn, boolean localLogOn) {
         this.androidLogOn = androidLogOn;
         this.localLogOn = localLogOn;
     }
 
-    public  void i(String msg) {
+    public void i(String msg) {
         byte[] buffer = msg.getBytes();
         if (androidLogOn)
             Log.i(defalutTag, msg);
@@ -108,7 +105,7 @@ public class LogTool {
             printToFile(INFO, defalutTag, buffer);
     }
 
-    public  void i(String tag, String msg) {
+    public void i(String tag, String msg) {
         byte[] buffer = msg.getBytes();
         if (androidLogOn)
             Log.i(tag, msg);
@@ -116,7 +113,7 @@ public class LogTool {
             printToFile(INFO, tag, buffer);
     }
 
-    public  void e(String msg) {
+    public void e(String msg) {
         byte[] buffer = msg.getBytes();
         if (androidLogOn)
             Log.e(defalutTag, msg);
@@ -124,7 +121,7 @@ public class LogTool {
             printToFile(ERROR, defalutTag, buffer);
     }
 
-    public  void e(String tag, String msg) {
+    public void e(String tag, String msg) {
         byte[] buffer = msg.getBytes();
         if (androidLogOn)
             Log.e(tag, msg);
@@ -132,7 +129,7 @@ public class LogTool {
             printToFile(ERROR, tag, buffer);
     }
 
-    public  void f(String msg) {
+    public void f(String msg) {
         byte[] buffer = msg.getBytes();
         if (androidLogOn)
             Log.d(defalutTag, msg);
@@ -140,7 +137,7 @@ public class LogTool {
             printToFile(FAIL, defalutTag, buffer);
     }
 
-    public  void f(String tag, String msg) {
+    public void f(String tag, String msg) {
         byte[] buffer = msg.getBytes();
         if (androidLogOn)
             Log.d(tag, msg);
@@ -148,7 +145,7 @@ public class LogTool {
             printToFile(FAIL, tag, buffer);
     }
 
-    public  void s(String msg) {
+    public void s(String msg) {
         byte[] buffer = msg.getBytes();
         if (androidLogOn)
             Log.i(defalutTag, msg);
@@ -156,7 +153,7 @@ public class LogTool {
             printToFile(SUCCESS, defalutTag, buffer);
     }
 
-    public  void s(String tag, String msg) {
+    public void s(String tag, String msg) {
         byte[] buffer = msg.getBytes();
         if (androidLogOn)
             Log.i(tag, msg);
@@ -171,9 +168,9 @@ public class LogTool {
      * @param tag
      * @param buffer
      */
-     private String logPath = "/sdcard/LocalLog";
+    private String logPath = "/sdcard/LocalLog";
 
-    private  void printToFile(int priority, String tag, byte[] buffer) {
+    private void printToFile(int priority, String tag, byte[] buffer) {
 
         String logpath = logPath;
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT+08:00"));

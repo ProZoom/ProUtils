@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.top.proutils.base.USBActivity;
-import com.top.proutils.permissiongen.PermissionGen;
 import com.top.proutils.tool.AnTools;
 import com.top.proutils.ui.StatusBarUtils;
 import com.top.proutilsdemo.R;
@@ -35,6 +34,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import kr.co.namee.permissiongen.PermissionGen;
 
 import static com.top.proutilsdemo.utils.constants.CATES;
 import static com.top.proutilsdemo.utils.constants.INFOIDS;
@@ -212,6 +213,11 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
             case R.drawable.ic_nfc:
                 Intent intentNFC = new Intent(MainActivity.this, NFCActivity.class);
                 startActivity(intentNFC);
+                break;
+
+            case R.drawable.ic_media_player:
+                Intent intentvideo = new Intent(MainActivity.this, testActivity.class);
+                startActivity(intentvideo);
                 break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());

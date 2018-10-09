@@ -12,12 +12,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.top.proutils.tool.AnTools;
 import com.top.proutilsdemo.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.top.proutils.Utils.DataUtils.bytesToHexString;
 
 /**
  * 作者：李阳
@@ -135,7 +135,7 @@ public class NFCActivity extends AppCompatActivity {
                     bIndex = mfc.sectorToBlock(j);
                     for (int i = 0; i < bCount; i++) {
                         byte[] data = mfc.readBlock(bIndex);
-                        metaInfo += "Block " + bIndex + " : " + bytesToHexString(data) + "\n";
+                        metaInfo += "Block " + bIndex + " : " + AnTools.data().bytesToHexString(data) + "\n";
                         bIndex++;
                     }
                 } else {

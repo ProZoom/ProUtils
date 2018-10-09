@@ -191,7 +191,7 @@ public class USBActivity extends AppCompatActivity {
         int ret = -1;
         //发送准备命令
         ret = usbDeviceConnection.bulkTransfer(outEndpoint, conmand, conmand.length, 2000);
-        Log.i(TAG, DataUtils.toHexString(conmand) + "---ret---" + ret);
+        //Log.i(TAG, DataUtils.toHexString(conmand) + "---ret---" + ret);
         //Toast.makeText(this, "指令已发送,ret="+ret, Toast.LENGTH_SHORT).show();
         //usbDeviceConnection.close();
         return ret;
