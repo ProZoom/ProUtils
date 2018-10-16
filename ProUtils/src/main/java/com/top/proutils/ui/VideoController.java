@@ -73,7 +73,6 @@ public class VideoController extends FrameLayout {
     private LayoutInflater mInflater;                  //获取布局服务实例，用于实例化xml
 
 
-
     //////////////////////////////////////////////////////////////////////////////////////
 
     public VideoController(@NonNull Context context) {
@@ -110,7 +109,7 @@ public class VideoController extends FrameLayout {
     /**
      * 设置设置seekBar进度条
      */
-    public void setProgress(){
+    public void setProgress() {
 
 
     }
@@ -148,37 +147,38 @@ public class VideoController extends FrameLayout {
     }
 
 
-    private void bindCtrlView(){
-        if (mAnchorVGroup==null) {
+    private void bindCtrlView() {
+        if (mAnchorVGroup == null) {
             return;
         }
         mAnchorVGroup.removeView(this);
 
-        FrameLayout.LayoutParams frameParams=new FrameLayout.LayoutParams(
+        FrameLayout.LayoutParams frameParams = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 Gravity.BOTTOM
         );
         removeAllViews();
-        if (mCtrlView==null) {
+        if (mCtrlView == null) {
             //创建进度条view
             createCtrlView();
         }
 
-        addView(mCtrlView,frameParams);
+        addView(mCtrlView, frameParams);
 
     }
 
-     /**
+    /**
      * 创建控制条信息view
+     *
      * @return
      */
-    private View createCtrlView(){
+    private View createCtrlView() {
 
         mCtrlView = mInflater.inflate(R.layout.controller, null);
 
-        ImageButton mBtnFullScreen =(ImageButton) mCtrlView.findViewById(R.id.fullscreen);
-        if (mBtnFullScreen!=null) {
+        ImageButton mBtnFullScreen = (ImageButton) mCtrlView.findViewById(R.id.fullscreen);
+        if (mBtnFullScreen != null) {
             mBtnFullScreen.requestFocus();
             //添加点击事件接口
 
@@ -195,11 +195,15 @@ public class VideoController extends FrameLayout {
 
         void pause();  //暂停播放
 
-        int getDuration(); //
+        int getDuration(); //获得所播放视频的总时间
 
-        int getCurrentPosition();
 
-        void seekTo(int pos);
+
+        int getCurrentPosition();  //获得当前的位置,我们可以用来设置播放时间的显示
+
+        void seekTo(int pos); //设置播放位置，我们用来总快进的时候就能用到
+
+
 
         boolean isPlaying();
 
@@ -239,12 +243,15 @@ public class VideoController extends FrameLayout {
                 switch (msg.what) {
 
                     case SHOW_PROGRESSBAR://显示进度条
-
+                        Log.i(TAG, "--显示进度条--");
                         break;
                     case FADE_OUT://退出进度条
+                        Log.i(TAG, "--退出进度条--");
 
                         break;
                     case SHOW_SEEKBAR://更新显示进度条
+                        Log.i(TAG, "--更新显示进度条--");
+
                         //videoController.setP
                         break;
                 }

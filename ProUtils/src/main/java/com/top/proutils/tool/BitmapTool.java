@@ -414,6 +414,7 @@ public class BitmapTool {
         int targetWidth = options.outWidth * scale;
         int targeHeight = options.outHeight * scale;
         compressImage(imageFile, targetWidth, targeHeight);
+
     }
 
     /**

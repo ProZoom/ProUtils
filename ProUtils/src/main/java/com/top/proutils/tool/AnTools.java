@@ -18,6 +18,7 @@ public class AnTools {
     private static DataTool mData;
     private static BitmapTool mBitmap;
     private static EncryptionTool mEncryption;
+    private static CacheTool mCache;
 
     private static SnackbarTool mSnackbar;
 
@@ -94,6 +95,13 @@ public class AnTools {
             mData = DataTool.instance();
         }
         return mData;
+    }
+
+    public static CacheTool cache() {
+        if (mCache == null) {
+            mCache = CacheTool.instance();
+        }
+        return mCache;
     }
 
     private static class MockApplication extends Application {

@@ -3,6 +3,7 @@ package com.top.proutilsdemo.view.activity;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.widget.MediaController;
 import android.widget.VideoView;
@@ -34,8 +35,13 @@ public class testActivity extends Activity {
         setContentView(R.layout.activity_test);
         ButterKnife.bind(this);
 
+        //网络播放
         Uri uri = Uri.parse("http://221.228.226.23/6/n/a/y/l/naylspkwvsujoltcqursegarxzowax/hd.yinyuetai.com/C02F015B377EA255563C19FBEF88B071.mp4");
         vv.setVideoURI(uri);
+
+        //本地sd卡播放
+        //String path_local = Environment.getExternalStorageDirectory().getAbsolutePath() + "/vivo.avi";
+        //vv.setVideoPath(path_local);
 
 
         //使用MediaController控制视频播放
@@ -44,9 +50,9 @@ public class testActivity extends Activity {
         mediaController.setMediaPlayer(vv);
 
         //使用VideoController控制视频播放
-        //VideoController videoController = new VideoController(this);
+        VideoController videoController = new VideoController(this);
         //vp.setMediaController(videoController);
-        //mediaController.setMediaPlayer(vv);
+        mediaController.setMediaPlayer(vv);
 
         //vv.start();
     }

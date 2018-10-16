@@ -53,7 +53,7 @@ dependencies {
 
 
     compile 'com.lovedise:permissiongen:0.0.6'
-
+    implementation 'com.google.zxing:core:3.3.3'
 
     //compile 'com.tencent.bugly:crashreport:2.6.6.1'
 
@@ -134,7 +134,5 @@ dependencies {
     // implementation files('libs/ACache.jar')
     //implementation files('libs/core-3.3.3.jar')
     //implementation project(':CaptureActivity')
-
-    implementation 'com.google.zxing:core:3.3.3'
 
 }
