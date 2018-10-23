@@ -63,29 +63,7 @@ public class FileTool {
         }
     }
 
-    public void changeSPLocation(String path) {
 
-        try {
-            Field field;
-            // 获取ContextWrapper对象中的mBase变量。该变量保存了ContextImpl对象
-            field = ContextWrapper.class.getDeclaredField("mBase");
-            field.setAccessible(true);
-            // 获取mBase变量
-            Object obj = field.get(this);
-            // 获取ContextImpl。mPreferencesDir变量，该变量保存了数据文件的保存路径
-            field = obj.getClass().getDeclaredField("mPreferencesDir");
-            field.setAccessible(true);
-            // 创建自定义路径
-            File file = new File(path);
-            //File file = new File(android.os.Environment.getExternalStorageDirectory().getPath() + "/MyVisit/SharedPreference/");
-            // 修改mPreferencesDir变量的值
-            field.set(obj, file);
-
-        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
-            e.printStackTrace();
-        }
-
-    }
 
 
 }

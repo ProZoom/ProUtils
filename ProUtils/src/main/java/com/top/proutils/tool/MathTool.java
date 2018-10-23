@@ -1,12 +1,17 @@
 package com.top.proutils.tool;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 /**
  * 作者：李阳
  * 时间：2018/10/8
- * 描述：
+ * 描述：数学工具类
  */
 public class MathTool {
 
@@ -55,7 +60,7 @@ public class MathTool {
     }*/
 
     //方差s^2=[(x1-x)^2 +...(xn-x)^2]/n
-    public static double Variance(double[] x) {
+    public  double Variance(double[] x) {
         int m = x.length;
         double sum = 0;
         for (int i = 0; i < m; i++) {//求和
@@ -70,7 +75,7 @@ public class MathTool {
     }
 
     //标准差σ=sqrt(s^2)
-    public static double StandardDiviation(double[] x) {
+    public  double StandardDiviation(double[] x) {
         int m = x.length;
         double sum = 0;
         for (int i = 0; i < m; i++) {//求和
@@ -82,6 +87,78 @@ public class MathTool {
             dVar += (x[i] - dAve) * (x[i] - dAve);
         }
         return Math.sqrt(dVar / m);
+    }
+
+
+     /**
+     * 获取百分比
+     * @param num
+     * @param all
+     * @return
+     */
+    public  String getPerCent(int num, int all) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        // 设置精确到小数点后2位
+        numberFormat.setMaximumFractionDigits(2);
+        String result = numberFormat.format((float) num / (float) all * 100);
+        System.out.println("num1和num2的百分比为:" + result + "%");
+        return result+"%";
+    }
+
+
+
+    public  String div(long num, long all) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        // 设置精确到小数点后2位
+        numberFormat.setMaximumFractionDigits(2);
+        String result = numberFormat.format((float) num / (float) all * 100);
+        //System.out.println("num1和num2的百分比为:" + result + "%");
+        return result;
+    }
+
+
+    /**
+     * 获取两段时间差
+     * @param before
+     * @param now
+     */
+    public  void getTimeDiff(String before, String now) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        Date date1 = null;
+        Date date2 = null;
+
+        try {
+            date1 = sdf.parse(before);
+            date2 = sdf.parse(now);
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        long l = date2.getTime() - date1.getTime();
+        long day = l / (24 * 60 * 60 * 1000);
+        long hour = (l / (60 * 60 * 1000) - day * 24);
+        long min = ((l / (60 * 1000)) - day * 24 * 60 - hour * 60);
+        long s = (l / 1000 - day * 24 * 60 * 60 - hour * 60 * 60 - min * 60);
+        System.out.println(day + "天" + hour + "小时" + min + "分" + s + "秒");
+
+    }
+
+    /**
+     * 将数字格式化为金钱符号
+     * @param number
+     * @param locale
+     * @return
+     */
+    public  String  getMoneyNumber(double number,Locale locale) {
+
+        //NumberFormat format = NumberFormat.getCurrencyInstance(Locale.CHINA);
+        NumberFormat format = NumberFormat.getCurrencyInstance(locale);
+        System.out.println("Locale.CHINA: " + format.format(number));
+        format = NumberFormat.getCurrencyInstance(Locale.US);
+        System.out.println("Locale.US: " + format.format(number));
+
+        return format.format(number);
     }
 
 }

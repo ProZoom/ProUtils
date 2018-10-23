@@ -17,6 +17,8 @@ import android.os.Environment;
 import android.util.Base64;
 import android.util.Log;
 
+import com.top.utils.ImageUtils;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -24,6 +26,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 作者：ProZoom
@@ -55,6 +59,563 @@ public class BitmapTool {
         }
         return instance;
     }
+
+
+
+    /**
+     * 图片二值化
+     * @param bitmap
+     * @param threshold
+     * @return
+     */
+    public  Bitmap Image2SigleColor(Bitmap bitmap, int threshold) {
+
+        StringBuffer stringBuffer = new StringBuffer();
+        int[] oldPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        bitmap.getPixels(oldPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        int[] newPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        int size = 0;
+        for (int y = 0; y < bitmap.getHeight(); y++) {
+            for (int x = 0; x < bitmap.getWidth(); x++) {
+
+                int px = oldPx[x + bitmap.getWidth() * y];
+                int b = Color.blue(px);
+                int g = Color.green(px);
+                int r = Color.red(px);
+
+                int light = (r + g + b) / 3;
+                //二值化
+                if (light > threshold) {
+                    newPx[x + bitmap.getWidth() * y] = Color.argb(0xff, 0xff, 0xff, 0xff);
+                } else {
+                    newPx[x + bitmap.getWidth() * y] = Color.argb(0xff, 0x00, 0x00, 0x00);
+                }
+
+            }
+            size++;
+        }
+        Log.d(TAG, "image2String: x==" + size);
+        Log.d(TAG, "image2String: height==" + bitmap.getHeight());
+        Log.d(TAG, "image2String: width==" + bitmap.getWidth());
+        Bitmap newBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        newBitmap.setPixels(newPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        return newBitmap;
+    }
+
+    /**
+     * 黑白照片
+     * @param bitmap
+     * @return
+     */
+    public  Bitmap image2BlackColor(Bitmap bitmap) {
+        StringBuffer stringBuffer = new StringBuffer();
+        int[] oldPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        bitmap.getPixels(oldPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        int[] newPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        int size = 0;
+        for (int y = 0; y < bitmap.getHeight(); y++) {
+            for (int x = 0; x < bitmap.getWidth(); x++) {
+
+                int px = oldPx[x + bitmap.getWidth() * y];
+                int b = Color.blue(px);
+                int g = Color.green(px);
+                int r = Color.red(px);
+
+                int light = (r + g + b) / 3;
+                //二值化
+//                if (light > 0xff / 3 * 2) {
+//                    newPx[x + bitmap.getWidth() * y] = Color.argb(0xff, 0xff, 0xff, 0xff);
+//                } else {
+//                    newPx[x + bitmap.getWidth() * y] = Color.argb(0xff, 0x00, 0x00, 0x00);
+//                }
+
+                newPx[x + bitmap.getWidth() * y] = Color.argb(0xff, light, light, light);
+            }
+            size++;
+        }
+        Log.d(TAG, "image2String: x==" + size);
+        Log.d(TAG, "image2String: height==" + bitmap.getHeight());
+        Log.d(TAG, "image2String: width==" + bitmap.getWidth());
+        Bitmap newBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        newBitmap.setPixels(newPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        return newBitmap;
+    }
+
+    /**
+     * 负片效果
+     * @param bitmap
+     * @return
+     */
+    public  Bitmap image2Negative(Bitmap bitmap) {
+        StringBuffer stringBuffer = new StringBuffer();
+        int[] oldPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        bitmap.getPixels(oldPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        int[] newPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        int size = 0;
+        for (int y = 0; y < bitmap.getHeight(); y++) {
+            for (int x = 0; x < bitmap.getWidth(); x++) {
+
+                int px = oldPx[x + bitmap.getWidth() * y];
+                int b = Color.blue(px);
+                int g = Color.green(px);
+                int r = Color.red(px);
+
+                int light = (r + g + b) / 3;
+
+                newPx[x + bitmap.getWidth() * y] = Color.argb(0xff, 0xff - r, 0xff - g, 0xff - b);
+//                int newb=b+30<255?b+10:255;
+//                int newg=g+30<255?g+10:255;
+//                int newr=r+30<255?r+10:255;
+//                newPx[x + bitmap.getWidth() * y] = Color.argb(0xff, newr, newg, newb);
+            }
+            size++;
+        }
+        Log.d(TAG, "image2String: x==" + size);
+        Log.d(TAG, "image2String: height==" + bitmap.getHeight());
+        Log.d(TAG, "image2String: width==" + bitmap.getWidth());
+        Bitmap newBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        newBitmap.setPixels(newPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        return newBitmap;
+    }
+
+    /**
+     * 把图片转成byte
+     * @param bitmap
+     * @return
+     */
+    public  byte[] image2Bytes(Bitmap bitmap) {
+        int newHeight = bitmap.getHeight();
+        int newWidth = bitmap.getWidth() % 8 == 0 ? bitmap.getWidth() / 8 : bitmap.getWidth() / 8 + 1;
+
+        byte[] dataBytes = new byte[newHeight * newWidth];
+        byte[] heightBytes = int2Byte2(newHeight);
+        byte[] widthBytes = int2Byte2(newWidth);
+        byte[] resultBytes = new byte[8 + newHeight * newWidth];
+
+
+//        stringBuffer.append(strWidth);
+//        stringBuffer.append(strHeight);
+
+
+        int[] oldPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        bitmap.getPixels(oldPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        int size = 0;
+        for (int y = 0; y < bitmap.getHeight(); y++) {
+            for (int x = 0; x < newWidth; x++) {
+                StringBuffer sb = new StringBuffer();
+                for (int i = 0; i < 8; i++) {
+                    if (x * 8 + i < bitmap.getWidth()) {
+                        int px = oldPx[x * 8 + i + bitmap.getWidth() * y];
+                        int b = Color.blue(px);
+                        int g = Color.green(px);
+                        int r = Color.red(px);
+
+                        int light = (r + g + b) / 3;
+                        if (light > 0xff / 3 * 2) {
+                            sb.append(1);
+                        } else {
+                            sb.append(0);
+                        }
+                    } else {
+                        sb.append(0);
+                    }
+                }
+
+                byte c = (byte) (Integer.parseInt(sb.reverse().toString(), 2) & 0xff);
+                dataBytes[x + y * newWidth] = c;
+            }
+            size++;
+        }
+        Log.d(TAG, "image2String: x==" + size);
+//        Log.d(TAG, "stringBuffer.size: x==" + stringBuffer.length());
+        System.arraycopy(widthBytes, 0, resultBytes, 0, 4);
+        System.arraycopy(heightBytes, 0, resultBytes, 4, 4);
+        System.arraycopy(dataBytes, 0, resultBytes, 8, dataBytes.length);
+        return resultBytes;
+    }
+
+    /**
+     * 把字符串转成图片
+     * @param resultBytes
+     * @return
+     */
+    public  Bitmap string2Image(byte[] resultBytes) {
+
+
+        byte[] heightBytes = new byte[4];
+        byte[] widthBytes = new byte[4];
+
+        System.arraycopy(resultBytes, 0, widthBytes, 0, 4);
+        System.arraycopy(resultBytes, 4, heightBytes, 0, 4);
+
+        int width = getInt(widthBytes);
+        int height = ByteUtils.ByteArrayToInt(heightBytes);
+        int realWidth = width * 8;
+
+        byte[] dataBytes = new byte[height * width];
+        System.arraycopy(resultBytes, 8, dataBytes, 0, height * width);
+
+
+        int[] newPx = new int[realWidth * height];
+        Log.d(TAG, "string2Image: width===" + width);
+        Log.d(TAG, "string2Image: height===" + height);
+        int size = 0;
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                byte c = dataBytes[x + y * width];
+
+                for (int i = 0; i < 8; i++) {
+                    int index = x * 8 + i + realWidth * y;
+//                    size=index;
+//                    int px=c>>i|0x01;
+                    int px = c >> i & 0x01;
+
+                    if (px == 1) {
+//                        Log.d(TAG, "string2Image: px=="+px);
+                        newPx[index] = Color.argb(0xff, 0xff, 0xff, 0xff);
+                    } else {
+                        newPx[index] = Color.argb(0xff, 0x00, 0x00, 0x00);
+                    }
+
+                }
+//                int index=x+realWidth*y;
+//                size=index;
+//                newPx[index]=Color.argb(0xff, 0x00, 0x00, 0x00);
+            }
+        }
+        Log.d(TAG, "string2Image: size==" + (size + 1));
+        Log.d(TAG, "string2Image: needSize==" + realWidth * height);
+//        for (int i=0;i<newPx.length;i++){
+//            newPx[i]=Color.argb(0xff, 0x00, 0x00, 0x00);
+//        }
+//        for (char c:string.toCharArray()){
+//            if (c=='\n'){
+//
+//            }else {
+//               String str= Integer.toBinaryString(c);
+//                Log.d(TAG, "string2Image: str==="+str);
+//               for (char px:str.toCharArray()){
+//                   if (px==1){
+//                       integerList.add( Color.argb(0xff, 0xff, 0xff, 0xff));
+//                   }else {
+//                       integerList.add(Color.argb(0xff, 0x00, 0x00, 0x00));
+//                   }
+//               }
+//            }
+//        }
+//
+//
+//
+//        Log.d(TAG, "string2Image: integerList==="+integerList.size());
+//        Log.d(TAG, "string2Image: width*height==="+width*height);
+
+//
+//        for (int i = 0; i < integerList.size(); i++) {
+//            newPx[i] = integerList.get(i);
+//        }
+//        Log.d(TAG, "string2Image: string=="+string);
+        Bitmap newBitmap = Bitmap.createBitmap(realWidth, height, Bitmap.Config.ARGB_8888);
+        newBitmap.setPixels(newPx, 0, realWidth, 0, 0, realWidth, height);
+        return newBitmap;
+    }
+
+    /**
+     * 从图片中取出二维码
+     * @param mybitmap
+     * @return
+     */
+    public  Bitmap ImageFindQR(Bitmap mybitmap) {
+        Bitmap bitmap= Image2SigleColor(mybitmap,70);
+        List<Point> points = new ArrayList<>(); //用来保存特征点
+        List<Markpoint> findPoints=new ArrayList<>();
+        int pointSize = 0;
+        int qrLeftSize = bitmap.getWidth() / 50 < bitmap.getHeight() / 50 ? bitmap.getWidth() / 50 : bitmap.getHeight() / 50; //二维码左上角宽度阈值
+        int qrLegthSize = 3;
+
+        int black = Color.argb(0xff, 0x00, 0x00, 0x00);
+        int red = Color.argb(0xff, 0xff, 0x00, 0x00);
+        int transparent = Color.argb(0x00, 0x00, 0x00, 0x00);
+
+        int[] oldPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        bitmap.getPixels(oldPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+        int[] newPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        for (int i = 0; i < newPx.length; i++) {
+            newPx[i] = transparent;
+        }
+        for (int y = 0; y < bitmap.getHeight(); y++) {
+            for (int x = 0; x < bitmap.getWidth(); x++) {
+
+                int px = oldPx[x + bitmap.getWidth() * y];
+
+                if (px == black) {
+                    int x1Size = 0;
+                    int y1Size = 0;
+
+                    int x2Size = 0;
+                    int y2Size = 0;
+
+                    int pointx1 = x;
+                    int pointy1 = y;
+
+                    if (bitmap.getWidth() - x <= qrLeftSize || bitmap.getHeight() - y <= qrLeftSize) {
+                        continue;
+                    }
+
+                    if (oldPx[x + qrLeftSize + bitmap.getWidth() * y] != black ||
+                            oldPx[x + bitmap.getWidth() * (y + qrLeftSize)] != black) {
+                        continue;
+                    }
+
+                    for (int x1 = x; x1 < bitmap.getWidth(); x1++) { //找到二维码左标志的上横
+                        int tmpPx = oldPx[x1 + bitmap.getWidth() * y];
+                        if (tmpPx == black) {
+                            x1Size++;
+                            pointx1 = x1;
+                        } else {
+                            break;
+                        }
+                    }
+                    if (x1Size > qrLeftSize) { //二维码左标志的横大于阈值
+                        for (int y1 = y; y1 < bitmap.getHeight(); y1++) { //找到二维码左标志的左竖
+                            int tmpPx = oldPx[x + bitmap.getWidth() * y1];
+                            if (tmpPx == black) {
+                                y1Size++;
+                                pointy1 = y1;
+                            } else {
+                                break;
+                            }
+                        }
+                        if (Math.abs(x1Size - y1Size) < qrLegthSize) {   //如果左右宽度差不多
+                            // Log.d(TAG, "ImageFindQR: ("+x+","+y+")");
+
+                            int dSize = x1Size < y1Size ? x1Size : y1Size;
+
+                            for (int x1 = x; x1 < bitmap.getWidth(); x1++) { //找到二维码左标志的下横
+                                int tmpPx = oldPx[x1 + bitmap.getWidth() * (pointy1)];
+                                if (tmpPx == black) {
+                                    x2Size++;
+                                } else {
+                                    break;
+                                }
+                            }
+                            if (x2Size > qrLeftSize) { //二维码左标志的横大于阈值
+                                for (int y1 = y; y1 < bitmap.getHeight(); y1++) { //找到二维码左标志的左竖
+                                    int tmpPx = oldPx[pointx1 + bitmap.getWidth() * y1];
+                                    if (tmpPx == black) {
+                                        y2Size++;
+                                    } else {
+                                        break;
+                                    }
+                                }
+//                                Log.d(TAG, "ImageFindQR: x1Size"+x1Size);
+//                                Log.d(TAG, "ImageFindQR: x2Size"+x2Size);
+//                                Log.d(TAG, "ImageFindQR: y1Size"+y1Size);
+//                                //      Log.d(TAG, "ImageFindQR: dSize"+dSize);
+//                                Log.d(TAG, "ImageFindQR: y2Size"+y2Size);
+                                if (
+                                        Math.abs(x1Size - y1Size) < qrLegthSize &&
+                                                Math.abs(x1Size - y2Size) < qrLegthSize &&
+                                                Math.abs(x2Size - y1Size) < qrLegthSize &&
+                                                Math.abs(x2Size - y2Size) < qrLegthSize) {   //如果左右宽度差不多
+                                    for (int i = 0; i < dSize; i++) {
+                                        for (int j = 0; j < dSize; j++) {
+                                            newPx[x + i + (y + j) * bitmap.getWidth()] = red;
+                                        }
+                                    }
+                                    pointSize++;
+                                }
+                            }
+
+//                            for (int i = 0; i < dSize; i++) {
+//                                for (int j = 0; j < dSize; j++) {
+//                                    newPx[x + i + (y + j) * bitmap.getWidth()] = Color.argb(0xff, 0xff, 0x00, 0x00);
+//                                }
+//                            }
+                        }
+                    }
+
+
+                }
+
+
+            }
+        }
+        for (int y = 1; y < bitmap.getHeight()-1; y++) {
+            for (int x = 1; x < bitmap.getWidth()-1; x++) {
+                int px = newPx[x + bitmap.getWidth() * y];
+                int topPx = newPx[x + bitmap.getWidth() * (y - 1)];
+                int leftPx = newPx[x - 1 + bitmap.getWidth()*y];
+//                int bottonPx=newPx[x + bitmap.getWidth() * (y +1)];
+//                int rightPx = newPx[x + 1 + bitmap.getWidth()*y];
+                if (px == red &&
+                        topPx == transparent &&
+                        leftPx == transparent) {
+                    points.add(new Point(x, y));
+                }
+            }
+        }
+        for (int i=0;i<points.size();i++){
+            for (int j=i+1;j<points.size();j++){
+                if (Math.abs(points.get(i).y-points.get(j).y)<qrLegthSize){
+                    for (int k=0;k<points.size();k++){
+                        if (k!=i&&k!=j){
+                            if ((Math.abs(points.get(i).x-points.get(k).x)<qrLegthSize)&&
+                                    ( (Math.abs(points.get(k).y-points.get(i).y)-Math.abs(points.get(i).x-points.get(j).x))<qrLegthSize)){
+                                Markpoint markpoint=new Markpoint(points.get(i),points.get(j),points.get(k));
+                                findPoints.add(markpoint);
+
+                                Log.d(TAG, "ImageFindQR: i"+i);
+                                Log.d(TAG, "ImageFindQR: j"+j);
+                                Log.d(TAG, "ImageFindQR: k"+k);
+
+                                Log.d(TAG, "ImageFindQR: pi"+points.get(i).toString());
+                                Log.d(TAG, "ImageFindQR: pj"+points.get(j).toString());
+                                Log.d(TAG, "ImageFindQR: pk"+points.get(k).toString());
+                                for (int a=0;a<10;a++){
+                                    for (int b=0;b<10;b++){
+                                        newPx[points.get(i).x+a+(points.get(i).y+b)*bitmap.getWidth()]=Color.argb(0xff,00,00,0xff);
+                                    }
+                                }
+                                for (int a=0;a<10;a++){
+                                    for (int b=0;b<10;b++){
+                                        newPx[points.get(j).x+a+(points.get(j).y+b)*bitmap.getWidth()]=Color.argb(0xff,00,00,0xff);
+                                    }
+                                }
+                                for (int a=0;a<10;a++){
+                                    for (int b=0;b<10;b++){
+                                        newPx[points.get(k).x+a+(points.get(k).y+b)*bitmap.getWidth()]=Color.argb(0xff,00,00,0xff);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        Point leftPoint=findPoints.get(0).p1;
+        Point rightPoint=findPoints.get(0).p1;
+        Point topPoint=findPoints.get(0).p1;
+        Point bottomPoint=findPoints.get(0).p1;
+        int maxWidth=0;
+        int maxHeight=0;
+
+        for (Markpoint m:findPoints){
+            leftPoint=leftPoint.x<m.p1.x?leftPoint:m.p1;
+            rightPoint=rightPoint.x>m.p2.x?rightPoint:m.p2;
+            topPoint=topPoint.y<m.p1.y?topPoint:m.p1;
+            bottomPoint=bottomPoint.y>m.p3.y?bottomPoint:m.p3;
+
+        }
+//        for (int x=rightPoint.x;x<bitmap.getWidth();x++){
+//
+//            int tmpPx = oldPx[x + bitmap.getWidth() * rightPoint.y];
+//            if (tmpPx == red) {
+//                rightPoint.x=x;
+//            } else {
+//                break;
+//            }
+//        }
+//
+//        for (int y=bottomPoint.y;y<bitmap.getHeight();y++){
+//            int tmpPx = oldPx[bottomPoint.x + bitmap.getWidth() * y];
+//            if (tmpPx == red) {
+//                bottomPoint.y=y;
+//            } else {
+//                break;
+//            }
+//        }
+        Log.d(TAG, "ImageFindQR: height==" + bitmap.getHeight());
+        Log.d(TAG, "ImageFindQR: width==" + bitmap.getWidth());
+        Log.d(TAG, "ImageFindQR: markpoints.size==" + points.size());
+        Log.d(TAG, "ImageFindQR: pointSize==" + pointSize);
+        Log.d(TAG, "ImageFindQR: findPoints==" + findPoints.size());
+
+
+        int finalLeft=leftPoint.x-10<0?0:leftPoint.x-10;
+        int finalTop=topPoint.y-10<0?0:topPoint.y-10;
+        int finalRight=rightPoint.x+100>bitmap.getWidth()?bitmap.getWidth():rightPoint.x+100;
+        int finalBottom=bottomPoint.y+100>bitmap.getHeight()?bitmap.getHeight():bottomPoint.y+100;
+        int finalWidth=finalRight-finalLeft;
+        int finalHeight=finalBottom-finalTop;
+
+
+
+        Log.d(TAG, "ImageFindQR: finalLeft="+finalLeft);
+        Log.d(TAG, "ImageFindQR: finalTop="+finalTop);
+        Log.d(TAG, "ImageFindQR: finalRight="+finalRight);
+        Log.d(TAG, "ImageFindQR: finalBottom="+finalBottom);
+        Log.d(TAG, "ImageFindQR: finalWidth="+finalWidth);
+        Log.d(TAG, "ImageFindQR: finalHeight="+finalHeight);
+
+
+        Log.d(TAG, "ImageFindQR: 准备赋值");
+
+        int[] fatherPx = new int[bitmap.getHeight() * bitmap.getWidth()];
+        mybitmap.getPixels(fatherPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+
+        int[] finalPx=new int[finalWidth*finalHeight];
+        for (int y=finalTop;y<finalBottom;y++){
+            for (int x=finalLeft;x<finalRight;x++){
+                int realx=x-finalLeft;
+                int realy=y-finalTop;
+                int finalIndex=realx+realy*finalWidth;
+                int oldIndex=x+y*bitmap.getWidth();
+
+//                Log.d(TAG, "ImageFindQR: realx=" + realx);
+//                Log.d(TAG, "ImageFindQR: realy=" + realy);
+//
+//                Log.d(TAG, "ImageFindQR: finalIndex=" + finalIndex);
+//                Log.d(TAG, "ImageFindQR: oldIndex=" + oldIndex);
+                finalPx[finalIndex]=fatherPx[oldIndex];
+
+            }
+        }
+        Log.d(TAG, "ImageFindQR: 赋值完成");
+
+
+        Bitmap newBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
+        newBitmap.setPixels(newPx, 0, bitmap.getWidth(), 0, 0, bitmap.getWidth(), bitmap.getHeight());
+
+        Bitmap finalBitmap = Bitmap.createBitmap(finalWidth,finalHeight, Bitmap.Config.ARGB_8888);
+        finalBitmap.setPixels(finalPx, 0, finalWidth, 0, 0, finalWidth, finalHeight);
+        Log.d(TAG, "ImageFindQR: 创建图片完成");
+        return finalBitmap;
+    }
+
+    static class Markpoint {
+        private Point p1, p2, p3; //左上，右上，左下，右下
+
+        public Markpoint(Point p1, Point p2, Point p3) {
+            this.p1 = p1;
+            this.p2 = p2;
+            this.p3 = p3;
+        }
+
+
+    }
+
+    public  class Point {
+        public int x;
+        public int y;
+
+        public Point(int x, int y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        @Override
+        public String toString() {
+            return "Point{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
+        }
+    }
+
+
+    /////////////////////////////////////
+
+
 
 
     /**
@@ -806,6 +1367,30 @@ public class BitmapTool {
         }
 
         return datas;
+    }
+
+
+
+    private   byte[] int2Byte2(int len) {
+        byte[] data = new byte[2];
+        data[0] = (byte) (len >> 8);
+        data[1] = (byte) (len >> 0);
+        return data;
+    }
+
+     private   int getInt(byte[] data) {
+        int temp = 0;
+        if (data == null) {
+            return 0;
+        }
+        int length = data.length;
+        for (int i = 0; i < length; i++) {
+            temp |= (data[i] & 0xff);
+            if (i != length - 1) {
+                temp <<= 8;
+            }
+        }
+        return temp;
     }
 
 

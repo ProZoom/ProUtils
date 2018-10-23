@@ -32,6 +32,7 @@ public class AnTools {
         if (mApplication == null) {
             mApplication = app;
         }
+
     }
 
     public static Application application() {

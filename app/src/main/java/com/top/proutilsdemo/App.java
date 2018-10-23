@@ -2,9 +2,7 @@ package com.top.proutilsdemo;
 
 import android.app.Application;
 
-import com.top.proutils.Utils.ProCache;
 import com.top.proutils.tool.AnTools;
-import com.top.proutils.tool.FileTool;
 
 /**
  * 作者：ProZoom

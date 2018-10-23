@@ -9,6 +9,12 @@ import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
 
 /**
  * 作者：ProZoom
@@ -274,6 +280,8 @@ public class AppTool {
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting()
                 && activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
     }
+
+
 
 
 }

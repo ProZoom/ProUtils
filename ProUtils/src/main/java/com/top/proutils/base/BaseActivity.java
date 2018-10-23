@@ -14,6 +14,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
 import com.top.proutils.R;
+import com.top.proutils.tool.AnTools;
 
 /*
 * 作者：ProZoom
@@ -75,6 +76,8 @@ public abstract class BaseActivity extends FragmentActivity implements View.OnCl
             }
             initView(mContextView);
             doBusiness(this);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

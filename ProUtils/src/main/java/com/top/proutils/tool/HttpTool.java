@@ -1,7 +1,16 @@
-package com.top.proutils.Utils;
+package com.top.proutils.tool;
 
 import android.accounts.NetworkErrorException;
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Handler;
 
@@ -20,10 +29,35 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * 一个基于HttpURLConnection 简单网络请求工具类
- * Created by tsy on 16/8/15.
+ * 作者：ProZoom
+ * 时间：2018/3/16
+ * 描述：一个基于HttpURLConnection 简单网络请求工具类
  */
-public class HttpURLConnectionUtils {
+public class HttpTool {
+
+    private static final String TAG = "HttpTool";
+    private static volatile HttpTool instance;// !!必须要加volatile限制指令重排序，不然这是双重检验的漏洞
+    private static final Object lock = new Object();
+
+
+    public HttpTool() {
+
+    }
+
+    //单例模式，懒汉氏
+    public static HttpTool instance() {
+        if (instance == null) {
+            synchronized (lock) {
+                if (instance == null) {
+                    instance = new HttpTool();
+                }
+            }
+        }
+        return instance;
+    }
+
+    ///////////////////////////////////////////////////////
+
     /**
      * 请求结果回调接口
      */
@@ -38,7 +72,7 @@ public class HttpURLConnectionUtils {
      * @param params 请求参数
      * @param callback 请求回调
      */
-    public static void doPost(final String url, final Map<String, String> params, final HttpResponseCallBack callback) {
+    public  void doPost(final String url, final Map<String, String> params, final HttpResponseCallBack callback) {
         final Handler handler = new Handler();
         new Thread(new Runnable() {
             @Override
@@ -70,7 +104,7 @@ public class HttpURLConnectionUtils {
      * @param file 上传文件参数
      * @param callback 请求回调
      */
-    public static void doPost(final String url, final Map<String, String> params, final Map<String, String> file, final HttpResponseCallBack callback) {
+    public  void doPost(final String url, final Map<String, String> params, final Map<String, String> file, final HttpResponseCallBack callback) {
         final Handler handler = new Handler();
         new Thread(new Runnable() {
             @Override
@@ -100,7 +134,7 @@ public class HttpURLConnectionUtils {
      * @param url 请求url
      * @param callback 请求回调
      */
-    public static void doGet(final String url, final HttpResponseCallBack callback) {
+    public  void doGet(final String url, final HttpResponseCallBack callback) {
         final Handler handler = new Handler();
         new Thread(new Runnable() {
             @Override
@@ -133,7 +167,7 @@ public class HttpURLConnectionUtils {
      * @return 请求返回值
      */
     @TargetApi(Build.VERSION_CODES.ECLAIR)
-    private static String post(String url, Map<String, String> params, Map<String, String> files) {
+    private  String post(String url, Map<String, String> params, Map<String, String> files) {
         HttpURLConnection conn = null;
 
         //http content 头尾等信息
@@ -258,7 +292,7 @@ public class HttpURLConnectionUtils {
      * @return 请求返回值
      */
     @TargetApi(Build.VERSION_CODES.ECLAIR)
-    private static String get(String url) {
+    private  String get(String url) {
         HttpURLConnection conn = null;
         try {
             //创建连接
@@ -296,4 +330,6 @@ public class HttpURLConnectionUtils {
             }
         }
     }
+
+
 }

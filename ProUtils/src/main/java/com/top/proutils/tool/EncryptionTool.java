@@ -68,6 +68,8 @@ public class EncryptionTool {
         } catch (NoSuchAlgorithmException e) {
             cacheKey = String.valueOf(key.hashCode());
         }
+
+
         return cacheKey;
     }
 

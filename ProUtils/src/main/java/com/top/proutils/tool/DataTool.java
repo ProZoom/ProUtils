@@ -20,7 +20,7 @@ import java.util.zip.GZIPOutputStream;
 /**
  * 作者：ProZoom
  * 时间：2018/3/16
- * 描述：设备相关工具类
+ * 描述：数据转换工具类
  */
 public class DataTool {
 
@@ -45,80 +45,7 @@ public class DataTool {
         return instance;
     }
 
-    /////Sp
-    public  void spPutString(Context context, String fileName, String key, String value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
-        sharedPreferences.edit().putString(key, value).apply();//提交数据
-    }
 
-    public  String spGetString(Context context, String fileName, String key, String value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
-
-        return sharedPreferences.getString(key, value);
-    }
-
-    public  void spPutBoolean(Context context, String fileName, String key, boolean value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
-        sharedPreferences.edit().putBoolean(key, value).apply();//提交数据
-    }
-
-    public  boolean spGetBoolean(Context context, String fileName, String key, boolean value) {
-        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
-
-        return sharedPreferences.getBoolean(key, value);
-    }
-
-
-    /*
-    * 描述：缓存数据
-    * @param [obj, path]
-    * @return void
-    */
-    public  void cacheSave(Object obj, String path) {
-        try {
-            File f = new File(path);
-            FileOutputStream fos = new FileOutputStream(f);
-            ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(obj);
-            oos.flush();
-            oos.close();
-        } catch (IOException e) {
-            Log.i(TAG, "save: " + e.toString());
-        }
-    }
-
-    /*
-    * 描述：读取缓存的数据
-    * @param [path]
-    * @return java.lang.Object
-    */
-    public  Object cacheLoad(String path) {
-        Object obj = null;
-        File file = new File(path);
-        try {
-            if (file.exists()) {
-                FileInputStream fis = new FileInputStream(file);
-                ObjectInputStream ois = new ObjectInputStream(fis);
-                try {
-                    obj = ois.readObject();
-                } catch (ClassNotFoundException e) {
-                }
-                ois.close();
-            }
-        } catch (IOException e) {
-            Log.i(TAG, "save: " + e.toString());
-        }
-        return obj;
-    }
-
-    private char[] getChar(int position) {
-        String str = String.valueOf(position);
-        if (str.length() == 1) {
-            str = "0" + str;
-        }
-        char[] c = {str.charAt(0), str.charAt(1)};
-        return c;
-    }
 
     /**
      * 16进制字符串转换成数组

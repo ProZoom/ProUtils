@@ -1,4 +1,4 @@
-package com.top.proutils.Utils;
+package com.top.proutils.tool;
 
 import android.annotation.SuppressLint;
 
@@ -9,10 +9,35 @@ import java.util.Date;
 import java.util.Locale;
 
 /**
- * 通用工具类
+ * 作者：ProZoom
+ * 时间：2018/3/16
+ * 描述：设备相关工具类
  */
-public class TimeUtil {
+public class TimeTool {
 
+    private static final String TAG = "TimeTool";
+    private static volatile TimeTool instance;// !!必须要加volatile限制指令重排序，不然这是双重检验的漏洞
+    private static final Object lock = new Object();
+
+
+    public TimeTool() {
+
+    }
+
+    //单例模式，懒汉氏
+    public static TimeTool instance() {
+        if (instance == null) {
+            synchronized (lock) {
+                if (instance == null) {
+                    instance = new TimeTool();
+                }
+            }
+        }
+        return instance;
+    }
+
+
+    //////////////////////////////////////////////
     /**
      * 默认的格式化时间时的模式字符串
      */
@@ -20,7 +45,7 @@ public class TimeUtil {
     /**
      * 格式化时间的工具
      */
-    private static SimpleDateFormat sdf = new SimpleDateFormat(fmtPattern, Locale.CHINA);
+    private  SimpleDateFormat sdf = new SimpleDateFormat(fmtPattern, Locale.CHINA);
     /**
      * 被格式化的时间对象
      */
@@ -32,7 +57,7 @@ public class TimeUtil {
      * @param timeMills 以毫秒为单位的时间
      * @return 根据模式字符串格式化后的时间
      */
-    public static String getFormatted(long timeMills) {
+    public  String getFormatted(long timeMills) {
 
         return getFormatted("mm:ss", timeMills);
 
@@ -45,7 +70,7 @@ public class TimeUtil {
      * @param timeMills 以毫秒为单位的时间
      * @return 根据模式字符串格式化后的时间
      */
-    public static String getFormatted(String format, long timeMills) {
+    public  String getFormatted(String format, long timeMills) {
         // 应用参数中指定的模式字符串
         if (format != null && !"".equals(format)) {
             sdf.applyPattern(format);
@@ -59,7 +84,7 @@ public class TimeUtil {
     /**
      * 获取当月的 天数
      */
-    public static int getCurrentMonthDay() {
+    public  int getCurrentMonthDay() {
         Calendar a = Calendar.getInstance();
         a.set(Calendar.DATE, 1);
         a.roll(Calendar.DATE, -1);
@@ -73,7 +98,7 @@ public class TimeUtil {
      * @param date
      * @return
      */
-    public static String getWeek(Date date) {
+    public  String getWeek(Date date) {
         String[] weeks = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
@@ -87,7 +112,7 @@ public class TimeUtil {
     /**
      * 根据日期 找到对应日期的 星期
      */
-    public static int getDayOfWeekByDate(String date) {
+    public  int getDayOfWeekByDate(String date) {
         int dayOfweek = -1;
         try {
             SimpleDateFormat myFormatter = new SimpleDateFormat("yyyy-M-d", Locale.CHINA);
@@ -132,7 +157,7 @@ public class TimeUtil {
      * @param pattern    时间戳格式;"yyyy-MM-dd HH:mm:ss:SSS"
      * @return
      */
-    public static String getAnotherDay(Date today, int anotherday, String pattern) {
+    public  String getAnotherDay(Date today, int anotherday, String pattern) {
 
         @SuppressLint("SimpleDateFormat")
         SimpleDateFormat sdf = new SimpleDateFormat(pattern);
@@ -152,7 +177,7 @@ public class TimeUtil {
      * @param month
      * @return
      */
-    public static String getLastDayOfMonth(int year, int month) {
+    public  String getLastDayOfMonth(int year, int month) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
         cal.set(Calendar.MONTH, month);
@@ -167,7 +192,7 @@ public class TimeUtil {
      * @param month
      * @return
      */
-    public static String getFirstDayOfMonth(int year, int month) {
+    public  String getFirstDayOfMonth(int year, int month) {
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, year);
         cal.set(Calendar.MONTH, month);
@@ -182,7 +207,7 @@ public class TimeUtil {
      * @param time1 time2 需要计算的时间
      * @return
      */
-    public static String getTimeDeffer(String time1, String time2) {
+    public  String getTimeDeffer(String time1, String time2) {
         String result = "";
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -203,5 +228,10 @@ public class TimeUtil {
 
         return result;
     }
+
+
+
+
+
 
 }

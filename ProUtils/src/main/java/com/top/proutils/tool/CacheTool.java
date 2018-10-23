@@ -1,45 +1,25 @@
 package com.top.proutils.tool;
 
 import android.content.Context;
+import android.content.ContextWrapper;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 import android.util.LruCache;
 import android.widget.ImageView;
 
-import com.top.proutils.R;
-import com.top.proutils.Utils.ProCache;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.RandomAccessFile;
-import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * 作者：李阳
@@ -48,19 +28,19 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 public class CacheTool {
 
-    private static final String TAG ="CacheTool";
+    private static final String TAG = "CacheTool";
 
     private static volatile CacheTool instance;// !!必须要加volatile限制指令重排序，不然这是双重检验的漏洞
     private static final Object lock = new Object();
 
-    private NetCacheUtils mNetCacheUtils;
-    private LocalCacheUtils mLocalCacheUtils;
-    private MemoryCacheUtils mMemoryCacheUtils;
+    private NetCache mNetCache;
+    private LocalCache mLocalCache;
+    private MemoryCache mMemoryCache;
 
     public CacheTool() {
-        mMemoryCacheUtils = new MemoryCacheUtils();
-        mLocalCacheUtils = new LocalCacheUtils();
-        mNetCacheUtils = new NetCacheUtils(mLocalCacheUtils, mMemoryCacheUtils);
+        mMemoryCache = new MemoryCache();
+        mLocalCache = new LocalCache();
+        mNetCache = new NetCache(mLocalCache, mMemoryCache);
     }
 
     //单例模式，懒汉氏
@@ -75,50 +55,155 @@ public class CacheTool {
         return instance;
     }
 
+    /////Sp
+
+    /**
+     * 更改SharePreference默认路径
+     * @param path
+     */
+    public void changeSPPath(String path) {
+
+        try {
+            Field field;
+            // 获取ContextWrapper对象中的mBase变量。该变量保存了ContextImpl对象
+            field = ContextWrapper.class.getDeclaredField("mBase");
+            field.setAccessible(true);
+            // 获取mBase变量
+            Object obj = field.get(this);
+            // 获取ContextImpl。mPreferencesDir变量，该变量保存了数据文件的保存路径
+            field = obj.getClass().getDeclaredField("mPreferencesDir");
+            field.setAccessible(true);
+            // 创建自定义路径
+            File file = new File(path);
+            //File file = new File(android.os.Environment.getExternalStorageDirectory().getPath() + "/MyVisit/SharedPreference/");
+            // 修改mPreferencesDir变量的值
+            field.set(obj, file);
+
+        } catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void spPutString(Context context, String fileName, String key, String value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
+        sharedPreferences.edit().putString(key, value).apply();//提交数据
+    }
+
+    public String spGetString(Context context, String fileName, String key, String value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
+
+        return sharedPreferences.getString(key, value);
+    }
+
+    public void spPutBoolean(Context context, String fileName, String key, boolean value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean(key, value).apply();//提交数据
+    }
+
+    public boolean spGetBoolean(Context context, String fileName, String key, boolean value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, context.MODE_PRIVATE);
+
+        return sharedPreferences.getBoolean(key, value);
+    }
+
+
+    /*
+    * 描述：缓存数据
+    * @param [obj, path]
+    * @return void
+    */
+    public void cacheSave(Object obj, String path) {
+        try {
+            File f = new File(path);
+            FileOutputStream fos = new FileOutputStream(f);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(obj);
+            oos.flush();
+            oos.close();
+        } catch (IOException e) {
+            Log.i(TAG, "save: " + e.toString());
+        }
+    }
+
+    /*
+    * 描述：读取缓存的数据
+    * @param [path]
+    * @return java.lang.Object
+    */
+    public Object cacheLoad(String path) {
+        Object obj = null;
+        File file = new File(path);
+        try {
+            if (file.exists()) {
+                FileInputStream fis = new FileInputStream(file);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                try {
+                    obj = ois.readObject();
+                } catch (ClassNotFoundException e) {
+                }
+                ois.close();
+            }
+        } catch (IOException e) {
+            Log.i(TAG, "save: " + e.toString());
+        }
+        return obj;
+    }
+
+    private char[] getChar(int position) {
+        String str = String.valueOf(position);
+        if (str.length() == 1) {
+            str = "0" + str;
+        }
+        char[] c = {str.charAt(0), str.charAt(1)};
+        return c;
+    }
+
+
     /////////////////////////////////////////////////
 
     /**
-     * 三级缓存
+     * 三级图片缓存
+     *
      * @param ivPic
      * @param defaultImg
      * @param url
      */
-    public void disPlay(ImageView ivPic,int defaultImg, String url) {
+    public void disPlay(ImageView ivPic, int defaultImg, String url) {
 
         ivPic.setImageResource(defaultImg);
 
         Bitmap bitmap;
         //内存缓存
-        bitmap = mMemoryCacheUtils.getBitmapFromMemory(url);
+        bitmap = mMemoryCache.getBitmapFromMemory(url);
         if (bitmap != null) {
             ivPic.setImageBitmap(bitmap);
-            Log.i(TAG,"从内存获取图片啦.....");
+            Log.i(TAG, "从内存获取图片啦.....");
             return;
         }
 
         //本地缓存
-        bitmap = mLocalCacheUtils.getBitmapFromLocal(url);
+        bitmap = mLocalCache.getBitmapFromLocal(url);
         if (bitmap != null) {
             ivPic.setImageBitmap(bitmap);
             System.out.println("");
-            Log.i(TAG,"从本地获取图片啦.....");
-            mMemoryCacheUtils.setBitmapToMemory(url, bitmap);
+            Log.i(TAG, "从本地获取图片啦.....");
+            mMemoryCache.setBitmapToMemory(url, bitmap);
             return;
         }
         //网络缓存
-        mNetCacheUtils.getBitmapFromNet(ivPic, url);
+        mNetCache.getBitmapFromNet(ivPic, url);
     }
 
 
     /**
      * 三级缓存之网络缓存
      */
-    public class NetCacheUtils {
+    public class NetCache {
 
-        private LocalCacheUtils mLocalCacheUtils;
-        private MemoryCacheUtils mMemoryCacheUtils;
+        private LocalCache mLocalCacheUtils;
+        private MemoryCache mMemoryCacheUtils;
 
-        public NetCacheUtils(LocalCacheUtils localCacheUtils, MemoryCacheUtils memoryCacheUtils) {
+        public NetCache(LocalCache localCacheUtils, MemoryCache memoryCacheUtils) {
             mLocalCacheUtils = localCacheUtils;
             mMemoryCacheUtils = memoryCacheUtils;
         }
@@ -226,7 +311,7 @@ public class CacheTool {
     /**
      * 三级缓存之本地缓存
      */
-    public class LocalCacheUtils {
+    public class LocalCache {
 
 
         private final String CACHE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/WerbNews";
@@ -282,13 +367,13 @@ public class CacheTool {
     /**
      * 三级缓存之内存缓存
      */
-    public class MemoryCacheUtils {
+    public class MemoryCache {
 
         // private HashMap<String,Bitmap> mMemoryCache=new HashMap<>();//1.因为强引用,容易造成内存溢出，所以考虑使用下面弱引用的方法
         // private HashMap<String, SoftReference<Bitmap>> mMemoryCache = new HashMap<>();//2.因为在Android2.3+后,系统会优先考虑回收弱引用对象,官方提出使用LruCache
         private LruCache<String, Bitmap> mMemoryCache;
 
-        public MemoryCacheUtils() {
+        public MemoryCache() {
             long maxMemory = Runtime.getRuntime().maxMemory() / 8;//得到手机最大允许内存的1/8,即超过指定内存,则开始回收
             //需要传入允许的内存最大值,虚拟机默认内存16M,真机不一定相同
             mMemoryCache = new LruCache<String, Bitmap>((int) maxMemory) {
@@ -335,6 +420,9 @@ public class CacheTool {
             mMemoryCache.put(url, bitmap);
         }
     }
+
+
+    ////////
 
 
 }

@@ -8,10 +8,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.top.proutils.Utils.BaseUtil;
 import com.top.proutilsdemo.R;
-
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
