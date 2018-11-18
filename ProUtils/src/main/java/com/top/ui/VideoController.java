@@ -1,6 +1,8 @@
 package com.top.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.PixelFormat;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Handler;
@@ -12,20 +14,17 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-
-import com.top.proutils.R;
-
 import java.lang.ref.WeakReference;
 import java.util.Formatter;
-import java.util.Locale;
 
 /**
  * 作者：李阳
@@ -43,7 +42,7 @@ public class VideoController extends FrameLayout {
     private final VideoHandler videoHandler = new VideoHandler(this);
 
     private View mCtrlView;                        //控制条布局view
-    private View mProgressView;                    //
+    private View mProgressView;                    //进度条布局View
     private View mLoadingView;
     private Context mContext;                      //上下文
     private VideoPlayerController mPlayerCtrl;
@@ -73,6 +72,10 @@ public class VideoController extends FrameLayout {
     private LayoutInflater mInflater;                  //获取布局服务实例，用于实例化xml
 
 
+    private WindowManager mWindowManager;
+    private Window mWindow;
+    private WindowManager.LayoutParams mDecorLayoutParams;
+
     //////////////////////////////////////////////////////////////////////////////////////
 
     public VideoController(@NonNull Context context) {
@@ -86,7 +89,7 @@ public class VideoController extends FrameLayout {
         super(context, attrs);
         mContext = context;
 
-        init();
+
 
     }
 
@@ -106,86 +109,26 @@ public class VideoController extends FrameLayout {
 
     }
 
-    /**
-     * 设置设置seekBar进度条
-     */
-    public void setProgress() {
-
-
-    }
-
-
     /////////////////////////////////////////////////////////////////////////////////////////////////
 
-    private void init() {
-        //获取布局服务
-        mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        mStrBuilder = new StringBuilder();
-
-        //格式化区域位置
-        mFormatter = new Formatter(mStrBuilder, Locale.getDefault());
-
-    }
-
-    //显示进度条
-    private void showVideoCtrl() {
-        if (mIsLoadingComplelte) {
-            showVideoCtrl(DEFAULTTIMEOUT);
-        }
-    }
-
-    private void showVideoCtrl(int defaulttimeout) {
-
-        //先移除默认显示的进度条
-
-        //更新控制条状态
-
-        //
-        videoHandler.sendEmptyMessage(SHOW_SEEKBAR);
-
+    private void initFloatingWindowLayout() {
+        mDecorLayoutParams = new WindowManager.LayoutParams();
+        WindowManager.LayoutParams p = mDecorLayoutParams;
+        p.gravity = Gravity.TOP | Gravity.LEFT;
+        p.height = LayoutParams.WRAP_CONTENT;
+        p.x = 0;
+        p.format = PixelFormat.TRANSLUCENT;
+        p.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
+        p.flags |= WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM
+                | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
+                | WindowManager.LayoutParams.FLAG_SPLIT_TOUCH;
+        p.token = null;
+        p.windowAnimations = 0; // android.R.style.DropDownAnimationDown;
     }
 
 
-    private void bindCtrlView() {
-        if (mAnchorVGroup == null) {
-            return;
-        }
-        mAnchorVGroup.removeView(this);
 
-        FrameLayout.LayoutParams frameParams = new FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                Gravity.BOTTOM
-        );
-        removeAllViews();
-        if (mCtrlView == null) {
-            //创建进度条view
-            createCtrlView();
-        }
-
-        addView(mCtrlView, frameParams);
-
-    }
-
-    /**
-     * 创建控制条信息view
-     *
-     * @return
-     */
-    private View createCtrlView() {
-
-        mCtrlView = mInflater.inflate(R.layout.controller, null);
-
-        ImageButton mBtnFullScreen = (ImageButton) mCtrlView.findViewById(R.id.fullscreen);
-        if (mBtnFullScreen != null) {
-            mBtnFullScreen.requestFocus();
-            //添加点击事件接口
-
-        }
-
-        return mCtrlView;
-    }
+    ///////////////////////////////////////////////////////////////////////
 
     /**
      * 接口
@@ -197,13 +140,9 @@ public class VideoController extends FrameLayout {
 
         int getDuration(); //获得所播放视频的总时间
 
-
-
         int getCurrentPosition();  //获得当前的位置,我们可以用来设置播放时间的显示
 
         void seekTo(int pos); //设置播放位置，我们用来总快进的时候就能用到
-
-
 
         boolean isPlaying();
 
@@ -223,15 +162,15 @@ public class VideoController extends FrameLayout {
 
         void fullScreen(); //全屏实现
 
-
     }
 
 
+    @SuppressLint("HandlerLeak")
     private class VideoHandler extends Handler {
 
         private WeakReference<VideoController> weakReference;
 
-        public VideoHandler(VideoController videoController) {
+        VideoHandler(VideoController videoController) {
             weakReference = new WeakReference<>(videoController);//弱引用
         }
 
@@ -261,16 +200,4 @@ public class VideoController extends FrameLayout {
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        Log.i(TAG, "----onTouchEvent----");
-
-        //触摸屏幕显示视频控制条
-        showVideoCtrl();
-        return super.onTouchEvent(event);
-    }
-
-
 }

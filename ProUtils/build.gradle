@@ -95,7 +95,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
 
-        api 'com.orhanobut:logger:2.2.0'
+    api 'com.orhanobut:logger:2.2.0'
+
+    //动画框架Lottie
+    api 'com.airbnb.android:lottie:2.1.0'
 
     //compile 'com.tencent.bugly:crashreport:2.6.6.1'
 
@@ -135,9 +138,7 @@ dependencies {
 
     //annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
 
-    //动画框架Lottie
 
-    //compile 'com.airbnb.android:lottie:2.1.0'
 
     //PhotoView 是一款扩展自Android ImageView，支持通过单点/多点触摸来进行图片缩放的智能控件
 

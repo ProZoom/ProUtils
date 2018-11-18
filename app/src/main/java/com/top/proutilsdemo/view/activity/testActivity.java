@@ -1,15 +1,11 @@
 package com.top.proutilsdemo.view.activity;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.widget.MediaController;
-import android.widget.VideoView;
 
-import com.top.ui.VideoController;
-import com.top.ui.VideoPlayer;
 import com.top.proutilsdemo.R;
+import com.top.ui.VideoPlayer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,8 +19,6 @@ import butterknife.ButterKnife;
 public class testActivity extends Activity {
 
 
-    @BindView(R.id.vv)
-    VideoView vv;
     @BindView(R.id.vp)
     VideoPlayer vp;
 
@@ -35,8 +29,8 @@ public class testActivity extends Activity {
         ButterKnife.bind(this);
 
         //网络播放
-        Uri uri = Uri.parse("http://221.228.226.23/6/n/a/y/l/naylspkwvsujoltcqursegarxzowax/hd.yinyuetai.com/C02F015B377EA255563C19FBEF88B071.mp4");
-        vv.setVideoURI(uri);
+        //Uri uri = Uri.parse("http://221.228.226.23/6/n/a/y/l/naylspkwvsujoltcqursegarxzowax/hd.yinyuetai.com/C02F015B377EA255563C19FBEF88B071.mp4");
+        //vv.setVideoURI(uri);
 
         //本地sd卡播放
         //String path_local = Environment.getExternalStorageDirectory().getAbsolutePath() + "/vivo.avi";
@@ -44,14 +38,14 @@ public class testActivity extends Activity {
 
 
         //使用MediaController控制视频播放
-        MediaController mediaController = new MediaController(this);
-        vv.setMediaController(mediaController);
-        mediaController.setMediaPlayer(vv);
+        //MediaController mediaController = new MediaController(this);
+        //vv.setMediaController(mediaController);
+        //mediaController.setMediaPlayer(vv);
 
         //使用VideoController控制视频播放
-        VideoController videoController = new VideoController(this);
+       // VideoController videoController = new VideoController(this);
         //vp.setMediaController(videoController);
-        mediaController.setMediaPlayer(vv);
+        //mediaController.setMediaPlayer(vv);
 
         //vv.start();
     }
