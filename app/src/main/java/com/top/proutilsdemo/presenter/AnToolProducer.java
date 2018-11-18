@@ -3,7 +3,7 @@ package com.top.proutilsdemo.presenter;
 import android.app.Activity;
 import android.content.Context;
 
-import com.top.proutils.tool.AnTools;
+import com.top.tool.AnTools;
 
 /**
  * 作者：ProZoom

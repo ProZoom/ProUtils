@@ -63,7 +63,7 @@ dependencies {
     implementation project(':ProUtils')
     //必须放在app moudle
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-    compile 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
 
     implementation 'org.greenrobot:greendao:3.2.2' // add library
 

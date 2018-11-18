@@ -2,7 +2,7 @@ package com.top.proutilsdemo;
 
 import android.app.Application;
 
-import com.top.proutils.tool.AnTools;
+import com.top.tool.AnTools;
 
 /**
  * 作者：ProZoom

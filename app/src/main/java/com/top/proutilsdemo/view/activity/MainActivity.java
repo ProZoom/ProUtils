@@ -15,7 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.top.proutils.ui.StatusBarUtils;
+import com.top.ui.StatusBarUtils;
 import com.top.proutilsdemo.R;
 import com.top.proutilsdemo.adapter.MainAdapter;
 import com.top.proutilsdemo.business.AppInfos.AppInfosActivity;

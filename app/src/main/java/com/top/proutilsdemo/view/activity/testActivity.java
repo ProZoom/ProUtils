@@ -3,13 +3,12 @@ package com.top.proutilsdemo.view.activity;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
-import com.top.proutils.ui.VideoController;
-import com.top.proutils.ui.VideoPlayer;
+import com.top.ui.VideoController;
+import com.top.ui.VideoPlayer;
 import com.top.proutilsdemo.R;
 
 import butterknife.BindView;

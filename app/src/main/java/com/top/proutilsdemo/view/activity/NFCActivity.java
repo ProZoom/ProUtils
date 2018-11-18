@@ -12,7 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.top.proutils.tool.AnTools;
+import com.top.tool.AnTools;
 import com.top.proutilsdemo.R;
 
 import butterknife.BindView;

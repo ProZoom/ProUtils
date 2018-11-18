@@ -87,7 +87,7 @@
 
         <activity android:name=".view.activity.SerialPortDemoActivity" />
 
-        <activity android:name="com.top.proutils.base.USBActivity">
+        <activity android:name="com.top.base.USBActivity">
             <intent-filter>
                 <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
             </intent-filter>
