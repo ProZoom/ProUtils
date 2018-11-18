@@ -14,10 +14,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
-import com.top.proutils.base.USBActivity;
-import com.top.proutils.tool.AnTools;
 import com.top.proutils.ui.StatusBarUtils;
 import com.top.proutilsdemo.R;
 import com.top.proutilsdemo.adapter.MainAdapter;
@@ -184,15 +181,11 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 break;
             case R.drawable.ic_wifi:
                 //showAlertDialog(anToolProducer.buildSysInfos());
-                Toast.makeText(this, ""+AnTools.device().getAndroidVersion()[0], Toast.LENGTH_SHORT).show();
                 break;
             case R.drawable.ic_sceenshot:
                 startService(new Intent(this, FloatingViewService.class));
                 //createFloatView();
                 //finish();
-                break;
-            case R.drawable.ic_cpu:
-                Toast.makeText(this, "cpu:"+ AnTools.device().getCurCpuFreq(), Toast.LENGTH_SHORT).show();
                 break;
             case R.drawable.ic_apk:
                 startActivity(new Intent(this, AppInfosActivity.class));
@@ -205,19 +198,9 @@ public class MainActivity extends AppCompatActivity implements IViewItemItemList
                 Intent intentSerialPort = new Intent(MainActivity.this, SerialPortDemoActivity.class);
                 startActivity(intentSerialPort);
                 break;
-            case R.drawable.ic_usb:
-                Intent intentUsb = new Intent(MainActivity.this, USBActivity.class);
-                startActivity(intentUsb);
-                break;
-
-            case R.drawable.ic_nfc:
-                Intent intentNFC = new Intent(MainActivity.this, NFCActivity.class);
-                startActivity(intentNFC);
-                break;
-
             case R.drawable.ic_media_player:
-                Intent intentvideo = new Intent(MainActivity.this, testActivity.class);
-                startActivity(intentvideo);
+                Intent intentVideo = new Intent(MainActivity.this, testActivity.class);
+                startActivity(intentVideo);
                 break;
         }
         //showAlertDialog(anToolProducer.buildSysInfos());

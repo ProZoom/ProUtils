@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ProUtils.iml" filepath="$PROJECT_DIR$/ProUtils.iml" />
-      <module fileurl="file://F:\liyang\Github\ProUtils\ProUtils\ProUtils.iml" filepath="F:\liyang\Github\ProUtils\ProUtils\ProUtils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ProUtils/ProUtils-ProUtils.iml" filepath="$PROJECT_DIR$/ProUtils/ProUtils-ProUtils.iml" />
-      <module fileurl="file://F:\liyang\Github\ProUtils\ProUtilsDemo.iml" filepath="F:\liyang\Github\ProUtils\ProUtilsDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProUtils/ProUtils.iml" filepath="$PROJECT_DIR$/ProUtils/ProUtils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProUtilsDemo.iml" filepath="$PROJECT_DIR$/ProUtilsDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxing/zxing.iml" filepath="$PROJECT_DIR$/zxing/zxing.iml" />
     </modules>

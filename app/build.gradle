@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.android.application'
+
 apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 
@@ -39,13 +39,17 @@ android {
             path "CMakeLists.txt"
         }
     }
+}
 
-    greendao {
-        schemaVersion 1 //版本号
-        daoPackage 'com.top.greendao.gen'  //dao文件存放的包名
-        targetGenDir 'src/main/java' //dao包放置的位置
-    }
 
+//greendao配置
+greendao{
+    //版本号，升级时可配置,对应当前数据库版本
+    schemaVersion 1
+    //由GreenDao自动生成代码所在的包名，默认的是在项目包下面新建一个gen
+    daoPackage 'com.top.greendao.gen'
+    //设置自动生成代码的目录
+    targetGenDir 'src/main/java'
 }
 
 dependencies {
