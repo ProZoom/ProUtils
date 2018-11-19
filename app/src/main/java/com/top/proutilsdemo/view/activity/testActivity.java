@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.top.proutilsdemo.R;
+import com.top.ui.VideoController;
 import com.top.ui.VideoPlayer;
 
 import butterknife.BindView;
@@ -43,9 +44,9 @@ public class testActivity extends Activity {
         //mediaController.setMediaPlayer(vv);
 
         //使用VideoController控制视频播放
-       // VideoController videoController = new VideoController(this);
-        //vp.setMediaController(videoController);
-        //mediaController.setMediaPlayer(vv);
+        VideoController videoController = new VideoController(this);
+        vp.setVideoController(videoController);
+        videoController.setVideoPlayer(vp);
 
         //vv.start();
     }

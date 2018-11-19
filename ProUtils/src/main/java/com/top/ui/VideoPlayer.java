@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -98,7 +99,27 @@ public class VideoPlayer extends SurfaceView {
         requestFocus();
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////
 
+    public void setVideoController(VideoController controller) {
+        if (mVideoController != null) {
+            mVideoController.hide();
+        }
+        mVideoController = controller;
+        attachVideoController();
+    }
+
+    private void attachVideoController() {
+        if (mMediaPlayer != null && mVideoController != null) {
+            //mVideoController.setMediaPlayer(this);
+            View anchorView = this.getParent() instanceof View ?
+                    (View)this.getParent() : this;
+            //mVideoController.setAnchorView(anchorView);
+            //mVideoController.setEnabled(isInPlaybackState());
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
     /**
      * Surface生命周期
      */

@@ -2,7 +2,6 @@ package com.top.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.PixelFormat;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Handler;
@@ -12,7 +11,6 @@ import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,6 +87,23 @@ public class VideoController extends FrameLayout {
         super(context, attrs);
         mContext = context;
 
+        FrameLayout frameLayout = new FrameLayout(context);
+       // frameLayout.setBackgroundColor();
+
+        FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(
+                LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT
+        );
+
+        ImageButton ib_play=new ImageButton(context);//播放暂停按钮
+        ProgressBar pb=new ProgressBar(context);//进度条
+        ImageButton ib_fullscreen=new ImageButton(context);//全屏按钮
+
+
+
+        frameLayout.addView(ib_play,layoutParams);
+        frameLayout.addView(ib_fullscreen,layoutParams);
+        frameLayout.addView(pb,layoutParams);
 
 
     }
@@ -109,22 +124,30 @@ public class VideoController extends FrameLayout {
 
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
 
-    private void initFloatingWindowLayout() {
-        mDecorLayoutParams = new WindowManager.LayoutParams();
-        WindowManager.LayoutParams p = mDecorLayoutParams;
-        p.gravity = Gravity.TOP | Gravity.LEFT;
-        p.height = LayoutParams.WRAP_CONTENT;
-        p.x = 0;
-        p.format = PixelFormat.TRANSLUCENT;
-        p.type = WindowManager.LayoutParams.TYPE_APPLICATION_PANEL;
-        p.flags |= WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM
-                | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
-                | WindowManager.LayoutParams.FLAG_SPLIT_TOUCH;
-        p.token = null;
-        p.windowAnimations = 0; // android.R.style.DropDownAnimationDown;
+    /**
+     * 显示控制台
+     * @param timeout 默认显示多长时间
+     */
+    public void show(int timeout) {
+
     }
+
+
+    /**
+     * 隐藏控制台
+     */
+    public void hide() {
+
+    }
+
+
+    public void setVideoPlayer(VideoPlayer vp){
+
+
+    }
+
 
 
 
