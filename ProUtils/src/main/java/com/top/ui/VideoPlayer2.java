@@ -9,13 +9,16 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 /**
  * 作者：李阳
  * 时间：2018/10/9
  * 描述：自定义视频播放器控件
  */
-public class VideoPlayer2 extends SurfaceView implements VideoController.VideoPlayerController {
+public class VideoPlayer2 extends RelativeLayout {
 
     private static final String TAG = "VideoPlayer";
 
@@ -23,20 +26,24 @@ public class VideoPlayer2 extends SurfaceView implements VideoController.VideoPl
     private int mVideoHeight;
     private int mSurfaceWidth;
     private int mSurfaceHeight;
-    private SurfaceHolder mSurfaceHolder=null;
-    private MediaPlayer mMediaPlayer=null;
+    private SurfaceView mSurfaceView = null;
+    private SurfaceHolder mSurfaceHolder = null;
+    private MediaPlayer mMediaPlayer = null;
 
 
     public VideoPlayer2(Context context) {
         super(context);
+        init();
     }
 
     public VideoPlayer2(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     public VideoPlayer2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -46,6 +53,23 @@ public class VideoPlayer2 extends SurfaceView implements VideoController.VideoPl
         mVideoWidth = 0;
         mVideoHeight = 0;
     }
+
+    /////////////////////////////////////////////////////////////////////////////////////
+    private void init() {
+        mSurfaceView = new SurfaceView(getContext());
+
+
+        RelativeLayout.LayoutParams RlayoutParams = new RelativeLayout.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT);
+
+        this.addView(mSurfaceView,RlayoutParams);
+
+        Button play=new Button(getContext());
+        play.setText("play");
+        this.addView(play,RlayoutParams);
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////////
 
@@ -64,7 +88,7 @@ public class VideoPlayer2 extends SurfaceView implements VideoController.VideoPl
 
         }
 
-        setMeasuredDimension(width,height);
+        setMeasuredDimension(width, height);
 
 
     }
@@ -83,77 +107,6 @@ public class VideoPlayer2 extends SurfaceView implements VideoController.VideoPl
 
 
     ////////////////////////////////////////////////////////////////////////////////////
-
-
-    @Override
-    public void start() {
-
-    }
-
-    @Override
-    public void pause() {
-
-    }
-
-    @Override
-    public int getDuration() {
-        return 0;
-    }
-
-    @Override
-    public int getCurrentPosition() {
-        return 0;
-    }
-
-    @Override
-    public void seekTo(int pos) {
-
-    }
-
-    @Override
-    public boolean isPlaying() {
-        return false;
-    }
-
-    @Override
-    public int getBufferPercentage() {
-        return 0;
-    }
-
-    @Override
-    public boolean canPause() {
-        return false;
-    }
-
-    @Override
-    public boolean canSeekBackward() {
-        return false;
-    }
-
-    @Override
-    public boolean canSeekForward() {
-        return false;
-    }
-
-    @Override
-    public int getAudioSessionId() {
-        return 0;
-    }
-
-    @Override
-    public boolean isComplete() {
-        return false;
-    }
-
-    @Override
-    public boolean isFullScreen() {
-        return false;
-    }
-
-    @Override
-    public void fullScreen() {
-
-    }
 
 
 }

@@ -2,6 +2,7 @@ package com.top.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Handler;
@@ -23,6 +24,8 @@ import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 import java.util.Formatter;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 作者：李阳
@@ -74,11 +77,17 @@ public class VideoController extends FrameLayout {
     private Window mWindow;
     private WindowManager.LayoutParams mDecorLayoutParams;
 
+
+    private FrameLayout ctrl_frameLayout;//控制面板
+    private Timer mTimer = null;
+
+
     //////////////////////////////////////////////////////////////////////////////////////
 
     public VideoController(@NonNull Context context) {
         super(context);
         mContext = context;
+        initCtrl(context);
 
 
     }
@@ -86,24 +95,7 @@ public class VideoController extends FrameLayout {
     public VideoController(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
-
-        FrameLayout frameLayout = new FrameLayout(context);
-       // frameLayout.setBackgroundColor();
-
-        FrameLayout.LayoutParams layoutParams=new FrameLayout.LayoutParams(
-                LayoutParams.MATCH_PARENT,
-                LayoutParams.MATCH_PARENT
-        );
-
-        ImageButton ib_play=new ImageButton(context);//播放暂停按钮
-        ProgressBar pb=new ProgressBar(context);//进度条
-        ImageButton ib_fullscreen=new ImageButton(context);//全屏按钮
-
-
-
-        frameLayout.addView(ib_play,layoutParams);
-        frameLayout.addView(ib_fullscreen,layoutParams);
-        frameLayout.addView(pb,layoutParams);
+        initCtrl(context);
 
 
     }
@@ -112,6 +104,7 @@ public class VideoController extends FrameLayout {
     public VideoController(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mContext = context;
+        initCtrl(context);
 
 
     }
@@ -120,18 +113,59 @@ public class VideoController extends FrameLayout {
     public VideoController(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         mContext = context;
+        initCtrl(context);
 
 
     }
 
+    //////////////////////////////////////////////////////////////////////
+    @SuppressLint("ResourceAsColor")
+    private void initCtrl(Context context) {
+        ctrl_frameLayout = new FrameLayout(context);
+        // frameLayout.setBackgroundColor();
+
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
+                LayoutParams.MATCH_PARENT,
+                LayoutParams.MATCH_PARENT
+        );
+
+        ImageButton ib_play = new ImageButton(context);//播放暂停按钮
+        ProgressBar pb = new ProgressBar(context);//进度条
+        ImageButton ib_fullscreen = new ImageButton(context);//全屏按钮
+
+        ib_fullscreen.setBackgroundColor(Color.BLUE);
+
+        ctrl_frameLayout.addView(ib_play, layoutParams);
+        ctrl_frameLayout.addView(ib_fullscreen, layoutParams);
+        ctrl_frameLayout.addView(pb, layoutParams);
+    }
+
     ///////////////////////////////////////////////////////////////////////
+
+    private TimerTask task = new TimerTask() {
+        @Override
+        public void run() {
+            if (mIsCtlShowing) {
+                ctrl_frameLayout.setVisibility(GONE);
+                mTimer.cancel();
+                mTimer.purge();
+                mTimer=null;
+            }
+        }
+    };
 
     /**
      * 显示控制台
+     *
      * @param timeout 默认显示多长时间
      */
     public void show(int timeout) {
-
+        if (ctrl_frameLayout != null) {
+            ctrl_frameLayout.setVisibility(VISIBLE);
+            mIsCtlShowing = true;
+            mTimer = new Timer();
+            mTimer.schedule(task, timeout);
+        }
     }
 
 
@@ -139,16 +173,16 @@ public class VideoController extends FrameLayout {
      * 隐藏控制台
      */
     public void hide() {
-
+        if (ctrl_frameLayout != null) {
+            ctrl_frameLayout.setVisibility(GONE);
+        }
     }
 
 
-    public void setVideoPlayer(VideoPlayer vp){
+    public void setVideoPlayer(VideoPlayer vp) {
 
 
     }
-
-
 
 
     ///////////////////////////////////////////////////////////////////////

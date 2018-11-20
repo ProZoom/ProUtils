@@ -5,10 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.top.proutilsdemo.R;
-import com.top.ui.VideoController;
-import com.top.ui.VideoPlayer;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
@@ -20,8 +17,6 @@ import butterknife.ButterKnife;
 public class testActivity extends Activity {
 
 
-    @BindView(R.id.vp)
-    VideoPlayer vp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -44,9 +39,9 @@ public class testActivity extends Activity {
         //mediaController.setMediaPlayer(vv);
 
         //使用VideoController控制视频播放
-        VideoController videoController = new VideoController(this);
-        vp.setVideoController(videoController);
-        videoController.setVideoPlayer(vp);
+        //VideoController videoController = new VideoController(this);
+        //vp.setVideoController(videoController);
+        //videoController.setVideoPlayer(vp);
 
         //vv.start();
     }

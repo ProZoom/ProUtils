@@ -3,6 +3,7 @@ package com.top.ui;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -13,7 +14,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -61,22 +64,31 @@ public class VideoPlayer extends SurfaceView {
 
     public VideoPlayer(Context context) {
         super(context);
+        mVideoController=new VideoController(context);
+        initCtrl(context);
+
     }
 
     public VideoPlayer(Context context, AttributeSet attrs) {
         super(context, attrs);
+        mVideoController=new VideoController(context);
+        initCtrl(context);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public VideoPlayer(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initVideoPlayer();
+                initCtrl(context);
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public VideoPlayer(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         initVideoPlayer();
+        initCtrl(context);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -101,7 +113,7 @@ public class VideoPlayer extends SurfaceView {
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    public void setVideoController(VideoController controller) {
+    /*public void setVideoController(VideoController controller) {
         if (mVideoController != null) {
             mVideoController.hide();
         }
@@ -117,7 +129,7 @@ public class VideoPlayer extends SurfaceView {
             //mVideoController.setAnchorView(anchorView);
             //mVideoController.setEnabled(isInPlaybackState());
         }
-    }
+    }*/
 
     /////////////////////////////////////////////////////////////////////////////////////
     /**
@@ -143,6 +155,33 @@ public class VideoPlayer extends SurfaceView {
 
         }
     };
+
+
+    private FrameLayout ctrl_frameLayout;//控制面板
+    @SuppressLint("ResourceAsColor")
+    private void initCtrl(Context context) {
+        ctrl_frameLayout = new FrameLayout(context);
+        // frameLayout.setBackgroundColor();
+
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+        );
+
+        ImageButton ib_play = new ImageButton(context);//播放暂停按钮
+        ProgressBar pb = new ProgressBar(context);//进度条
+        ImageButton ib_fullscreen = new ImageButton(context);//全屏按钮
+
+        ib_fullscreen.setBackgroundColor(Color.BLUE);
+
+        ctrl_frameLayout.addView(ib_play, layoutParams);
+        ctrl_frameLayout.addView(ib_fullscreen, layoutParams);
+        ctrl_frameLayout.addView(pb, layoutParams);
+
+        
+
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////////
 
@@ -188,17 +227,20 @@ public class VideoPlayer extends SurfaceView {
             if (isSingleOrDoubleClickCount >= 2) {
                 isSingleOrDoubleClickCount = 0;
                 Log.e(TAG, "onTouchEvent---is double Click");
+
             }
 
             //长按--->
             if (!isLongClickModule) {
                 Log.e(TAG, "onTouchEvent---is Long Click");
+
             }
 
             //单击--->显示、隐藏控制面板
             if (isSingleOrDoubleClickCount == 1 && isLongClickModule) {
                 isSingleOrDoubleClickCount = 0;
                 Log.e(TAG, "onTouchEvent---is Single Click");
+                ctrl_frameLayout.setVisibility(VISIBLE);
             }
             isLongClickModule = false;
 
