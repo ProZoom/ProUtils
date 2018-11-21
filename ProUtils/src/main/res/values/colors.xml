@@ -306,4 +306,6 @@ File created by ProZoom
     <!-- 暗蓝色 -->
     <color name="navy">#000080</color>
 
+    <color name="transparent">#00000000</color>
+
 </resources>

@@ -1,5 +1,6 @@
 package com.top.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.media.MediaPlayer;
@@ -9,9 +10,12 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+
+import com.top.proutils.R;
 
 /**
  * 作者：李阳
@@ -30,20 +34,21 @@ public class VideoPlayer2 extends RelativeLayout {
     private SurfaceHolder mSurfaceHolder = null;
     private MediaPlayer mMediaPlayer = null;
 
+    private View view=null;
 
     public VideoPlayer2(Context context) {
         super(context);
-        init();
+        init(context);
     }
 
     public VideoPlayer2(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
     public VideoPlayer2(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init();
+        init(context);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -55,20 +60,36 @@ public class VideoPlayer2 extends RelativeLayout {
     }
 
     /////////////////////////////////////////////////////////////////////////////////////
-    private void init() {
+    @SuppressLint("ResourceAsColor")
+    private void init(Context context) {
         mSurfaceView = new SurfaceView(getContext());
 
+
+        //1.创建一个布局
+        RelativeLayout relativeLayout=new RelativeLayout(context);
+        //设置背景为透明
+        relativeLayout.setBackgroundColor(R.color.transparent);
+        //relativeLayout.getBackground().mutate().setAlpha(12);
+
+
+        //2.添加播放按钮，居中
+        ImageButton play=new ImageButton(context);
+        play.setBackgroundResource(R.drawable.ic_play);
+
+        relativeLayout.addView(play);
 
         RelativeLayout.LayoutParams RlayoutParams = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
 
+        RlayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+
+
         this.addView(mSurfaceView,RlayoutParams);
 
-        Button play=new Button(getContext());
-        play.setText("play");
-        this.addView(play,RlayoutParams);
-    }
+        this.addView(relativeLayout,RlayoutParams);
+
+}
 
 
     ////////////////////////////////////////////////////////////////////////////////////

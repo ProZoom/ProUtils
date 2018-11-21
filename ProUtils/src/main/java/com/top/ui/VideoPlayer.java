@@ -74,6 +74,7 @@ public class VideoPlayer extends SurfaceView {
         mVideoController=new VideoController(context);
         initCtrl(context);
 
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -178,7 +179,7 @@ public class VideoPlayer extends SurfaceView {
         ctrl_frameLayout.addView(ib_fullscreen, layoutParams);
         ctrl_frameLayout.addView(pb, layoutParams);
 
-        
+
 
     }
 
