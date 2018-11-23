@@ -1,10 +1,11 @@
-package com.top.ui;
+package com.cw.u8.test;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
@@ -23,9 +24,14 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
-import com.top.proutils.R;
 
+import com.cw.u8.R;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,11 +52,17 @@ public class VideoPlayer2 extends RelativeLayout {
     private SurfaceView mSurfaceView = null;
     private SurfaceHolder mSurfaceHolder = null;
     private MediaPlayer mMediaPlayer = null;
-    private VideoController videoController;
 
 
     //创建一个布局，这个是控制面板布局
     private RelativeLayout ctrlRelativeLayout;
+    private LinearLayout linearLayout; //控制进度条
+    private ProgressBar progressBar;//进度条
+    private TextView nowTime;//当前时间
+    private TextView duration;//视频时长
+    private ImageButton fullscreen;//全屏按钮
+    private ImageButton play;//播放暂停按钮
+    private ImageButton play2;//播放暂停按钮
 
     //长按
     private boolean isLongClickModule = false;
@@ -58,8 +70,13 @@ public class VideoPlayer2 extends RelativeLayout {
     private int isSingleOrDoubleClickCount = 0;
     private Timer mTimer = null;
 
-    private boolean isShowing = true;//默认显示
-    private boolean isPlaying = true;//默认自动播放
+    private boolean isShowing = true;//是否显示控制面板，默认显示
+    private boolean isPlaying = false;//是否正在播放视频，默认不播放
+    private boolean isAutoPlaying = true;//是否自动播放，默认自动播放
+    private boolean isFullScreen = false;//是否全屏，默认不全屏
+
+    private Uri uri = Uri.parse("http://221.228.226.23/6/n/a/y/l/naylspkwvsujoltcqursegarxzowax/hd.yinyuetai.com/C02F015B377EA255563C19FBEF88B071.mp4");
+
 
     private Handler mHandler = new Handler() {
         @Override
@@ -67,14 +84,30 @@ public class VideoPlayer2 extends RelativeLayout {
             super.handleMessage(msg);
 
             switch (msg.what) {
-                case 1234:
+                case 1234://隐藏控制面板
                     ctrlRelativeLayout.setVisibility(GONE);
                     isShowing = false;
+
                     break;
 
-                case 1235:
+                case 1235://显示控制面板
                     ctrlRelativeLayout.setVisibility(VISIBLE);
                     isShowing = true;
+                    //mHandler.sendEmptyMessage(1236);
+                    if (mTimer != null) {
+                        mTimer.cancel();
+                        mTimer = null;
+                    }
+                    mTimer = new Timer();
+                    mTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            mHandler.sendEmptyMessage(1236);
+                        }
+                    }, 300);//每隔300毫秒更新一次当前时间
+                    break;
+                case 1236://更新当前时间
+                    nowTime.setText(getCurrentVideoTime());
                     break;
             }
 
@@ -90,85 +123,6 @@ public class VideoPlayer2 extends RelativeLayout {
 
     public VideoPlayer2(final Context context, AttributeSet attrs) {
         super(context, attrs);
-        videoController = new VideoController() {
-            @Override
-            public void start() {
-                // mMediaPlayer.start();
-                Toast.makeText(context, "播放视频！", Toast.LENGTH_SHORT).show();
-
-                isPlaying = true;
-
-            }
-
-            @Override
-            public void pause() {
-                //mMediaPlayer.pause();
-                Toast.makeText(context, "暂停视频！", Toast.LENGTH_SHORT).show();
-
-                isPlaying = false;
-            }
-
-            @Override
-            public int getDuration() {
-                return 0;
-            }
-
-            @Override
-            public int getCurrentPosition() {
-                return 0;
-            }
-
-            @Override
-            public void seekTo(int pos) {
-
-            }
-
-            @Override
-            public boolean isPlaying() {
-                return false;
-            }
-
-            @Override
-            public int getBufferPercentage() {
-                return 0;
-            }
-
-            @Override
-            public boolean canPause() {
-                return false;
-            }
-
-            @Override
-            public boolean canSeekBackward() {
-                return false;
-            }
-
-            @Override
-            public boolean canSeekForward() {
-                return false;
-            }
-
-            @Override
-            public int getAudioSessionId() {
-                return 0;
-            }
-
-            @Override
-            public boolean isComplete() {
-                return false;
-            }
-
-            @Override
-            public boolean isFullScreen() {
-
-                return true;
-            }
-
-            @Override
-            public void fullScreen() {
-
-            }
-        };
         init(context);
         if (isShowing) {
             mTimer = new Timer();
@@ -199,17 +153,111 @@ public class VideoPlayer2 extends RelativeLayout {
 
     /////////////////////////////////////////////////////////////////////////////////////
 
+    private class VideoCallBack implements SurfaceHolder.Callback {
+        @Override
+        public void surfaceCreated(SurfaceHolder holder) {
+            Log.e(TAG, "-----surfaceCreated-----");
+            mMediaPlayer.setDisplay(holder);
+        }
+
+        @Override
+        public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+            Log.e(TAG, "-----surfaceChanged-----");
+
+        }
+
+        @Override
+        public void surfaceDestroyed(SurfaceHolder holder) {
+            Log.e(TAG, "-----surfaceDestroyed-----");
+
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
+
+    private void updateCtrlView() {
+        if (isPlaying) {
+
+        }
+
+    }
+
+
+    /**
+     * 获取音乐播放时长
+     *
+     * @return
+     */
+    private String getVideoTime() {
+        if (mMediaPlayer != null) {
+            int musicTime = mMediaPlayer.getDuration() / 1000;
+            return musicTime / 60 + ":" + musicTime % 60;
+        } else {
+            return "00:00:00";
+        }
+    }
+
+    /**
+     * 获取音乐播放时长
+     *
+     * @return
+     */
+    private String getCurrentVideoTime() {
+        if (mMediaPlayer != null) {
+            int musicTime = mMediaPlayer.getCurrentPosition() / 1000;
+            return musicTime / 60 + ":" + musicTime % 60;
+        } else {
+            return "00:00:00";
+        }
+    }
+
 
     /////////////////////////////////////////////////////////////////////////////////////
     @SuppressLint("ResourceAsColor")
     private void init(final Context context) {
         mSurfaceView = new SurfaceView(getContext());
+        mSurfaceHolder = mSurfaceView.getHolder();
 
-/*        //控制面板布局参数
-        RelativeLayout.LayoutParams RlayoutParams = new LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT);
-        RlayoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);*/
+        mSurfaceHolder.addCallback(new VideoCallBack());
+
+        mMediaPlayer = new MediaPlayer();
+
+
+        try {
+            mMediaPlayer.setDataSource(context, uri);
+
+            mMediaPlayer.prepare();
+
+            mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+
+                    if (isAutoPlaying) {
+                        start();
+                    } else {
+                        pause();
+                    }
+                    mMediaPlayer.setLooping(false);
+
+                }
+            });
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                Log.i(TAG, "播放完毕!");
+                play.setBackgroundResource(R.drawable.ic_pause);
+                isPlaying = false;
+
+            }
+        });
+
+
         //在RelativeLayout上添加SurfaceView
         this.addView(mSurfaceView, new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
@@ -217,7 +265,8 @@ public class VideoPlayer2 extends RelativeLayout {
         //创建一个布局，这个是控制面板布局
         ctrlRelativeLayout = new RelativeLayout(context);
         //设置背景为透明
-        ctrlRelativeLayout.setBackgroundColor(R.color.transparent);
+        //ctrlRelativeLayout.setBackgroundColor(R.color.transparent);
+        ctrlRelativeLayout.setAlpha((float) 1.0);
         ctrlRelativeLayout.setId(0);
 
         //在RelativeLayout上添加RelativeLayout
@@ -226,7 +275,7 @@ public class VideoPlayer2 extends RelativeLayout {
 
         /////////////////////////////////////////////////////
         //在控制面板添加控制进度条
-        LinearLayout linearLayout = new LinearLayout(context);
+        linearLayout = new LinearLayout(context);
         RelativeLayout.LayoutParams linearLayoutParams = new RelativeLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 dip2px(20)
@@ -246,7 +295,7 @@ public class VideoPlayer2 extends RelativeLayout {
                 4.0f);//此处我需要均分高度就在heignt处设0,1.0f即设置权重是1，页面还有其他一个控件,1：1高度就均分了
         progressbarParams.gravity = Gravity.CENTER;
 
-        ProgressBar progressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
+        progressBar = new ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal);
         progressBar.setId(1);
         //progressBar.setBackgroundColor(Color.RED);
         //progressBar.setOnDragListener();
@@ -259,7 +308,7 @@ public class VideoPlayer2 extends RelativeLayout {
         tvParams.gravity = Gravity.CENTER;
         tvParams.leftMargin = dip2px(10);
 
-        TextView nowTime = new TextView(context);
+        nowTime = new TextView(context);
         nowTime.setTextSize(12);
         nowTime.setText("1:03:12");
         nowTime.setTextColor(Color.WHITE);
@@ -272,11 +321,12 @@ public class VideoPlayer2 extends RelativeLayout {
         tvDurationParams.leftMargin = dip2px(10);
         tvDurationParams.gravity = Gravity.CENTER;
 
-        TextView duration = new TextView(context);
+
+        duration = new TextView(context);
 
         duration.setTextSize(12);
         duration.setTextColor(Color.WHITE);
-        duration.setText("1:30:23");
+        duration.setText(getVideoTime());
 
         LinearLayout.LayoutParams fullscreenParams = new LinearLayout.LayoutParams(
                 0,
@@ -285,7 +335,7 @@ public class VideoPlayer2 extends RelativeLayout {
         fullscreenParams.gravity = Gravity.CENTER;
         fullscreenParams.rightMargin = dip2px(10);
 
-        ImageButton fullscreen = new ImageButton(context);
+        fullscreen = new ImageButton(context);
         fullscreen.setBackgroundResource(R.drawable.ic_fullscreen);
         fullscreen.setOnClickListener(new OnClickListener() {
             @Override
@@ -309,18 +359,18 @@ public class VideoPlayer2 extends RelativeLayout {
         playParams.addRule(RelativeLayout.CENTER_IN_PARENT);
 
         //添加播放按钮，居中
-        final ImageButton play = new ImageButton(context);
+
+        play = new ImageButton(context);
         play.setBackgroundResource(R.drawable.ic_play);
         play.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isPlaying) {
-                    videoController.pause();
+                    pause();
                     play.setBackgroundResource(R.drawable.ic_pause);
                 } else {
-                    videoController.start();
+                    start();
                     play.setBackgroundResource(R.drawable.ic_play);
-
                 }
             }
         });
@@ -409,6 +459,7 @@ public class VideoPlayer2 extends RelativeLayout {
         return super.onTouchEvent(ev);
     }
 
+
     private class MonitorClick extends TimerTask {
         @Override
         public void run() {
@@ -460,34 +511,74 @@ public class VideoPlayer2 extends RelativeLayout {
 
     ////////////////////////////////////////////////////////////////////////////////////
 
-    interface VideoController {
-        void start();  //开始播放
 
-        void pause();  //暂停播放
-
-        int getDuration(); //获得所播放视频的总时间
-
-        int getCurrentPosition();  //获得当前的位置,我们可以用来设置播放时间的显示
-
-        void seekTo(int pos); //设置播放位置，我们用来总快进的时候就能用到
-
-        boolean isPlaying();
-
-        int getBufferPercentage();
-
-        boolean canPause();
-
-        boolean canSeekBackward();
-
-        boolean canSeekForward();
-
-        int getAudioSessionId();
-
-        boolean isComplete();  //是否播放完成
-
-        boolean isFullScreen(); //是否全屏
-
-        void fullScreen(); //全屏实现
+    public void start() {
+        if (mMediaPlayer != null) {
+            if (!isPlaying) {
+                mMediaPlayer.start();
+                isPlaying = true;
+                mHandler.sendEmptyMessage(1236);
+            }
+        }
     }
+
+    public void pause() {
+        if (mMediaPlayer != null) {
+            if (isPlaying) {
+                mMediaPlayer.pause();
+                isPlaying = false;
+            }
+        }
+    }
+
+    public int getDuration() {
+        return 0;
+    }
+
+    public int getCurrentPosition() {
+        return 0;
+    }
+
+    public void seekTo(int pos) {
+
+    }
+
+    public boolean isPlaying() {
+        return false;
+    }
+
+    public int getBufferPercentage() {
+        return 0;
+    }
+
+    public boolean canPause() {
+        return false;
+    }
+
+    public boolean canSeekBackward() {
+        return false;
+    }
+
+    public boolean canSeekForward() {
+        return false;
+    }
+
+    public int getAudioSessionId() {
+        return 0;
+    }
+
+    public boolean isComplete() {
+        return false;
+    }
+
+    public boolean isFullScreen() {
+        return false;
+    }
+
+    public void fullScreen() {
+
+    }
+
+
 ////////////////////////////////////////////////////////////////////////////////////
 }
